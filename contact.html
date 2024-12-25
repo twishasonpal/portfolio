@@ -74,32 +74,6 @@
   </div>
 </section>
 
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        let form = event.target;
-        let formData = new FormData(form);
-
-        fetch('https://your-github-username.github.io/your-repository-name/', {
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('successMessage').classList.remove('hidden');
-                form.reset(); // Clear the form
-            } else {
-                document.getElementById('emailError').textContent = 'Failed to send message. Please try again.';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            document.getElementById('emailError').textContent = 'There was a problem sending your message.';
-        });
-    });
-</script>
 
 </body>
 </html>
