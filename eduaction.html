@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>My Resume</title>
+</head>
+<body class="bg-gray-100">
+
+<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
+            <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container mx-auto px-4 py-12">
+    <!-- Education Section -->
+    <section class="text-gray-700 body-font">
+        <div class="container px-4 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Education</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">A glimpse into my academic journey and achievements.</p>
+            </div>
+            <div>
+                <table class="table-auto w-full text-left whitespace-no-wrap rounded-lg shadow-md">
+                    <thead>
+                        <tr>
+                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100 rounded-tl rounded-bl">Qualification</th>
+                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">College</th>
+                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">University</th>
+                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">CGPA/Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-gray-200">
+                            <td class="px-6 py-4">Bachelor of Engineering</td>
+                            <td class="px-6 py-4">L.J Institute of Engineering and Technology</td>
+                            <td class="px-6 py-4">L.J University</td>
+                            <td class="px-6 py-4 text-gray-900">Pursuing</td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="px-6 py-4">Diploma in Computer Engineering</td>
+                            <td class="px-6 py-4">L.J Polytechnic</td>
+                            <td class="px-6 py-4">Gujarat Technological University</td>
+                            <td class="px-6 py-4 text-gray-900">7.78 CGPA</td>
+                        </tr>
+                        <tr class="border-t border-gray-200">
+                            <td class="px-6 py-4">SSC</td>
+                            <td class="px-6 py-4">Shree Swaminarayan Gurukul</td>
+                            <td class="px-6 py-4">Gujarat Board</td>
+                            <td class="px-6 py-4 text-gray-900">78 PR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-12 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900">Skills</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">A mix of technical and soft skills to build your future.</p>
+            </div>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="python" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="python.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Python</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                  <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                      <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java_scrpt.png">
+                      <div class="flex-grow">
+                          <h2 class="text-gray-900 title-font font-medium">JavaScript</h2>
+                      </div>
+                  </div>
+              </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="full.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Fullstack Development</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                  <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                      <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="postgres_sql.png">
+                      <div class="flex-grow">
+                          <h2 class="text-gray-900 title-font font-medium">SQL</h2>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                    <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="odoo.png">
+                    <div class="flex-grow">
+                        <h2 class="text-gray-900 title-font font-medium">Odoo</h2>
+                    </div>
+                </div>
+            </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="php" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="php.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">PHP</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="react" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="react.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">React.js</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="excel" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="excel.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">MS Excel</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="c++" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="c.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">C++</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="java" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Java</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto text-center">
+        <p>© 2024 All Rights Reserved. Designed by [Your Name]</p>
+    </div>
+</footer>
+
+</body>
+</html>

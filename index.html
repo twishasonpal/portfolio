@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+<body class="bg-gradient-to-b from-gray-900 via-white-900 to-indigo-900 text-gray-100">
+
+    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+
+<section class="text-gray-800 body-font py-16 bg-white">
+  <div class="container mx-auto flex flex-col lg:flex-row items-center">
+    <!-- Text Section -->
+    <div class="lg:w-1/2 w-full mb-8 lg:mb-0 text-center lg:text-left">
+      <h1 class="text-5xl font-bold text-indigo-700 mb-4">Hi, I'm <span class="text-yellow-500">Twisha Sonpal</span></h1>
+      <p class="leading-relaxed text-lg">
+        Passionate software developer specializing in Python, Odoo ERP, and innovative web solutions. 
+        Dedicated to enhancing user experience and business processes.
+      </p>
+      <div class="mt-8">
+        <a href="projects.html" class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-yellow-400">Explore My Work</a>
+      </div>
+    </div>
+
+    <!-- Animated Video Section -->
+    <div class="lg:w-1/2 w-full relative">
+      <div class="rounded-lg h-64 lg:h-96 overflow-hidden">
+        <video class="absolute inset-0 w-full h-full object-cover" style="background-color: white;" muted loop autoplay>
+          <source src="robot_right.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="text-gray-100 body-font bg-indigo-800 py-16">
+    <div class="container mx-auto">
+        <div class="text-center w-full">
+            <h2 class="text-3xl font-bold text-yellow-300 mb-4">Welcome to My Portfolio</h2>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+                Hi, I'm a passionate software developer with experience in building robust and scalable web applications. I specialize in delivering innovative solutions that enhance user experience and drive business efficiency.
+            </p>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base mt-4">
+                I bring expertise in Python programming, Odoo ERP development, software engineering, and web design to create impactful and efficient solutions for businesses.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInUp 0.4s forwards;
+        animation-delay: var(--delay);
+    }
+
+    .shakable {
+        display: inline-block;
+        animation: shake 1s infinite ease-in-out;
+    }
+
+    @keyframes shake {
+        0%, 100% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(-10deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        75% {
+            transform: rotate(-10deg);
+        }
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+</body>
+</html>

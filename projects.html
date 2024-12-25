@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>My Projects</title>
+    <style>
+        /* Custom styles for hover effects */
+        .hover-effect:hover {
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .project-card:hover .hover-effect img {
+            filter: brightness(90%);
+        }
+
+
+
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+   
+    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+
+<section class="text-gray-700 body-font">
+    <div class="container px-5 py-16 mx-auto">
+        <div class="flex flex-col w-full mb-12 text-center">
+            <h1 class="text-3xl font-semibold title-font text-gray-900">My Projects</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-600">A selection of my professional projects demonstrating skills and expertise.</p>
+        </br><b>(Click on the project to see the project)</b>
+        </div>
+
+        <div class="flex flex-wrap -m-4">
+            <!-- Project 1: Fab Grocery -->
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="fg.gif"><img class="w-full object-cover object-center h-64" src="Fab.jpg" alt="Fab Grocery"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2 "><a href="fg.gif">Fab Grocery</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">A dynamic e-commerce platform developed to offer fast delivery services during the pandemic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Car Sensing -->
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="car_tracker.webm"><img class="w-full object-cover object-center h-64" src="pythonpp.png" alt="Car Sensing"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="car_tracker.webm">Car Sensing System </a> </h2>
+                        <p class="leading-relaxed text-base text-gray-600">Developed a Python-based application to detect speeding vehicles and capture
+                            screenshots, improving traffic monitoring.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="diwali.mp4"><img class="w-full object-cover object-center h-64" src="data_analysis.jpeg" alt="Quiz Application"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="diwali.mp4">Data Analysis dashboard</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">Visualized sales data, revealing trends such as top-selling categories (Food,
+                            Electronics) and buyer demographics, enabling better decision-making.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="voice.gif"> <img class="w-full object-cover object-center h-64" src="voice_recorder.png" alt="QR Code Scanner"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="voice.gif">Voice Recorder</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">Developed a Django-based web application to record and manage audio files.
+                            Implemented features to record high-quality audio directly through the browser.
+                            Designed an intuitive interface for seamless user interaction and efficient file management.</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Project 3: Quiz Application -->
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                   <a href="quiz.webm"><img class="w-full object-cover object-center h-64" src="quiz.png" alt="Quiz Application"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="quiz.webm">Quiz Application</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">An interactive quiz application built to assess problem-solving skills and knowledge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Voting System -->
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="voating.mp4"><img class="w-full object-cover object-center h-64" src="voatings.png" alt="Voting System"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="voating.mp4">Voting System</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">A Python-based system for conducting elections and analyzing results efficiently.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: QR Code Scanner -->
+           
+            <div class="p-4 lg:w-1/4">
+                <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                    <a href="qr.gif"> <img class="w-full object-cover object-center h-64" src="qr.png" alt="QR Code Scanner"></a>
+                    <div class="p-6">
+                        <h2 class="text-lg font-medium title-font text-gray-900 mb-2"><a href="qr.gif">QR Code Scanner</a></h2>
+                        <p class="leading-relaxed text-base text-gray-600">A QR code generator and scanner designed for quick and easy data sharing and integration.</p>
+                    </div>
+                </div>
+            </div>
+           
+           
+    </div>
+</section>
+
+</body>
+</html>
