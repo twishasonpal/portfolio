@@ -46,26 +46,60 @@
 
           <!-- Contact Form Section -->
           <div class="form bg-white p-8 rounded-lg shadow-lg w-full">
-          <form
-  action="https://formspree.io/f/mlddgjrp"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+                <form id="contactForm"
+                        action="https://formspree.io/f/mlddgjrp"
+                        method="POST"
+                        >
+                                        
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Your Name</label>
+                      <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-700" required>
+                      <div class="error" id="nameError"></div>
+                  </div>
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Your Email</label>
+                      <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-700" required>
+                      <div class="error" id="emailError"></div>
+                  </div>
+                  <div class="mb-4">
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Your Message</label>
+                      <textarea id="message" name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-700" rows="4" required></textarea>
+                      <div class="error" id="messageError"></div>
+                  </div>
+                  <button type="submit" class="bg-indigo-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-indigo-900 transition duration-300">Send Message</button>
+                  <div class="success mt-4 hidden" id="successMessage">Thank you! Your message has been sent successfully.</div>
+              </form>
           </div>
       </div>
   </div>
 </section>
 
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let form = event.target;
+        let formData = new FormData(form);
+
+        fetch('https://your-github-username.github.io/your-repository-name/', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('successMessage').classList.remove('hidden');
+                form.reset(); // Clear the form
+            } else {
+                document.getElementById('emailError').textContent = 'Failed to send message. Please try again.';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('emailError').textContent = 'There was a problem sending your message.';
+        });
+    });
+</script>
 
 </body>
 </html>
