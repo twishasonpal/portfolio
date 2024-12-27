@@ -1,90 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>My Resume</title><style>
-         #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
-        display: block;
-    }
+    <title>My Resume</title>
+    <style>
+        #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
+            display: block;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
 
+    <!-- Header Section -->
     <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex items-center justify-between p-5">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <!-- Home Menu -->
-            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Home</a>
-            
-            <!-- Dropdown Menu -->
-            <div class="relative inline-block text-left">
-                <button id="menu-button" class="inline-flex items-center text-white text-lg font-bold hover:text-yellow-300 focus:outline-none">
-                    Menu
-                    <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+    
+            <!-- Hamburger Icon for Mobile View -->
+            <div class="md:hidden relative ml-auto">
+                <button id="hamburger-button" class="text-white focus:outline-none">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
     
-                <!-- Dropdown Items -->
-                <div id="dropdown-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg dropdown-content">
-                    <div class="py-1">
-                        <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                        <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                        <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                        <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                        <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                        <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                    </div>
+                <!-- Dropdown Menu -->
+                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
+                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
+                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
+                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
+                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
+                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
                 </div>
             </div>
+    
+            <!-- Full Navigation for Larger Screens -->
+            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
+            </nav>
         </div>
     </header>
+    
+    <script>
+        const hamburgerButton = document.getElementById("hamburger-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+    
+        hamburgerButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
 
-<main class="container mx-auto px-4 py-12">
-    <!-- Education Section -->
-    <section class="text-gray-700 body-font">
-        <div class="container px-4 py-12 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Education</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">A glimpse into my academic journey and achievements.</p>
+    <main class="container mx-auto px-4 py-12">
+    
+        <!-- Education Section -->
+        <section class="text-gray-700 body-font">
+            <div class="container mx-auto flex flex-col lg:flex-row items-center">
+                <!-- Video Section -->
+                <div class="lg:w-1/2 w-full relative">
+                    <div class="rounded-lg h-64 lg:h-96 overflow-hidden">
+                        <!-- Default Video for Larger Screens -->
+                        <video class="absolute inset-0 w-full h-full object-cover hidden sm:block" style="background-color: white;" muted loop autoplay>
+                            <source src="book.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Alternate Video for Mobile View -->
+                        <video class="absolute inset-0 w-full h-full object-cover block sm:hidden" style="background-color: white;" muted loop autoplay>
+                            <source src="education.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Heading Section -->
+                <div class="lg:w-1/2 w-full lg:pl-12 text-center lg:text-left">
+                    <h1 class="sm:text-5xl text-4xl font-extrabold title-font mb-6 text-gray-900">Education</h1>
+                    <p class="leading-relaxed text-lg">Highlighting my academic journey and achievements.</p>
+                </div>
             </div>
-            <div>
-                <table class="table-auto w-full text-left whitespace-no-wrap rounded-lg shadow-md">
-                    <thead>
-                        <tr>
-                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100 rounded-tl rounded-bl">Qualification</th>
-                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">College</th>
-                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">University</th>
-                            <th class="px-6 py-3 text-xs font-medium text-gray-900 bg-gray-100">CGPA/Percentage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-t border-gray-200">
-                            <td class="px-6 py-4">Bachelor of Engineering</td>
-                            <td class="px-6 py-4">L.J Institute of Engineering and Technology</td>
-                            <td class="px-6 py-4">L.J University</td>
-                            <td class="px-6 py-4 text-gray-900">Pursuing</td>
-                        </tr>
-                        <tr class="border-t border-gray-200">
-                            <td class="px-6 py-4">Diploma in Computer Engineering</td>
-                            <td class="px-6 py-4">L.J Polytechnic</td>
-                            <td class="px-6 py-4">Gujarat Technological University</td>
-                            <td class="px-6 py-4 text-gray-900">7.78 CGPA</td>
-                        </tr>
-                        <tr class="border-t border-gray-200">
-                            <td class="px-6 py-4">SSC</td>
-                            <td class="px-6 py-4">Shree Swaminarayan Gurukul</td>
-                            <td class="px-6 py-4">Gujarat Board</td>
-                            <td class="px-6 py-4 text-gray-900">78 PR</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+        </section>
+        
+        <!-- Education Details -->
+       <section class="text-gray-700 body-font">
+    <div class="container px-5 py-12 mx-auto">
+        <table class="w-full text-left bg-white shadow-md rounded-lg overflow-hidden sm:table-auto">
+            <thead>
+                <tr>
+                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100 rounded-tl rounded-bl">Qualification</th>
+                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100">College</th>
+                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100 hidden md:table-cell">University</th>
+                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100">CGPA/Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-t border-gray-200">
+                    <td class="px-3 py-2">Bachelor of Engineering</td>
+                    <td class="px-3 py-2">L.J Institute of Engineering and Technology</td>
+                    <td class="px-3 py-2 hidden md:table-cell">L.J University</td>
+                    <td class="px-3 py-2 text-gray-900">Pursuing</td>
+                </tr>
+                <tr class="border-t border-gray-200">
+                    <td class="px-3 py-2">Diploma in Computer Engineering</td>
+                    <td class="px-3 py-2">L.J Polytechnic</td>
+                    <td class="px-3 py-2 hidden md:table-cell">Gujarat Technological University</td>
+                    <td class="px-3 py-2 text-gray-900">7.78 CGPA</td>
+                </tr>
+                <tr class="border-t border-gray-200">
+                    <td class="px-3 py-2">SSC</td>
+                    <td class="px-3 py-2">Shree Swaminarayan Gurukul</td>
+                    <td class="px-3 py-2 hidden md:table-cell">Gujarat Board</td>
+                    <td class="px-3 py-2 text-gray-900">78%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
-    <!-- Skills Section -->
+        
+
+        <!-- Skills Section -->
+       <!-- Skills Section -->
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-12 mx-auto">
             <div class="flex flex-col text-center w-full mb-12">
@@ -176,13 +224,13 @@
             </div>
         </div>
     </section>
-</main>
+    </main>
 
-<footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto text-center">
-        <p>© 2024 All Rights Reserved. Designed by [Your Name]</p>
-    </div>
-</footer>
-
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
