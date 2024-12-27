@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odoo Work Showcase</title>
+    <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .content-section {
+            margin-bottom: 40px;
+        }
+        .hero {
+            background: linear-gradient(145deg, #5A67D8, #434190);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <!-- Home Menu -->
+            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+    
+            <!-- Hamburger Icon for Mobile View -->
+            <div class="md:hidden relative ml-auto">
+                <button id="hamburger-button" class="text-white focus:outline-none">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+    
+                <!-- Dropdown Menu -->
+                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
+                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
+                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
+                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
+                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
+                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
+                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
+                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
+                </div>
+            </div>
+    
+            <!-- Full Navigation for Larger Screens -->
+            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
+
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
+                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <script>
+        const hamburgerButton = document.getElementById("hamburger-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+    
+        hamburgerButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+    </script>
+
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- Hero Section -->
+        <section class="hero text-white text-center py-24">
+            <h1 class="text-4xl font-extrabold leading-tight">Odoo Work Showcase</h1>
+            <p class="mt-4 text-lg leading-relaxed">Highlighting my journey and experience with Odoo in a professional manner.</p>
+        </section>
+
+        <!-- About Section -->
+      
+        <section class="content-section bg-gray-100 p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold mb-8 text-gray-900">Odoo Work Showcase</h2>
+            <p class="text-lg text-gray-700 mb-6">Here are some key highlights from my Odoo experience and contributions:</p>
+        
+            <ul class="list-disc ml-8 text-gray-700 space-y-4">
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Custom module development and customization tailored to specific business needs.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Integration of third-party applications and APIs to enhance Odoo's functionality.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Automation of business processes using Python and Odoo scripting for efficiency.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Database optimization and performance tuning for seamless Odoo environments.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Crafting custom reports, dashboards, and workflow automations.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Collaborated with cross-functional teams to gather requirements and design solutions.
+                </li>
+                <li class="flex items-center">
+                    <span class="text-green-500 mr-3">✔</span>
+                    Provided training and support to ensure smooth adoption by Odoo users.
+                </li>
+            </ul>
+        </section>
+        
+
+        <!-- Skills Section -->
+        <section class="content-section">
+            <h2 class="text-3xl font-semibold mb-6 text-gray-900">Skills & Interests</h2>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="odoo_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="odoo.png">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Odoo Development</h2>
+                            <p class="text-gray-700">I have strong knowledge of Odoo, including module customization, integration, and working with various business processes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="python_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="python.jpg">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Python Development</h2>
+                            <p class="text-gray-700">Proficient in Python, which is essential for creating custom scripts and automation in Odoo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="javascript_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java_scrpt.png">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">JavaScript</h2>
+                            <p class="text-gray-700">Skilled in JavaScript for enhancing Odoo interfaces and user experiences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
+                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
+                        <img alt="sql_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="postgres_sql.png">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">SQL & Database Management</h2>
+                            <p class="text-gray-700">Experienced in working with databases, including SQL queries and optimization in Odoo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+       
+
+    </main>
+
+</body>
+</html>
