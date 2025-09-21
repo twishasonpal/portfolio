@@ -1,158 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Curricular Activities</title>
-    <style>
-        /* Custom styles */
-        .dropdown-content {
-            display: none;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f7fa;
+  }
 
-        .dropdown-content.show {
-            display: block;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  /* Animate sections on scroll */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
+  /* Profile Image styling */
+  .profile-img {
+    border-radius: 50%;
+    border: 5px solid #6366f1;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Card hover effects */
+  .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  }
+
+  /* Button hover */
+  .btn-primary {
+    background: #6366f1;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: #4f46e5;
+    transform: translateY(-3px);
+  }
+</style>
 </head>
-<body>
 
-    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <!-- Home Menu -->
-            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
-    
-            <!-- Hamburger Icon for Mobile View -->
-            <div class="md:hidden relative ml-auto">
-                <button id="hamburger-button" class="text-white focus:outline-none">
-                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-    
-                <!-- Dropdown Menu -->
-                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                </div>
-            </div>
-    
-            <!-- Full Navigation for Larger Screens -->
-            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
+<!-- Header -->
+<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
+    <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Home</a>
+    <nav class="flex space-x-4 text-white font-semibold">
+      <a href="about.html" class="hover:text-yellow-300 transition">About</a>
+      <a href="projects.html" class="hover:text-yellow-300 transition">Projects</a>
+      <a href="activities.html" class="hover:text-yellow-300 transition">Activities</a>
+      <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+    </nav>
+  </div>
+</header>
 
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-    
-    <script>
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        hamburgerButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
-    
+<!-- Activities Section -->
+<section class="container mx-auto px-5 py-16 fade-in">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-800">Co-curricular Activities</h1>
+    <p class="text-gray-600 mt-4">Explore my notable activities and certifications.</p>
+  </div>
 
-    <section class="text-gray-600 body-font bg-gray-50">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-4xl text-3xl font-medium title-font text-gray-900">Co-curricular Activities</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700 mt-4">Explore our diverse range of activities and achievements below. <b>Click on post</b></p>
-            </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Activity Card Example -->
+    <div class="activity-card">
+      <img src="cyber_ethics.jpeg" alt="Cyber Ethics" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">Cyber Ethics</h2>
+        <p class="text-gray-600 mt-1">Contest</p>
+        <a href="cyber.jpg" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      </div>
+    </div>
 
-            <div class="flex flex-wrap -m-4">
-                <!-- Activity Card -->
-                <div class="lg:w-1/3 sm:w-1/2 p-4">
-                    <div class="flex relative hover:shadow-lg transition-shadow duration-300">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg" src="cyber_ethics.jpeg">
-                        <div class="px-8 py-10 relative z-10 w-full border-4 border-indigo-500 bg-white bg-opacity-80 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Cyber Ethics</h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Contest</h1>
-                            <p class="leading-relaxed">Quiz Competition<br><b><a class="text-indigo-600 hover:underline" href="cyber.jpg">View Certificate</a></b></p>
-                        </div>
-                    </div>
-                </div>
+    <div class="activity-card">
+      <img src="ninja.png" alt="Coding Ninja" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">Coding Ninja</h2>
+        <p class="text-gray-600 mt-1">Contest Round 1</p>
+        <a href="conding_ninja_certificate1.png" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      </div>
+    </div>
 
-                <!-- Repeat similar structure for other cards -->
-                <div class="lg:w-1/3 sm:w-1/2 p-4">
-                    <div class="flex relative hover:shadow-lg transition-shadow duration-300">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg" src="ninja.png">
-                        <div class="px-8 py-10 relative z-10 w-full border-4 border-indigo-500 bg-white bg-opacity-80 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Coding Ninja</h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Contest</h1>
-                            <p class="leading-relaxed">Round 1.<br><b><a class="text-indigo-600 hover:underline" href="conding_ninja_certificate1.png">View Certificate</a></b></p>
-                        </div>
-                    </div>
-                </div>
+    <div class="activity-card">
+      <img src="tcs.png" alt="TCS NQT" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">TCS NQT</h2>
+        <p class="text-gray-600 mt-1">Examination</p>
+        <a href="tcsnqt.PNG" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Result</a>
+      </div>
+    </div>
 
-                <div class="lg:w-1/3 sm:w-1/2 p-4">
-                    <div class="flex relative hover:shadow-lg transition-shadow duration-300">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg" src="tcs.png">
-                        <div class="px-8 py-10 relative z-10 w-full border-4 border-indigo-500 bg-white bg-opacity-80 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">TCS NQT</h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Examination</h1>
-                            <p class="leading-relaxed"><a class="text-indigo-600 hover:underline" href="tcsnqt.PNG"><b>View Result</b></a></p>
-                        </div>
-                    </div>
-                </div>
+    <div class="activity-card">
+      <img src="ninja.png" alt="Coding Ninja Round 2" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold text-gray-800">Coding Ninja</h2>
+        <p class="text-gray-600 mt-1">Contest Round 2</p>
+        <a href="coding_ninja2.png" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="lg:w-1/3 sm:w-1/2 p-4">
-                    <div class="flex relative hover:shadow-lg transition-shadow duration-300">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg" src="ninja.png">
-                        <div class="px-8 py-10 relative z-10 w-full border-4 border-indigo-500 bg-white bg-opacity-80 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <h2 class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Coding Ninja</h2>
-                            <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Contest</h1>
-                            <p class="leading-relaxed">Round 2.<br><b><a class="text-indigo-600 hover:underline" href="coding_ninja2.png">View Certificate</a></b></p>
-                        </div>
-                    </div>
-                </div>
+<!-- Footer -->
+<footer class="text-gray-700 body-font bg-gray-100">
+  <div class="container mx-auto py-6 px-5 flex flex-wrap flex-col sm:flex-row justify-between">
+    <p class="text-gray-600 text-sm text-center sm:text-left">&copy; 2025 Curricular Activities — All Rights Reserved</p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Facebook</a>
+      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Twitter</a>
+      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Instagram</a>
+    </span>
+  </div>
+</footer>
 
-            </div>
-        </div>
-    </section>
+<script>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      appearOnScroll.unobserve(entry.target);
+    });
+  }, appearOptions);
 
-    <footer class="text-gray-600 body-font bg-indigo-500">
-        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row justify-between">
-            <p class="text-white text-sm text-center sm:text-left">&copy; 2024 Curricular Activities — All Rights Reserved</p>
-            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-                <a href="#" class="text-white hover:text-yellow-300 mx-2">Facebook</a>
-                <a href="#" class="text-white hover:text-yellow-300 mx-2">Twitter</a>
-                <a href="#" class="text-white hover:text-yellow-300 mx-2">Instagram</a>
-            </span>
-        </div>
-    </footer>
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
-    <script>
-        // JavaScript to toggle dropdown on button click (for mobile)
-        const menuButton = document.getElementById("menu-button");
-        const dropdownMenu = document.getElementById("dropdown-menu");
-
-        menuButton.addEventListener("click", function() {
-            dropdownMenu.classList.toggle("show");
-        });
-    </script>
 </body>
 </html>

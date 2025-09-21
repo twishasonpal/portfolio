@@ -5,48 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Portfolio</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
 </head>
 <body class="bg-gradient-to-b from-gray-900 via-white-900 to-indigo-900 text-gray-100">
 
     <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <!-- Home Menu -->
             <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
-    
-            <!-- Hamburger Icon for Mobile View -->
-            <div class="md:hidden relative ml-auto">
-                <button id="hamburger-button" class="text-white focus:outline-none">
-                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-    
-                <!-- Dropdown Menu -->
-                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                </div>
-            </div>
-    
-            <!-- Full Navigation for Larger Screens -->
-            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
-
                 <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
                 <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
                 <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
@@ -55,17 +21,7 @@
             </nav>
         </div>
     </header>
-    
-    <script>
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        hamburgerButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
-    
-    
+
 
 <section class="text-gray-800 body-font py-16 bg-white">
   <div class="container mx-auto flex flex-col lg:flex-row items-center">
@@ -76,28 +32,22 @@
         Passionate software developer specializing in Python, Odoo ERP, and innovative web solutions. 
         Dedicated to enhancing user experience and business processes.
       </p>
-      <div class="mt-8">
-        <a href="projects.html" class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-yellow-400">Explore My Work</a>
-      </div>
+      <div class="mt-8 space-x-4">
+          <a href="projects.html" class="btn-animate bg-yellow-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-yellow-400">🚀 Explore My Work</a>
+          <a href="contact.html" class="btn-animate border border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-bold hover:bg-indigo-600 hover:text-white">📩 Hire Me</a>
+     </div>
     </div>
 
     <!-- Animated Video Section -->
-  <!-- Animated Video Section -->
-<div class="lg:w-1/2 w-full relative">
-    <div class="rounded-lg h-64 lg:h-96 overflow-hidden">
-      <!-- Default Video for Larger Screens -->
-      <video class="absolute inset-0 w-full h-full object-cover hidden sm:block" style="background-color: white;" muted loop autoplay>
-        <source src="robot_right.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <!-- Alternate Video for Mobile View -->
-      <video class="absolute inset-0 w-full h-full object-cover block sm:hidden" style="background-color: white;" muted loop autoplay>
-        <source src="robot_mobile_view.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div class="lg:w-1/2 w-full relative">
+      <div class="rounded-lg h-64 lg:h-96 overflow-hidden">
+        <video class="absolute inset-0 w-full h-full object-cover" style="background-color: white;" muted loop autoplay>
+          <source src="robot_right.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
   </div>
-  
 </section>
 
 <section class="text-gray-100 body-font bg-indigo-800 py-16">
@@ -113,7 +63,42 @@
         </div>
     </div>
 </section>
+ <!-- Skills Section -->
+  <section class="py-16 bg-indigo-800 text-white fade-in">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-yellow-300 mb-8">My Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="p-6 bg-indigo-700 rounded-lg shadow-lg hover:bg-indigo-600">Python</div>
+        <div class="p-6 bg-indigo-700 rounded-lg shadow-lg hover:bg-indigo-600">Odoo ERP</div>
+        <div class="p-6 bg-indigo-700 rounded-lg shadow-lg hover:bg-indigo-600">Web Development</div>
+        <div class="p-6 bg-indigo-700 rounded-lg shadow-lg hover:bg-indigo-600">Database Management</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- About Section -->
+  <section class="py-16 bg-gray-100 text-gray-900 fade-in">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-indigo-700 mb-6">About Me</h2>
+      <p class="max-w-2xl mx-auto leading-relaxed">
+        I am a results-driven developer who thrives in building impactful applications.
+        I’ve worked on projects that improve workflows, automate processes,
+        and deliver engaging user experiences. My focus is on writing clean, scalable code
+        and learning continuously to stay ahead of tech trends.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-900 text-gray-200 py-6 text-center">
+    <p>© 2025 Twisha Sonpal | All Rights Reserved</p>
+    <div class="mt-2 space-x-4">
+      <a href="https://github.com/twishasonpal" class="hover:text-yellow-300">GitHub</a>
+      <a href="https://linkedin.com/in/twishasonpal" class="hover:text-yellow-300">LinkedIn</a>
+    </div>
+  </footer>
+</body>
+</html>
 <style>
     body {
         font-family: 'Inter', sans-serif;
@@ -152,10 +137,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-    }
-
-    #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
-        display: block;
     }
 </style>
 

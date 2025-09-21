@@ -1,200 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>My Projects</title>
-    <style>
-        /* Custom styles for hover effects */
-        .hover-effect:hover {
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-        }
-        .project-card:hover .hover-effect img {
-            filter: brightness(90%);
-        }
-        #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
-        display: block;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <title>My Projects</title>
+  <style>
+    /* Custom hover animations */
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.2);
+    }
+    .project-card img {
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .project-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(90%);
+    }
+    .fade-in {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YQ1XNGWTK8');
+  </script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-br from-gray-50 to-gray-100">
 
-    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <!-- Home Menu -->
-            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
-    
-            <!-- Hamburger Icon for Mobile View -->
-            <div class="md:hidden relative ml-auto">
-                <button id="hamburger-button" class="text-white focus:outline-none">
-                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-    
-                <!-- Dropdown Menu -->
-                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                </div>
-            </div>
-    
-            <!-- Full Navigation for Larger Screens -->
-            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <!-- Home Menu -->
+      <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0 transition duration-300 ease-in-out" href="index.html">Home</a>
 
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
-            </nav>
+      <!-- Hamburger Icon -->
+      <div class="md:hidden relative ml-auto">
+        <button id="hamburger-button" class="text-white focus:outline-none">
+          <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
+          <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">About</a>
+          <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Work Showcase</a>
+          <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Certificate</a>
+          <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Education</a>
+          <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Projects</a>
+          <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Activities</a>
+          <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Contact</a>
         </div>
-    </header>
-    
-    <script>
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        hamburgerButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
-    
+      </div>
 
-    <section class="text-gray-700 body-font">
-        <div class="container px-5 py-16 mx-auto">
-            <div class="flex flex-col w-full mb-12 text-center">
-                <h1 class="text-3xl font-semibold title-font text-gray-900">My Projects</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-600">
-                    A selection of my professional projects demonstrating skills and expertise.
-                </p>
-                <br><b>(Click on the project to see the project)</b>
-            </div>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="about.html">About</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="experience.html">Work Showcase</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="certificate.html">Certificate</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="eduaction.html">Education</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="projects.html">Projects</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="activities.html">Activities</a>
+        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Project 1: Fab Grocery -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="fg.gif">
-                            <img class="w-full object-cover object-center h-64" src="Fab.jpg" alt="Fab Grocery">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="fg.gif">Fab Grocery</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                A dynamic e-commerce platform developed to offer fast delivery services during the pandemic.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+  <script>
+    const hamburgerButton = document.getElementById("hamburger-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    hamburgerButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
 
-                <!-- Project 2: Car Sensing -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="car_tracker.webm">
-                            <img class="w-full object-cover object-center h-64" src="pythonpp.png" alt="Car Sensing System">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="car_tracker.webm">Car Sensing System</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                Developed a Python-based application to detect speeding vehicles and capture screenshots, improving traffic monitoring.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+  <!-- Projects Section -->
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-16 mx-auto">
+      <div class="flex flex-col w-full mb-12 text-center">
+        <h1 class="text-4xl font-extrabold title-font text-indigo-700">🚀 My Projects</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-lg text-gray-600 mt-4">
+          A selection of my professional projects demonstrating skills and expertise.  
+          <br><span class="font-semibold text-indigo-600">(Click on any project to view)</span>
+        </p>
+      </div>
 
-                <!-- Project 3: Data Analysis Dashboard -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="diwali.mp4">
-                            <img class="w-full object-cover object-center h-64" src="data_analysis.jpeg" alt="Data Analysis Dashboard">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="diwali.mp4">Data Analysis Dashboard</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                Visualized sales data, revealing trends such as top-selling categories (Food, Electronics) and buyer demographics, enabling better decision-making.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Quiz Application -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="quiz.webm">
-                            <img class="w-full object-cover object-center h-64" src="quiz.png" alt="Quiz Application">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="quiz.webm">Quiz Application</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                An interactive quiz application built to assess problem-solving skills and knowledge.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: Voting System -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="voating_system.mp4">
-                            <img class="w-full object-cover object-center h-64" src="voatings.png" alt="Voting System">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="voating_system.mp4">Voting System</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                A Python-based system for conducting elections and analyzing results efficiently.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: QR Code Scanner -->
-                <div class="hover-effect">
-                    <div class="h-full border border-gray-300 rounded-lg overflow-hidden shadow-lg">
-                        <a href="qr.gif">
-                            <img class="w-full object-cover object-center h-64" src="qr.png" alt="QR Code Scanner">
-                        </a>
-                        <div class="p-6">
-                            <h2 class="text-lg font-medium title-font text-gray-900 mb-2">
-                                <a href="qr.gif">QR Code Scanner</a>
-                            </h2>
-                            <p class="leading-relaxed text-base text-gray-600">
-                                A QR code generator and scanner designed for quick and easy data sharing and integration.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        
+        <!-- Project Card Template -->
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="fg.gif">
+            <img class="w-full h-56 object-cover" src="Fab.jpg" alt="Fab Grocery">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="fg.gif">Fab Grocery</a>
+            </h2>
+            <p class="text-gray-600">A dynamic e-commerce platform developed to offer fast delivery services during the pandemic.</p>
+          </div>
         </div>
-    </section>
+
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="car_tracker.webm">
+            <img class="w-full h-56 object-cover" src="pythonpp.png" alt="Car Sensing System">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="car_tracker.webm">Car Sensing System</a>
+            </h2>
+            <p class="text-gray-600">Python app to detect speeding vehicles and capture screenshots for traffic monitoring.</p>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="diwali.mp4">
+            <img class="w-full h-56 object-cover" src="data_analysis.jpeg" alt="Data Analysis Dashboard">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="diwali.mp4">Data Analysis Dashboard</a>
+            </h2>
+            <p class="text-gray-600">Visualized sales data with trends in top-selling categories and buyer demographics.</p>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="quiz.webm">
+            <img class="w-full h-56 object-cover" src="quiz.png" alt="Quiz Application">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="quiz.webm">Quiz Application</a>
+            </h2>
+            <p class="text-gray-600">An interactive quiz app to assess problem-solving skills and knowledge.</p>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="voating_system.mp4">
+            <img class="w-full h-56 object-cover" src="voatings.png" alt="Voting System">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="voating_system.mp4">Voting System</a>
+            </h2>
+            <p class="text-gray-600">Python-based system for conducting elections and analyzing results efficiently.</p>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-xl overflow-hidden shadow-md fade-in">
+          <a href="qr.gif">
+            <img class="w-full h-56 object-cover" src="qr.png" alt="QR Code Scanner">
+          </a>
+          <div class="p-6">
+            <h2 class="text-lg font-bold text-indigo-700 mb-2">
+              <a href="qr.gif">QR Code Scanner</a>
+            </h2>
+            <p class="text-gray-600">QR code generator and scanner for quick and easy data sharing.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
