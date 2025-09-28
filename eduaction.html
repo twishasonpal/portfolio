@@ -1,248 +1,204 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>My Resume</title>
-    <style>
-        #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
-            display: block;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Timeline - Twisha Sonpal</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg,#1a202c,#4c51bf);
+  color: #f7fafc;
+}
 
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
+/* Header */
+.header {
+  background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* Hamburger Menu */
+.hamburger { cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
+#mobileMenu { display: none; flex-direction: column; background: #312e81; }
+#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
+#mobileMenu a:hover { color: #facc15; }
+@media(min-width:768px){ 
+  .desktop-menu { display: flex; } 
+  .hamburger { display: none; } 
+  #mobileMenu { display: none; } 
+}
+
+/* Timeline */
+.timeline { position: relative; margin: 2rem 0; padding-left: 2rem; border-left: 3px solid #facc15; }
+.timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.25rem;
+  top: 0;
+  width: 1rem;
+  height: 1rem;
+  background: #facc15;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 15px #facc15;
+}
+
+/* Glass card style */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 1.5rem;
+  box-shadow: 0 0 25px rgba(168,85,247,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 0 35px rgba(255,255,0,0.8); }
+
+/* Skills Grid */
+.skill-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill-card:hover { transform: scale(1.1) rotate(3deg); box-shadow: 0 0 35px rgba(255, 204, 0, 0.8); }
+
+/* Fade-in Animation */
+.fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
-<body class="bg-gray-100">
+<body>
 
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <!-- Home Menu -->
-            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
-    
-            <!-- Hamburger Icon for Mobile View -->
-            <div class="md:hidden relative ml-auto">
-                <button id="hamburger-button" class="text-white focus:outline-none">
-                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-    
-                <!-- Dropdown Menu -->
-                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                </div>
-            </div>
-    
-            <!-- Full Navigation for Larger Screens -->
-            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
+<!-- Header -->
+<header class="header">
+  <div class="container mx-auto flex justify-between items-center p-5 relative">
+    <!-- Logo -->
+    <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Dashboard</a>
 
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-    
-    <script>
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        hamburgerButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu hidden md:flex space-x-6 items-center font-semibold">
+      <a href="about.html" class="text-white font-bold hover:text-yellow-300">About</a>
+      <a href="experience.html" class="text-white font-bold hover:text-yellow-300">Work Showcase</a>
+      <a href="certificate.html" class="text-white font-bold hover:text-yellow-300">Certificate</a>
+      <a href="eduaction.html" class="text-white font-bold hover:text-yellow-300">Education</a>
+      <a href="projects.html" class="text-white font-bold hover:text-yellow-300">Projects</a>
+      <a href="activities.html" class="text-white font-bold hover:text-yellow-300">Activities</a>
+      <a href="contact.html" class="text-white font-bold hover:text-yellow-300">Contact</a>
+    </nav>
 
-    <main class="container mx-auto px-4 py-12">
-    
-        <!-- Education Section -->
-        <section class="text-gray-700 body-font">
-            <div class="container mx-auto flex flex-col lg:flex-row items-center">
-                <!-- Video Section -->
-                <div class="lg:w-1/2 w-full relative">
-                    <div class="rounded-lg h-64 lg:h-96 overflow-hidden">
-                        <!-- Default Video for Larger Screens -->
-                        <video class="absolute inset-0 w-full h-full object-cover hidden sm:block" style="background-color: white;" muted loop autoplay>
-                            <source src="book.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        
-                        <!-- Alternate Video for Mobile View -->
-                        <video class="absolute inset-0 w-full h-full object-cover block sm:hidden" style="background-color: white;" muted loop autoplay>
-                            <source src="education.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-                
-                <!-- Heading Section -->
-                <div class="lg:w-1/2 w-full lg:pl-12 text-center lg:text-left">
-                    <h1 class="sm:text-5xl text-4xl font-extrabold title-font mb-6 text-gray-900">Education</h1>
-                    <p class="leading-relaxed text-lg">Highlighting my academic journey and achievements.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Education Details -->
-       <section class="text-gray-700 body-font">
-    <div class="container px-5 py-12 mx-auto">
-        <table class="w-full text-left bg-white shadow-md rounded-lg overflow-hidden sm:table-auto">
-            <thead>
-                <tr>
-                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100 rounded-tl rounded-bl">Qualification</th>
-                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100">College</th>
-                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100 hidden md:table-cell">University</th>
-                    <th class="px-3 py-2 text-xs font-medium text-gray-900 bg-gray-100">CGPA/Percentage</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="border-t border-gray-200">
-                    <td class="px-3 py-2">Bachelor of Engineering</td>
-                    <td class="px-3 py-2">L.J Institute of Engineering and Technology</td>
-                    <td class="px-3 py-2 hidden md:table-cell">L.J University</td>
-                    <td class="px-3 py-2 text-gray-900">6.65 CGPA</td>
-                </tr>
-                <tr class="border-t border-gray-200">
-                    <td class="px-3 py-2">Diploma in Computer Engineering</td>
-                    <td class="px-3 py-2">L.J Polytechnic</td>
-                    <td class="px-3 py-2 hidden md:table-cell">Gujarat Technological University</td>
-                    <td class="px-3 py-2 text-gray-900">7.78 CGPA</td>
-                </tr>
-                <tr class="border-t border-gray-200">
-                    <td class="px-3 py-2">SSC</td>
-                    <td class="px-3 py-2">Shree Swaminarayan Gurukul</td>
-                    <td class="px-3 py-2 hidden md:table-cell">Gujarat Board</td>
-                    <td class="px-3 py-2 text-gray-900">78%</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- Hamburger -->
+    <div class="hamburger md:hidden" id="menuBtn">
+      <i class="fas fa-bars"></i>
     </div>
-</section>
+  </div>
 
-        
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="flex flex-col md:hidden">
+    <a href="about.html">About</a>
+    <a href="experience.html">Work Showcase</a>
+    <a href="certificate.html">Certificate</a>
+    <a href="eduaction.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+  </nav>
+</header>
 
-        <!-- Skills Section -->
-       <!-- Skills Section -->
-    <section class="text-gray-600 body-font">
-        <div class="container px-5 py-12 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12">
-                <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900">Skills</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">A mix of technical and soft skills to build your future.</p>
-            </div>
-            <div class="flex flex-wrap -m-4">
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="python" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="python.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Python</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                  <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                      <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java_scrpt.png">
-                      <div class="flex-grow">
-                          <h2 class="text-gray-900 title-font font-medium">JavaScript</h2>
-                      </div>
-                  </div>
-              </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="full.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Fullstack Development</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                  <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                      <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="postgres_sql.png">
-                      <div class="flex-grow">
-                          <h2 class="text-gray-900 title-font font-medium">SQL</h2>
-                      </div>
-                  </div>
-              </div>
+<main class="container mx-auto px-4 py-12">
 
-              <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                    <img alt="fullstack" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="odoo.png">
-                    <div class="flex-grow">
-                        <h2 class="text-gray-900 title-font font-medium">Odoo</h2>
-                    </div>
-                </div>
-            </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="php" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="php.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">PHP</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="react" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="react.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">React.js</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="excel" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="excel.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">MS Excel</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="c++" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="c.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">C++</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="java" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Java</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    </main>
+  <!-- Timeline Header -->
+  <section class="text-center mb-12 fade-in">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-yellow-400">Education Timeline</h1>
+      <p class="text-gray-300 mt-2">A connected journey of knowledge — by <b>Twisha Sonpal</b>.</p>
+  </section>
 
-    <!-- Footer Section -->
-    <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <!-- Timeline -->
+  <section class="timeline fade-in">
+      <div class="timeline-item">
+          <div class="card">
+              <h2 class="text-xl font-bold mb-1">Bachelor of Engineering</h2>
+              <p>L.J Institute of Engineering and Technology</p>
+              <p class="text-gray-300">L.J University</p>
+          </div>
+      </div>
+      <div class="timeline-item">
+          <div class="card">
+              <h2 class="text-xl font-bold mb-1">Diploma in Computer Engineering</h2>
+              <p>L.J Polytechnic</p>
+              <p class="text-gray-300">Gujarat Technological University</p>
+          </div>
+      </div>
+      <div class="timeline-item">
+          <div class="card">
+              <h2 class="text-xl font-bold mb-1">SSC</h2>
+              <p>Shree Swaminarayan Gurukul</p>
+              <p class="text-gray-300">Gujarat Board</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="fade-in mt-16">
+      <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-yellow-400">Skills</h2>
+          <p class="text-gray-300 mt-2">Technical skills supporting my academic growth.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div class="skill-card"><img src="python.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>Python</span></div>
+          <div class="skill-card"><img src="java_scrpt.png" class="w-12 h-12 mx-auto rounded-full mb-2"><span>JavaScript</span></div>
+          <div class="skill-card"><img src="full.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>Fullstack</span></div>
+          <div class="skill-card"><img src="postgres_sql.png" class="w-12 h-12 mx-auto rounded-full mb-2"><span>SQL</span></div>
+          <div class="skill-card"><img src="odoo.png" class="w-12 h-12 mx-auto rounded-full mb-2"><span>Odoo</span></div>
+          <div class="skill-card"><img src="php.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>PHP</span></div>
+          <div class="skill-card"><img src="react.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>React.js</span></div>
+          <div class="skill-card"><img src="excel.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>MS Excel</span></div>
+          <div class="skill-card"><img src="c.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>C++</span></div>
+          <div class="skill-card"><img src="java.jpg" class="w-12 h-12 mx-auto rounded-full mb-2"><span>Java</span></div>
+      </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer bg-gray-900 text-gray-300 py-6 text-center">
+  <p>&copy; 2025 Twisha Sonpal. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+          if(entry.isIntersecting){
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.1 });
+  faders.forEach(fader => observer.observe(fader));
+
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    if(mobileMenu.style.display === "flex") {
+      mobileMenu.style.display = "none";
+    } else {
+      mobileMenu.style.display = "flex";
+    }
+  });
+</script>
+
 </body>
 </html>

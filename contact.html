@@ -1,119 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <title>Contact</title>
-  <style>
-    .error { color: red; font-size: 0.875rem; }
-    .success { color: green; font-size: 1rem; }
-    #menu-button:hover + #dropdown-menu, #dropdown-menu:hover { display: block; }
-  </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YQ1XNGWTK8');
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("N596Y_MfXl6_-kpWM"); // Replace with your EmailJS Public Key
+</script>
+<style>
+  body { font-family: 'Inter', sans-serif; background: #0b0b1a; color: #f8fafc; overflow-x: hidden; }
+  .header { background: linear-gradient(to right, #6366f1, #a855f7, #4f46e5); box-shadow: 0 6px 15px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 50; height: 100px; }
+  .nav-link { transition: all 0.3s; font-size: 1.1rem; padding: 0.75rem 1rem; }
+  .nav-link:hover { color: #facc15; }
+  .card { background: rgba(255,255,255,0.05); backdrop-filter: blur(15px); border-radius: 1rem; border: 1px solid rgba(255,255,255,0.15); padding: 2rem; box-shadow: 0 0 25px rgba(168,85,247,0.3); transition: transform 0.3s, box-shadow 0.3s; }
+  .card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 0 40px rgba(168,85,247,0.6); }
+  input, textarea { border: 1px solid #d1d5db; padding: 0.75rem 1rem; border-radius: 0.75rem; width: 100%; transition: all 0.3s; background: rgba(255,255,255,0.05); color: #f8fafc; }
+  input:focus, textarea:focus { outline: none; border-color: #a855f7; box-shadow: 0 0 15px #a855f7; }
+  .btn { background: linear-gradient(to right, #6366f1, #a855f7); color: white; font-weight: 600; padding: 0.75rem 2rem; border-radius: 0.75rem; transition: all 0.3s; }
+  .btn:hover { transform: scale(1.05); box-shadow: 0 0 25px #a855f7; }
+  .contact-icon { font-size: 1.5rem; color: #6366f1; margin-right: 0.75rem; transition: all 0.3s; }
+  .contact-icon:hover { color: #a855f7; }
+  .typing { font-size: 3rem; font-weight: 900; color: #a855f7; display: inline-block; white-space: nowrap; overflow: hidden; border-right: .15em solid #facc15; animation: typing 3s steps(30,end), blink 0.7s step-end infinite; }
+  @keyframes typing { from { width: 0; } to { width: 100%; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+  @media(max-width:768px){ .header { height: auto; padding: 1rem; } .nav-link { padding: 0.5rem; font-size: 1rem; } .typing { font-size: 2.2rem; } .card { padding: 1.5rem; } }
+  @media(max-width:480px){ .typing { font-size: 1.8rem; } .card { padding: 1rem; } }
+</style>
 </head>
-<body class="text-gray-600 body-font bg-gradient-to-br from-gray-50 to-gray-100">
+<body>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <!-- Home Menu -->
-      <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0 transition duration-300 ease-in-out" href="index.html">Home</a>
-
-      <!-- Hamburger Icon -->
-      <div class="md:hidden relative ml-auto">
-        <button id="hamburger-button" class="text-white focus:outline-none">
-          <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        <!-- Dropdown Menu -->
-        <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden animate-fade-in">
-          <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">About</a>
-          <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Work Showcase</a>
-          <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Certificate</a>
-          <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Education</a>
-          <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Projects</a>
-          <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Activities</a>
-          <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-indigo-100 text-sm">Contact</a>
-        </div>
-      </div>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="about.html">About</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="experience.html">Work Showcase</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="certificate.html">Certificate</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="eduaction.html">Education</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="projects.html">Projects</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="activities.html">Activities</a>
-        <a class="text-white font-bold hover:text-yellow-300 mx-4 transition duration-200" href="contact.html">Contact</a>
-      </nav>
+<header class="header flex items-center px-8 relative">
+  <div class="container mx-auto flex justify-between items-center h-full">
+    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
+    <div class="md:hidden">
+      <button id="menuBtn" class="text-white focus:outline-none">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
     </div>
-  </header>
+    <nav id="navMenu" class="hidden md:flex space-x-6 font-semibold text-lg">
+      <a href="about.html" class="nav-link text-white">About</a>
+      <a href="experience.html" class="nav-link text-white">Work Showcase</a>
+      <a href="certificate.html" class="nav-link text-white">Certificate</a>
+      <a href="eduaction.html" class="nav-link text-white">Education</a>
+      <a href="projects.html" class="nav-link text-white">Projects</a>
+      <a href="activities.html" class="nav-link text-white">Activities</a>
+      <a href="contact.html" class="nav-link text-yellow-300 font-bold">Contact</a>
+    </nav>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden bg-gray-900 absolute w-full left-0 top-full shadow-lg z-40">
+    <a href="about.html" class="block px-6 py-3 border-b border-gray-700 text-white">About</a>
+    <a href="experience.html" class="block px-6 py-3 border-b border-gray-700 text-white">Work Showcase</a>
+    <a href="certificate.html" class="block px-6 py-3 border-b border-gray-700 text-white">Certificate</a>
+    <a href="eduaction.html" class="block px-6 py-3 border-b border-gray-700 text-white">Education</a>
+    <a href="projects.html" class="block px-6 py-3 border-b border-gray-700 text-white">Projects</a>
+    <a href="activities.html" class="block px-6 py-3 border-b border-gray-700 text-white">Activities</a>
+    <a href="contact.html" class="block px-6 py-3 text-yellow-300 font-bold">Contact</a>
+  </div>
+</header>
 
-  <script>
-    const hamburgerButton = document.getElementById("hamburger-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    hamburgerButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
-  </script>
+<section class="py-24 container mx-auto px-4">
+  <h2 class="text-5xl font-bold text-center text-white mb-16">
+    <span class="typing">Get in Touch</span>
+  </h2>
 
-  <!-- Contact Section -->
-  <section class="contact py-20" id="contact">
-    <div class="container mx-auto">
-      <h1 class="text-5xl font-extrabold text-center text-indigo-700 mb-12">
-        Contact <span class="text-gray-700">Info</span>
-      </h1>
-
-      <div class="flex flex-col md:flex-row items-center md:space-x-12">
-        
-        <!-- Info -->
-        <div class="info text-left bg-white p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition duration-300 w-full md:w-1/3">
-          <h3 class="text-lg mb-4"><span class="font-bold text-indigo-700">Email:</span> twishasonpal@gmail.com</h3>
-          <h3 class="text-lg mb-4"><span class="font-bold text-indigo-700">Phone:</span> +91 9428970313</h3>
-          <h3 class="text-lg mb-4"><span class="font-bold text-indigo-700">LinkedIn:</span> 
-            <a href="https://www.linkedin.com/in/sonpal-twisha-96855a239/" target="_blank" class="text-indigo-700 font-semibold hover:text-purple-600 transition">linkedin.com/in/twishasonpal</a>
-          </h3>
-          <h3 class="text-lg mb-4"><span class="font-bold text-indigo-700">GitHub:</span> 
-            <a href="https://github.com/twishasonpal" target="_blank" class="text-indigo-700 font-semibold hover:text-purple-600 transition">github.com/twisha</a>
-          </h3>
-        </div>
-
-        <!-- Form -->
-        <div class="form bg-white p-8 rounded-2xl shadow-2xl w-full md:w-2/3 mt-8 md:mt-0 transform hover:scale-105 transition duration-300">
-          <form id="contactForm" action="https://formspree.io/f/mlddgjrp" method="POST">
-            <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Your Name</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300" required>
-              <div class="error" id="nameError"></div>
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Your Email</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300" required>
-              <div class="error" id="emailError"></div>
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Your Message</label>
-              <textarea id="message" name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-indigo-300" rows="4" required></textarea>
-              <div class="error" id="messageError"></div>
-            </div>
-            <button type="submit" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-lg font-bold hover:from-indigo-700 hover:to-purple-700 shadow-lg transition duration-300">Send Message</button>
-            <div class="success mt-4 hidden" id="successMessage">Thank you! Your message has been sent successfully.</div>
-          </form>
-        </div>
-      </div>
+  <div class="grid md:grid-cols-2 gap-12">
+    <div class="card text-white">
+      <h3 class="text-3xl font-semibold mb-8">Contact Information</h3>
+      <ul class="space-y-6 text-lg">
+        <li class="flex items-center"><i class="fas fa-envelope contact-icon"></i>Email: <a href="mailto:twishasonpal@gmail.com" class="text-indigo-400 hover:text-indigo-200 ml-1">twishasonpal@gmail.com</a></li>
+        <li class="flex items-center"><i class="fas fa-phone-alt contact-icon"></i>Phone: <a href="tel:+919428970313" class="text-indigo-400 hover:text-indigo-200 ml-1">+91 9428970313</a></li>
+        <li class="flex items-center"><i class="fab fa-linkedin contact-icon"></i>LinkedIn: <a href="https://linkedin.com/in/twishasonpal" target="_blank" class="text-indigo-400 hover:text-indigo-200 ml-1">linkedin.com/in/twishasonpal</a></li>
+        <li class="flex items-center"><i class="fab fa-github contact-icon"></i>GitHub: <a href="https://github.com/twishasonpal" target="_blank" class="text-indigo-400 hover:text-indigo-200 ml-1">github.com/twishasonpal</a></li>
+      </ul>
     </div>
-  </section>
+
+    <div class="card text-white">
+      <h3 class="text-3xl font-semibold mb-8">Send a Message</h3>
+      <form id="contactForm">
+        <div class="mb-6">
+          <label for="name" class="block font-medium mb-2">Name</label>
+          <input type="text" id="name" name="user_name" placeholder="Your Name" required>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block font-medium mb-2">Email</label>
+          <input type="email" id="email" name="user_email" placeholder="Your Email" required>
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block font-medium mb-2">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn w-full">Send Message</button>
+        <div id="successMessage" class="text-green-400 mt-4 hidden">✅ Message sent successfully!</div>
+        <div id="errorMessage" class="text-red-400 mt-4 hidden">❌ Failed to send message.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-gray-400 text-center py-8">
+  <p>© 2025 Dashboard | All Rights Reserved</p>
+</footer>
+
+<script>
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // EmailJS form submission
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_aw46h0p', 'template_c1vc19u', form)
+      .then(() => {
+        document.getElementById('successMessage').classList.remove('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
+        form.reset();
+      }, (error) => {
+        console.error(error);
+        document.getElementById('errorMessage').classList.remove('hidden');
+        document.getElementById('successMessage').classList.add('hidden');
+      });
+  });
+</script>
 
 </body>
 </html>

@@ -1,179 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odoo Work Showcase</title>
-    <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .content-section {
-            margin-bottom: 40px;
-        }
-        .hero {
-            background: linear-gradient(145deg, #5A67D8, #434190);
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odoo Work Experience</title>
+<link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; overflow-x: hidden; }
+#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg,#6366f1,#a78bfa);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.hero h1 { font-size: 3rem; font-weight: 900; }
+.hero p { font-size: 1.25rem; margin-top: 1rem; }
+
+/* Cards */
+.card { 
+  background: rgba(255,255,255,0.05); 
+  backdrop-filter: blur(12px); 
+  border-radius: 1rem; 
+  border: 1px solid rgba(255,255,255,0.2); 
+  box-shadow: 0 0 15px rgba(139,92,246,0.3); 
+  transition: transform 0.4s ease, box-shadow 0.4s ease; 
+  position: relative; overflow: hidden; 
+}
+.card::before { 
+  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; 
+  background: linear-gradient(45deg,#f472b6,#facc15,#3b82f6,#6366f1); 
+  animation: rotate 6s linear infinite; opacity: 0.15; z-index: 0; 
+}
+@keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+.card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 40px rgba(139,92,246,0.7); }
+.card img { border-radius: 1rem; z-index:1; position: relative; transition: transform 0.4s ease, filter 0.4s ease; }
+.card:hover img { transform: scale(1.05); filter: brightness(85%); }
+
+.btn-primary { background: linear-gradient(to right,#f472b6,#6366f1); color:white; font-weight:600; transition: all 0.3s ease; }
+.btn-primary:hover { transform: translateY(-3px); background: linear-gradient(to right,#3b82f6,#facc15); }
+
+.section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 0.5rem; background: linear-gradient(90deg,#f472b6,#facc15,#3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.section-subtitle { text-align: center; color: #cbd5e1; margin-bottom: 4rem; font-size: 1rem; }
+
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Header & Hamburger */
+  .header {
+    background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 1rem 0;
+  }
+nav.desktop-menu { display: flex; gap: 1.5rem; font-weight: 600; }
+.hamburger { display: none; cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
+#mobileMenu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #312e81; z-index: 50; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
+#mobileMenu.show { display: flex; max-height: 500px; transition: max-height 0.3s ease-in; }
+#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
+#mobileMenu a:hover { color: #facc15; }
+.hamburger.active i { transform: rotate(90deg); transition: transform 0.3s ease; }
+@media(max-width:768px){
+  nav.desktop-menu { display: none; }
+  .hamburger { display: block; }
+}
+</style>
 </head>
-<body class="bg-gray-50">
+<body>
 
-    <!-- Header Section -->
-    <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-            <!-- Home Menu -->
-            <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
+<canvas id="particles"></canvas>
+
+<!-- Header -->
+<!-- Header -->
+<header class="header relative">
+  <div class="container mx-auto flex justify-between items-center px-6 relative">
+    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
     
-            <!-- Hamburger Icon for Mobile View -->
-            <div class="md:hidden relative ml-auto">
-                <button id="hamburger-button" class="text-white focus:outline-none">
-                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-    
-                <!-- Dropdown Menu -->
-                <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-                    <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-                    <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-                    <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-                    <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-                    <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-                    <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-                    <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-                </div>
-            </div>
-    
-            <!-- Full Navigation for Larger Screens -->
-            <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu flex space-x-6 font-semibold">
+      <a href="about.html" class="hover:text-yellow-300">About</a>
+      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
+      <a href="certificate.html" class="hover:text-yellow-300">Certificate</a>
+      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
+      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
+      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
+      <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+    </nav>
 
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
-                <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
-    
-    <script>
-        const hamburgerButton = document.getElementById("hamburger-button");
-        const mobileMenu = document.getElementById("mobile-menu");
-    
-        hamburgerButton.addEventListener("click", () => {
-            mobileMenu.classList.toggle("hidden");
-        });
-    </script>
+    <!-- Hamburger -->
+    <div class="hamburger md:hidden" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
 
-    <main class="container mx-auto px-4 py-12">
-        
-        <!-- Hero Section -->
-        <section class="hero text-white text-center py-24">
-            <h1 class="text-4xl font-extrabold leading-tight">Odoo Work Showcase</h1>
-            <p class="mt-4 text-lg leading-relaxed">Highlighting my journey and experience with Odoo in a professional manner.</p>
-        </section>
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="flex-col md:hidden">
+    <a href="about.html">About</a>
+    <a href="experience.html">Work Showcase</a>
+    <a href="certificate.html">Certificate</a>
+    <a href="eduaction.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+  </nav>
+</header>
 
-        <!-- About Section -->
-      
-        <section class="content-section bg-gray-100 p-8 rounded-lg shadow-md">
-            <h2 class="text-4xl font-bold mb-8 text-gray-900">Odoo Work Showcase</h2>
-            <p class="text-lg text-gray-700 mb-6">Here are some key highlights from my Odoo experience and contributions:</p>
-        
-            <ul class="list-disc ml-8 text-gray-700 space-y-4">
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Custom module development and customization tailored to specific business needs.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Integration of third-party applications and APIs to enhance Odoo's functionality.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Automation of business processes using Python and Odoo scripting for efficiency.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Database optimization and performance tuning for seamless Odoo environments.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Crafting custom reports, dashboards, and workflow automations.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Collaborated with cross-functional teams to gather requirements and design solutions.
-                </li>
-                <li class="flex items-center">
-                    <span class="text-green-500 mr-3">✔</span>
-                    Provided training and support to ensure smooth adoption by Odoo users.
-                </li>
-            </ul>
-        </section>
-        
+<!-- Hero Section -->
+<section class="hero fade-in">
+  <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Odoo Work Experience</h1>
+  <p class="text-md sm:text-lg md:text-xl mt-2">Professional experience, contributions, and skills showcase.</p>
+</section>
 
-        <!-- Skills Section -->
-        <section class="content-section">
-            <h2 class="text-3xl font-semibold mb-6 text-gray-900">Skills & Interests</h2>
-            <div class="flex flex-wrap -m-4">
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="odoo_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="odoo.png">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Odoo Development</h2>
-                            <p class="text-gray-700">I have strong knowledge of Odoo, including module customization, integration, and working with various business processes.</p>
-                        </div>
-                    </div>
-                </div>
+<!-- Experience Cards Section -->
+<section class="container mx-auto px-5 py-16 fade-in">
+  <h2 class="section-title">🌟 Key Contributions</h2>
+  <p class="section-subtitle">Here are some impactful highlights from my Odoo work experience.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Custom Module Development</h3>
+      <p>Built tailored Odoo modules for automation in sales, inventory, and accounting processes.</p>
+    </div>
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Workflow Automation</h3>
+      <p>Implemented automated processes to reduce manual effort and enhance operational efficiency.</p>
+    </div>
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Dashboards & Reports</h3>
+      <p>Created interactive dashboards and reports to provide actionable business insights.</p>
+    </div>
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Integration Solutions</h3>
+      <p>Integrated third-party applications to extend Odoo functionality while maintaining security.</p>
+    </div>
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Database Optimization</h3>
+      <p>Enhanced Odoo database performance for faster processing and reliability.</p>
+    </div>
+    <div class="card p-6 fade-in">
+      <h3 class="text-lg font-bold text-indigo-400 mb-2">Team Collaboration</h3>
+      <p>Worked closely with cross-functional teams to gather requirements and implement solutions.</p>
+    </div>
+  </div>
+</section>
 
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="python_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="python.jpg">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">Python Development</h2>
-                            <p class="text-gray-700">Proficient in Python, which is essential for creating custom scripts and automation in Odoo.</p>
-                        </div>
-                    </div>
-                </div>
+<!-- CTA Section -->
+<section class="text-center py-16 fade-in">
+  <h2 class="text-3xl font-bold mb-4 text-indigo-400">Let's Connect</h2>
+  <p class="text-gray-300 mb-6">Interested in collaborating or hiring me? Reach out for professional opportunities.</p>
+  <a href="contact.html" class="btn-primary px-8 py-3 rounded-lg text-lg">Contact Me</a>
+</section>
 
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="javascript_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="java_scrpt.png">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">JavaScript</h2>
-                            <p class="text-gray-700">Skilled in JavaScript for enhancing Odoo interfaces and user experiences.</p>
-                        </div>
-                    </div>
-                </div>
+<!-- Footer -->
+<footer class="text-center py-6 text-gray-400 bg-gray-900">
+  &copy; 2025 Odoo Work Experience — All Rights Reserved
+</footer>
 
-                <div class="p-4 lg:w-1/3 md:w-1/2 w-full">
-                    <div class="h-full flex items-center border-gray-200 border p-6 rounded-lg hover:shadow-lg transition-shadow duration-300">
-                        <img alt="sql_icon" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="postgres_sql.png">
-                        <div class="flex-grow">
-                            <h2 class="text-gray-900 title-font font-medium">SQL & Database Management</h2>
-                            <p class="text-gray-700">Experienced in working with databases, including SQL queries and optimization in Odoo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- Scripts -->
+<script>
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    menuBtn.classList.toggle('active');
+  });
 
-        <!-- Footer -->
-       
+  // Fade-in on scroll
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => appearOnScroll.observe(fader));
 
-    </main>
+  // Particles background
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  let particlesArray = [];
+  class Particle {
+    constructor(x,y,dirX,dirY,size,color){ this.x=x; this.y=y; this.dirX=dirX; this.dirY=dirY; this.size=size; this.color=color; }
+    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
+    update(){
+      if(this.x+this.size>canvas.width||this.x-this.size<0) this.dirX=-this.dirX;
+      if(this.y+this.size>canvas.height||this.y-this.size<0) this.dirY=-this.dirY;
+      this.x+=this.dirX; this.y+=this.dirY; this.draw();
+    }
+  }
+  function init(){ particlesArray=[]; for(let i=0;i<100;i++){ let size=Math.random()*2+1; let x=Math.random()*(canvas.width-2); let y=Math.random()*(canvas.height-2); let dirX=(Math.random()-0.5)*1; let dirY=(Math.random()-0.5)*1; let color='rgba(255,255,255,0.5)'; particlesArray.push(new Particle(x,y,dirX,dirY,size,color)); } }
+  function animate(){ requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>p.update()); }
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; init();});
+  init(); animate();
+</script>
 
 </body>
 </html>

@@ -1,129 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me</title>
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Me - Sonpal Twisha</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
 <style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #f5f7fa;
+  body { font-family: 'Inter', sans-serif; background: #1e3a8a; color: #f9fafb; overflow-x: hidden; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 50;
   }
 
-  /* Animate sections on scroll */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
+  /* Desktop Menu */
+  nav.desktop-menu a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
   }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  nav.desktop-menu a:hover { color: #facc15; }
+
+  /* Hamburger Menu */
+  .hamburger { display: none; cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
+  #mobileMenu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #312e81; z-index: 50; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
+  #mobileMenu.show { display: flex; max-height: 500px; transition: max-height 0.3s ease-in; }
+  #mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
+  #mobileMenu a:hover { color: #facc15; }
+  .hamburger.active i { transform: rotate(90deg); transition: transform 0.3s ease; }
+
+  @media(max-width:768px){
+    nav.desktop-menu { display: none; }
+    .hamburger { display: block; }
   }
 
-  /* Profile Image styling */
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(90deg,#4f46e5,#a855f7);
+    color: #fff; font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168,85,247,0.4);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(168,85,247,0.6);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(to right,#facc15,#f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Profile Image Glow */
   .profile-img {
     border-radius: 50%;
-    border: 5px solid #6366f1;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 6px solid #fff;
+    box-shadow: 0 0 30px #f472b6, 0 0 60px #8b5cf6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .profile-img:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 50px #f472b6, 0 0 80px #8b5cf6;
   }
 
-  /* Card hover effects */
-  .info-card:hover {
+  /* Highlight Cards */
+  .highlight-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 20px rgba(139,92,246,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .highlight-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 0 40px rgba(139,92,246,0.6);
   }
 
-  /* Button hover */
-  .btn-primary {
-    background: #6366f1;
-    color: white;
-    transition: all 0.3s ease;
+  /* Section Titles */
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right,#facc15,#f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .btn-primary:hover {
-    background: #4f46e5;
-    transform: translateY(-3px);
+
+  /* Contact Section */
+  .contact-section {
+    background: linear-gradient(to right,#ede9fe,#d8b4fe);
   }
 </style>
 </head>
 <body>
 
 <!-- Header -->
-<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
-    <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Home</a>
-    <nav class="flex space-x-4 text-white font-semibold">
-      <a href="about.html" class="hover:text-yellow-300 transition">About</a>
-      <a href="contact.html".html" class="hover:text-yellow-300 transition">Contact</a>
-      <a href="activities.html" class="hover:text-yellow-300 transition">Activities</a>
-      <a href="projects.html" class="hover:text-yellow-300 transition">Projects</a>
-      <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+<header class="header">
+  <div class="container mx-auto flex justify-between items-center px-6 py-4 relative">
+    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu flex space-x-6 font-semibold">
+      <a href="about.html" class="hover:text-yellow-300">About</a>
+      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
+      <a href="certificate.html" class="hover:text-yellow-300">Certificate</a>
+      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
+      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
+      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
+      <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
     </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger md:hidden" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="flex-col md:hidden">
+    <a href="about.html">About</a>
+    <a href="experience.html">Work Showcase</a>
+    <a href="certificate.html">Certificate</a>
+    <a href="eduaction.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+  </nav>
 </header>
 
-<!-- About Me Section -->
-<section class="container mx-auto px-5 py-16">
-  <div class="flex flex-col md:flex-row items-center md:space-x-12 fade-in">
-    
-    <!-- Profile Image -->
-    <div class="md:w-1/3 text-center mb-8 md:mb-0">
-      <img src="twisha_AI.png" alt="Profile Picture">
-    </div>
-    
-    <!-- Info Cards -->
-    <div class="md:w-2/3 space-y-6">
-      <h1 class="text-4xl font-bold text-indigo-700 mb-4">Hi, I'm <span class="text-gray-800">Sonpal Twisha</span></h1>
-      <p class="text-gray-600 leading-relaxed text-lg">
-        Junior Software Engineer with a passion for creating dynamic and user-friendly web applications.
-        Experienced in Python, JavaScript, and modern web frameworks. Dedicated to building innovative solutions and continuously learning new technologies.
+<!-- HERO -->
+<section class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 text-white">
+  <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 space-y-6">
+      <h1 class="text-5xl font-extrabold leading-tight">Hi, I'm <span class="gradient-text">Sonpal Twisha</span></h1>
+      <p class="text-lg text-gray-100 max-w-lg">
+        Junior Software Engineer specializing in <span class="font-semibold">Python, JavaScript, SQL</span>, and modern web frameworks. 
+        I craft clean, scalable applications and love solving real-world problems with technology. 🚀
       </p>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
-        <div class="info-card bg-white p-6 rounded-lg shadow hover:info-card transition transform duration-300">
-          <h3 class="text-lg font-semibold text-indigo-700">Age</h3>
-          <p>21</p>
-        </div>
-        <div class="info-card bg-white p-6 rounded-lg shadow hover:info-card transition transform duration-300">
-          <h3 class="text-lg font-semibold text-indigo-700">Qualification</h3>
-          <p>B.E in Computer Science Engineering</p>
-        </div>
-        <div class="info-card bg-white p-6 rounded-lg shadow hover:info-card transition transform duration-300">
-          <h3 class="text-lg font-semibold text-indigo-700">Experience</h3>
-          <p>2 Years</p>
-        </div>
-        <div class="info-card bg-white p-6 rounded-lg shadow hover:info-card transition transform duration-300">
-          <h3 class="text-lg font-semibold text-indigo-700">Client Projects Completed</h3>
-          <p>500+</p>
-        </div>
+      <div class="flex space-x-4">
+        <a href="resume_twisha.pdf" download class="btn-primary px-6 py-3 rounded-lg shadow-lg">Download CV</a>
+        <a href="projects.html" class="bg-white text-indigo-700 px-6 py-3 rounded-lg shadow-lg font-semibold hover:bg-gray-100">View Projects</a>
       </div>
-
-      <a href="resume_twisha.pdf" download>
-        <button class="btn-primary px-6 py-3 mt-6 rounded-lg font-bold">Download CV</button>
-      </a>
+    </div>
+    <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
+      <img src="twisha_AI.png" alt="Profile" class="profile-img w-72 h-72 object-cover">
     </div>
   </div>
 </section>
 
+<!-- HIGHLIGHTS -->
+<section class="container mx-auto px-6 py-16">
+  <h2 class="section-title text-center mb-12">Quick Highlights</h2>
+  <div class="grid gap-8 md:grid-cols-4 text-center">
+    <div class="highlight-card p-8">
+      <h3 class="text-2xl font-bold text-indigo-300">21</h3>
+      <p class="mt-2 text-gray-200">Age</p>
+    </div>
+    <div class="highlight-card p-8">
+      <h3 class="text-2xl font-bold text-indigo-300">B.E CSE</h3>
+      <p class="mt-2 text-gray-200">Qualification</p>
+    </div>
+    <div class="highlight-card p-8">
+      <h3 class="text-2xl font-bold text-indigo-300">2+ Years</h3>
+      <p class="mt-2 text-gray-200">Experience</p>
+    </div>
+    <div class="highlight-card p-8">
+      <h3 class="text-2xl font-bold text-indigo-300">500+</h3>
+      <p class="mt-2 text-gray-200">Client Projects Completed</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="section-title mb-6">Let's Work Together</h2>
+    <p class="text-gray-700 mb-8">Open to remote and on-site opportunities. Let’s connect and build something amazing!</p>
+    <a href="contact.html" class="btn-primary px-8 py-4 rounded-lg shadow-lg">Contact Me</a>
+  </div>
+</section>
+
+<!-- Scroll Animations -->
 <script>
-  // Fade-in animation on scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      appearOnScroll.unobserve(entry.target);
-    });
-  }, appearOptions);
+  ScrollReveal().reveal('h1, h2, .highlight-card, .btn-primary, img', {
+    delay: 200, distance: '40px', duration: 1000, origin: 'bottom', interval: 150
+  });
 
-  faders.forEach(fader => appearOnScroll.observe(fader));
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    menuBtn.classList.toggle('active');
+  });
 </script>
-
 </body>
 </html>

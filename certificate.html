@@ -1,165 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-      #menu-button:hover + #dropdown-menu, #dropdown-menu:hover {
-     display: block;
- }
- </style>
-    <title>Document</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates - Sonpal Twisha</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #1e3a8a, #6d28d9, #9333ea);
+  color: #f9fafb;
+  overflow-x: hidden;
+}
 
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
+/* Header & Hamburger */
+.header {
+  background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.8rem 0;
+}
+
+nav.desktop-menu { display: flex; gap: 1.5rem; font-weight: 600; }
+
+.hamburger { display: none; cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
+#mobileMenu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #312e81; z-index: 50; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
+#mobileMenu.show { display: flex; max-height: 500px; transition: max-height 0.3s ease-in; }
+#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
+#mobileMenu a:hover { color: #facc15; }
+.hamburger.active i { transform: rotate(90deg); transition: transform 0.3s ease; }
+
+@media(max-width:768px){
+  nav.desktop-menu { display: none; }
+  .hamburger { display: block; }
+}
+
+/* Certificate Card */
+.cert-card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(139,92,246,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cert-card:hover { transform: translateY(-10px); box-shadow: 0 0 40px rgba(139,92,246,0.6); }
+.cert-card img { border-radius: 0.75rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.cert-card img:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right,#facc15,#f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-subtitle {
+  text-align: center;
+  color: #e0e7ff;
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+</style>
 </head>
-<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <!-- Home Menu -->
-      <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg mx-4 md:ml-0" href="index.html">Home</a>
-
-      <!-- Hamburger Icon for Mobile View -->
-      <div class="md:hidden relative ml-auto">
-          <button id="hamburger-button" class="text-white focus:outline-none">
-              <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-          </button>
-
-          <!-- Dropdown Menu -->
-          <div id="mobile-menu" class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg hidden">
-              <a href="about.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">About</a>
-              <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Work Showcase</a>
-              <a href="certificate.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Certificate</a>
-              <a href="eduaction.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Education</a>
-              <a href="projects.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Projects</a>
-              <a href="activities.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Activities</a>
-              <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 text-sm">Contact</a>
-          </div>
-      </div>
-
-      <!-- Full Navigation for Larger Screens -->
-      <nav class="hidden md:flex md:ml-auto items-center text-base justify-center">
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="about.html">About</a>
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="experience.html">Work Showcase</a>
-
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="certificate.html">Certificate</a>
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="eduaction.html">Education</a>
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="projects.html">Projects</a>
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="activities.html">Activities</a>
-          <a class="text-white font-bold hover:text-yellow-300 mx-4" href="contact.html">contact</a>
-      </nav>
-  </div>
-</header>
-
-<script>
-  const hamburgerButton = document.getElementById("hamburger-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  hamburgerButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-  });
-</script>
-</script>
-
-
 
 <body>
-  
 
-  <!----certificate-->
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap w-full mb-20">
-        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Certificates</h1>
-          <div class="h-1 w-20 bg-indigo-500 rounded"></div>
-        </div>
-        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">“Learning is not attained by chance; it must be sought for with ardour and diligence.”– Abigail Adams </p>
-      </div>
-      <div class="flex flex-wrap -m-4">
-       
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="ibm.JPG"><img class="h-40 rounded w-full object-cover object-center mb-6" src="ibm.JPG" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">IBM</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Building Generative AI-Powered Applications with Python</h2>
-            <p class="leading-relaxed text-base">2024</p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="isro.PNG"><img class="h-40 rounded w-full object-cover object-center mb-6" src="isro.PNG" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">ISRO</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Geoprocessing using Python</h2>
-            <p class="leading-relaxed text-base">2023</p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="google.jpg"><img class="h-40 rounded w-full object-cover object-center mb-6" src="google.jpg" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">GOOGLE</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Crash Course on Python</h2>
-            <p class="leading-relaxed text-base">2021</p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <a href="info.jpg"><img class="h-40 rounded w-full object-cover object-center mb-6" src="info.jpg" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">INFOSYS</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Basics of Python</h2>
-            <p class="leading-relaxed text-base">2021</p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="mx.JPG"><img class="h-40 rounded w-full object-cover object-center mb-6" src="mx.JPG" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">ELEARNMARKET</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Mx excel</h2>
-            <p class="leading-relaxed text-base">2021</p>
-          </div>
-        </div>
-        <div class="xl:w-1/4 md:w-1/2 p-4">
-          <div class="bg-gray-100 p-6 rounded-lg">
-           <a href="UDEMY.JPG"><img class="h-40 rounded w-full object-cover object-center mb-6" src="UDEMY.JPG" alt="content"></a>
-            <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">UDEMY</h3>
-            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">The python Programming Comprehensic Boot camp</h2>
-            <p class="leading-relaxed text-base">2021</p>
-          </div>
-        </div>
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-100 p-6 rounded-lg">
-         <a href="fsd.PNG"><img class="h-40 rounded w-full object-cover object-center mb-6" src="fsd.PNG" alt="content"></a>
-          <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">JOHNS Hopkins University</h3>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Fullstack Devlopment</h2>
-          <p class="leading-relaxed text-base">2022</p>
-        </div>
-      </div>
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="info.jpg"><img class="h-40 rounded w-full object-cover object-center mb-6" src="tcsion.PNG" alt="content"></a>
-          <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">TCS ION</h3>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Group Discussion</h2>
-          <p class="leading-relaxed text-base">2021</p>
-        </div>
-      </div>
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-100 p-6 rounded-lg">
-          <a href="info.jpg"><img class="h-40 rounded w-full object-cover object-center mb-6" src="tcsion.PNG" alt="content"></a>
-          <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">TCS ION</h3>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Group Discussion</h2>
-          <p class="leading-relaxed text-base">2021</p>
-        </div>
+<!-- Header -->
+<header class="header relative">
+  <div class="container mx-auto flex justify-between items-center px-6 relative">
+    <a href="index.html" class="text-white text-2xl md:text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu">
+      <a href="about.html" class="hover:text-yellow-300">About</a>
+      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
+      <a href="certificate.html" class="hover:text-yellow-300 font-bold">Certificate</a>
+      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
+      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
+      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
+      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+    </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger md:hidden" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="flex-col md:hidden">
+    <a href="about.html">About</a>
+    <a href="experience.html">Work Showcase</a>
+    <a href="certificate.html" class="font-bold text-yellow-300">Certificate</a>
+    <a href="eduaction.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- Certificates Section -->
+<section class="px-5 py-24">
+  <h1 class="section-title">My Certificates</h1>
+  <p class="section-subtitle">“Learning is not attained by chance; it must be sought for with ardour and diligence.” – Abigail Adams</p>
+
+  <div class="container mx-auto flex flex-wrap -m-4">
+    
+    <!-- IBM -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="ibm.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="ibm.JPG" alt="IBM Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">IBM</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Building Generative AI-Powered Applications with Python</h2>
+        <p class="text-gray-300">2024</p>
       </div>
     </div>
+
+    <!-- ISRO -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="isro.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="isro.PNG" alt="ISRO Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">ISRO</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Geoprocessing using Python</h2>
+        <p class="text-gray-300">2023</p>
+      </div>
     </div>
-  </section>
-  </body>
-  </html>
+
+    <!-- Google -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="google.jpg"><img class="h-40 w-full object-cover object-center mb-6" src="google.jpg" alt="Google Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">GOOGLE</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Crash Course on Python</h2>
+        <p class="text-gray-300">2021</p>
+      </div>
+    </div>
+
+    <!-- Infosys -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="info.jpg"><img class="h-40 w-full object-cover object-center mb-6" src="info.jpg" alt="Infosys Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">INFOSYS</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Basics of Python</h2>
+        <p class="text-gray-300">2021</p>
+      </div>
+    </div>
+
+    <!-- ElearnMarket -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="mx.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="mx.JPG" alt="ElearnMarket Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">ELEARNMARKET</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Mx Excel</h2>
+        <p class="text-gray-300">2021</p>
+      </div>
+    </div>
+
+    <!-- Udemy -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="UDEMY.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="UDEMY.JPG" alt="Udemy Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">UDEMY</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Python Programming Comprehensive Bootcamp</h2>
+        <p class="text-gray-300">2021</p>
+      </div>
+    </div>
+
+    <!-- Fullstack Development -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="fsd.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="fsd.PNG" alt="Fullstack Dev Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">JOHNS Hopkins University</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Fullstack Development</h2>
+        <p class="text-gray-300">2022</p>
+      </div>
+    </div>
+
+    <!-- TCS ION -->
+    <div class="xl:w-1/4 md:w-1/2 p-4">
+      <div class="cert-card p-6">
+        <a href="tcsion.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="tcsion.PNG" alt="TCS ION Certificate"></a>
+        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">TCS ION</h3>
+        <h2 class="text-lg font-medium text-white mb-2">Group Discussion</h2>
+        <p class="text-gray-300">2021</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+    menuBtn.classList.toggle('active');
+  });
+
+  // Scroll Reveal for certificates
+  ScrollReveal().reveal('.cert-card, .section-title, .section-subtitle', {
+    delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 150
+  });
+</script>
+
+</body>
+</html>

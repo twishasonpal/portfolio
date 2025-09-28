@@ -3,123 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Me</title>
+<title>Co-Curricular Activities</title>
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
 <style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #f5f7fa;
-  }
+/* Body & Font */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
 
-  /* Animate sections on scroll */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Section Titles */
+.section-title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg,#f472b6,#facc15,#3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-subtitle {
+  text-align: center;
+  color: #cbd5e1;
+  margin-bottom: 4rem;
+  font-size: 1.2rem;
+}
 
-  /* Profile Image styling */
-  .profile-img {
-    border-radius: 50%;
-    border: 5px solid #6366f1;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-  .profile-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  }
+/* Activity Cards */
+.activity-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 20px rgba(139,92,246,0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.activity-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(45deg, #f472b6, #facc15, #3b82f6, #6366f1);
+  animation: rotate 6s linear infinite;
+  opacity: 0.15;
+  z-index: 0;
+}
+@keyframes rotate {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+.activity-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 0 50px rgba(139,92,246,0.7);
+}
+.activity-card img {
+  border-radius: 1rem;
+  z-index:1;
+  position: relative;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.activity-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(85%);
+}
 
-  /* Card hover effects */
-  .info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-  }
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(to right,#f472b6,#6366f1);
+  color:white;
+  font-weight:600;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(to right,#3b82f6,#facc15);
+}
 
-  /* Button hover */
-  .btn-primary {
-    background: #6366f1;
-    color: white;
-    transition: all 0.3s ease;
-  }
-  .btn-primary:hover {
-    background: #4f46e5;
-    transform: translateY(-3px);
-  }
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Particles Canvas */
+#particles {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:-1;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+/* Hamburger Menu */
+.hamburger { cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
+#mobileMenu { display: none; flex-direction: column; background: #312e81; }
+#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
+#mobileMenu a:hover { color: #facc15; }
+@media(min-width:768px){ 
+  .desktop-menu { display: flex; } 
+  .hamburger { display: none; } 
+  #mobileMenu { display: none; } 
+}
 </style>
 </head>
+<body>
+
+<canvas id="particles"></canvas>
 
 <!-- Header -->
-<header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-700 shadow-lg sticky top-0 z-50">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
-    <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Home</a>
-    <nav class="flex space-x-4 text-white font-semibold">
-      <a href="about.html" class="hover:text-yellow-300 transition">About</a>
-      <a href="projects.html" class="hover:text-yellow-300 transition">Projects</a>
-      <a href="activities.html" class="hover:text-yellow-300 transition">Activities</a>
-      <a href="contact.html" class="hover:text-yellow-300 transition">Contact</a>
+<header class="header">
+  <div class="container mx-auto flex justify-between items-center p-5 relative">
+    <!-- Logo -->
+    <a class="text-white text-3xl font-bold hover:bg-indigo-900 px-4 py-2 rounded-lg" href="index.html">Dashboard</a>
+
+    <!-- Desktop Menu -->
+    <nav class="desktop-menu hidden md:flex space-x-6 items-center font-semibold">
+      <a href="about.html" class="text-white font-bold hover:text-yellow-300">About</a>
+      <a href="experience.html" class="text-white font-bold hover:text-yellow-300">Work Showcase</a>
+      <a href="certificate.html" class="text-white font-bold hover:text-yellow-300">Certificate</a>
+      <a href="eduaction.html" class="text-white font-bold hover:text-yellow-300">Education</a>
+      <a href="projects.html" class="text-white font-bold hover:text-yellow-300">Projects</a>
+      <a href="activities.html" class="text-white font-bold hover:text-yellow-300">Activities</a>
+      <a href="contact.html" class="text-white font-bold hover:text-yellow-300">Contact</a>
     </nav>
+
+    <!-- Hamburger -->
+    <div class="hamburger md:hidden" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="flex flex-col md:hidden">
+    <a href="about.html">About</a>
+    <a href="experience.html">Work Showcase</a>
+    <a href="certificate.html">Certificate</a>
+    <a href="eduaction.html">Education</a>
+    <a href="projects.html">Projects</a>
+    <a href="activities.html">Activities</a>
+    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+  </nav>
 </header>
 
 <!-- Activities Section -->
 <section class="container mx-auto px-5 py-16 fade-in">
-  <div class="text-center mb-12">
-    <h1 class="text-4xl font-bold text-gray-800">Co-curricular Activities</h1>
-    <p class="text-gray-600 mt-4">Explore my notable activities and certifications.</p>
-  </div>
+  <h1 class="section-title">🌟 Co-Curricular Activities</h1>
+  <p class="section-subtitle">Explore my notable activities and certificates.</p>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Activity Card Example -->
-    <div class="activity-card">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="activity-card fade-in">
       <img src="cyber_ethics.jpeg" alt="Cyber Ethics" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold text-gray-800">Cyber Ethics</h2>
-        <p class="text-gray-600 mt-1">Contest</p>
-        <a href="cyber.jpg" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      <div class="p-4 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400">Cyber Ethics</h2>
+        <p class="text-gray-300 mt-1">Contest</p>
+        <a href="cyber.jpg" class="btn-primary inline-block mt-3 px-4 py-2 rounded-lg text-sm">View Certificate</a>
       </div>
     </div>
-
-    <div class="activity-card">
+    <div class="activity-card fade-in">
       <img src="ninja.png" alt="Coding Ninja" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold text-gray-800">Coding Ninja</h2>
-        <p class="text-gray-600 mt-1">Contest Round 1</p>
-        <a href="conding_ninja_certificate1.png" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      <div class="p-4 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400">Coding Ninja</h2>
+        <p class="text-gray-300 mt-1">Contest Round 1</p>
+        <a href="conding_ninja_certificate1.png" class="btn-primary inline-block mt-3 px-4 py-2 rounded-lg text-sm">View Certificate</a>
       </div>
     </div>
-
-    <div class="activity-card">
+    <div class="activity-card fade-in">
       <img src="tcs.png" alt="TCS NQT" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold text-gray-800">TCS NQT</h2>
-        <p class="text-gray-600 mt-1">Examination</p>
-        <a href="tcsnqt.PNG" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Result</a>
+      <div class="p-4 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400">TCS NQT</h2>
+        <p class="text-gray-300 mt-1">Examination</p>
+        <a href="tcsnqt.PNG" class="btn-primary inline-block mt-3 px-4 py-2 rounded-lg text-sm">View Result</a>
       </div>
     </div>
-
-    <div class="activity-card">
+    <div class="activity-card fade-in">
       <img src="ninja.png" alt="Coding Ninja Round 2" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold text-gray-800">Coding Ninja</h2>
-        <p class="text-gray-600 mt-1">Contest Round 2</p>
-        <a href="coding_ninja2.png" class="btn-primary inline-block mt-3 px-3 py-1.5 rounded-lg font-semibold text-sm">View Certificate</a>
+      <div class="p-4 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400">Coding Ninja</h2>
+        <p class="text-gray-300 mt-1">Contest Round 2</p>
+        <a href="coding_ninja2.png" class="btn-primary inline-block mt-3 px-4 py-2 rounded-lg text-sm">View Certificate</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="text-gray-700 body-font bg-gray-100">
+<footer class="text-gray-700 body-font bg-gray-900">
   <div class="container mx-auto py-6 px-5 flex flex-wrap flex-col sm:flex-row justify-between">
-    <p class="text-gray-600 text-sm text-center sm:text-left">&copy; 2025 Curricular Activities — All Rights Reserved</p>
+    <p class="text-gray-400 text-sm text-center sm:text-left">&copy; 2025 Curricular Activities — All Rights Reserved</p>
     <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Facebook</a>
-      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Twitter</a>
-      <a href="#" class="text-gray-600 hover:text-indigo-500 mx-2">Instagram</a>
+      <a href="#" class="text-gray-400 hover:text-indigo-400 mx-2">Facebook</a>
+      <a href="#" class="text-gray-400 hover:text-indigo-400 mx-2">Twitter</a>
+      <a href="#" class="text-gray-400 hover:text-indigo-400 mx-2">Instagram</a>
     </span>
   </div>
 </footer>
@@ -128,15 +220,47 @@
   // Fade-in on scroll
   const faders = document.querySelectorAll('.fade-in');
   const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, appearOnScroll) => {
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
+      if(!entry.isIntersecting) return;
       entry.target.classList.add('visible');
-      appearOnScroll.unobserve(entry.target);
+      observer.unobserve(entry.target);
     });
   }, appearOptions);
-
   faders.forEach(fader => appearOnScroll.observe(fader));
+
+  // Particles Background
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  let particlesArray = [];
+  class Particle {
+    constructor(x,y,dirX,dirY,size,color){
+      this.x=x; this.y=y; this.dirX=dirX; this.dirY=dirY; this.size=size; this.color=color;
+    }
+    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
+    update(){
+      if(this.x+this.size>canvas.width||this.x-this.size<0) this.dirX=-this.dirX;
+      if(this.y+this.size>canvas.height||this.y-this.size<0) this.dirY=-this.dirY;
+      this.x+=this.dirX; this.y+=this.dirY; this.draw();
+    }
+  }
+  function init(){ particlesArray=[]; for(let i=0;i<100;i++){ let size=Math.random()*2+1; let x=Math.random()*(canvas.width-2); let y=Math.random()*(canvas.height-2); let dirX=(Math.random()-0.5)*1; let dirY=(Math.random()-0.5)*1; let color='rgba(255,255,255,0.5)'; particlesArray.push(new Particle(x,y,dirX,dirY,size,color)); } }
+  function animate(){ requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>p.update()); }
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; init();});
+  init(); animate();
+
+  // Hamburger toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    if(mobileMenu.style.display === "flex") {
+      mobileMenu.style.display = "none";
+    } else {
+      mobileMenu.style.display = "flex";
+    }
+  });
 </script>
 
 </body>
