@@ -3,60 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Twisha Sonpal | Dashboard</title>
+<title>Projects - Sonpal Twisha</title>
 <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
+
 <style>
   body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg,#1a202c,#4c51bf);
-    color: #f7fafc;
+    background: #0f172a;
+    color: #f8fafc;
     overflow-x: hidden;
+  }
+
+  /* Particle Canvas */
+  #particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   /* Header */
   .header {
     background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     position: sticky;
     top: 0;
     z-index: 50;
     padding: 1rem 0;
   }
-
-  /* Dashboard cards */
-  .dash-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
-    border-radius: 1rem;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 20px rgba(168,85,247,0.5);
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .dash-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 35px rgba(99,102,241,0.8);
-  }
-
-  .dash-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #facc15;
-  }
-
-  /* Footer */
-  .footer {
-    background-color: #312e81;
-    color: #e2e8f0;
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  /* Fade-in animation */
-  .fade-in { opacity: 0; animation: fadeIn 1s forwards; }
-  @keyframes fadeIn { to { opacity: 1; } }
 
   /* Hamburger menu */
   .hamburger {
@@ -83,7 +61,7 @@
 
   #mobileMenu.show {
     display: flex;
-    max-height: 500px; /* enough for all links */
+    max-height: 500px;
     transition: max-height 0.3s ease-in;
   }
 
@@ -106,32 +84,105 @@
     transform: rotate(90deg);
     transition: transform 0.3s ease;
   }
+
+  /* Section Title */
+  .section-title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg,#facc15,#f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: #cbd5e1;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+  }
+
+  /* Project Cards */
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px rgba(139,92,246,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #f472b6, #facc15, #3b82f6, #6366f1);
+    animation: rotate 6s linear infinite;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .project-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 0 40px rgba(139,92,246,0.7);
+  }
+  .project-card img {
+    border-radius: 1rem;
+    z-index: 1;
+    position: relative;
+    transition: transform 0.4s ease, filter 0.4s ease;
+  }
+  .project-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(85%);
+  }
+
+  /* Fade-in Animation */
+  .fade-in {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
+</head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-YQ1XNGWTK8');
 </script>
+
 <body>
+
+<canvas id="particles"></canvas>
 
 <!-- Header -->
 <header class="header relative">
   <div class="container mx-auto flex justify-between items-center px-6 relative">
-    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
-    
+    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Projects</a>
+
     <!-- Desktop Menu -->
     <nav class="desktop-menu flex space-x-6 font-semibold">
       <a href="about.html" class="hover:text-yellow-300">About</a>
       <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
       <a href="certificate.html" class="hover:text-yellow-300">Certificate</a>
       <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
-      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
+      <a href="projects.html" class="text-yellow-300 font-bold">Projects</a>
       <a href="activities.html" class="hover:text-yellow-300">Activities</a>
-      <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
     </nav>
 
     <!-- Hamburger -->
@@ -146,63 +197,137 @@
     <a href="experience.html">Work Showcase</a>
     <a href="certificate.html">Certificate</a>
     <a href="eduaction.html">Education</a>
-    <a href="projects.html">Projects</a>
+    <a href="projects.html" class="text-yellow-300 font-bold">Projects</a>
     <a href="activities.html">Activities</a>
-    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- Hero -->
-<section class="hero-section py-20 text-center">
-  <h1 class="text-5xl font-bold text-yellow-400 mb-4 fade-in">Welcome, I'm Twisha Sonpal</h1>
-  <p class="text-lg text-gray-200 mb-12 fade-in">🚀 Developer | Python | Web | ERP | Creative Solutions</p>
+<!-- Projects Section -->
+<section class="px-5 py-24 relative z-10">
+  <h1 class="section-title">🚀 My Projects</h1>
+  <p class="section-subtitle">A showcase of my professional projects demonstrating skills and creativity. <br><span class="font-semibold text-indigo-400">(Click any project to view)</span></p>
 
-  <!-- Dashboard Cards -->
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-6">
-    <a href="projects.html" class="dash-card fade-in">
-      <div class="dash-icon">💻</div>
-      <h2 class="font-bold text-xl mb-2">Projects</h2>
-      <p>Explore my latest web and ERP projects.</p>
-    </a>
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-    <a href="experience.html" class="dash-card fade-in">
-      <div class="dash-icon">🛠️</div>
-      <h2 class="font-bold text-xl mb-2">Work showcase</h2>
-      <p>Check out my technical superpowers.</p>
-    </a>
+    <!-- Projects -->
+    <div class="project-card fade-in">
+      <a href="fg.gif">
+        <img class="w-full h-56 object-cover" src="Fab.jpg" alt="Fab Grocery">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="fg.gif">Fab Grocery</a></h2>
+        <p class="text-gray-300 text-sm">Dynamic e-commerce platform for fast delivery services.</p>
+      </div>
+    </div>
 
-    <a href="about.html" class="dash-card fade-in">
-      <div class="dash-icon">🌸</div>
-      <h2 class="font-bold text-xl mb-2">About Me</h2>
-      <p>Learn more about my journey and philosophy.</p>
-    </a>
+    <div class="project-card fade-in">
+      <a href="car_tracker.webm">
+        <img class="w-full h-56 object-cover" src="pythonpp.png" alt="Car Sensing System">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="car_tracker.webm">Car Sensing System</a></h2>
+        <p class="text-gray-300 text-sm">Python app to detect speeding vehicles and monitor traffic.</p>
+      </div>
+    </div>
 
-    <a href="contact.html" class="dash-card fade-in">
-      <div class="dash-icon">📩</div>
-      <h2 class="font-bold text-xl mb-2">Contact</h2>
-      <p>Get in touch for collaborations or projects.</p>
-    </a>
+    <div class="project-card fade-in">
+      <a href="diwali.mp4">
+        <img class="w-full h-56 object-cover" src="data_analysis.jpeg" alt="Data Analysis Dashboard">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="diwali.mp4">Data Analysis Dashboard</a></h2>
+        <p class="text-gray-300 text-sm">Visualizes trends in sales and buyer demographics.</p>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <a href="quiz.webm">
+        <img class="w-full h-56 object-cover" src="quiz.png" alt="Quiz App">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="quiz.webm">Quiz App</a></h2>
+        <p class="text-gray-300 text-sm">Interactive quiz to test knowledge and problem-solving.</p>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <a href="voating _system.mp4">
+        <img class="w-full h-56 object-cover" src="voatings.png" alt="Voting System">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="voating _system.mp4">Voting System</a></h2>
+        <p class="text-gray-300 text-sm">Python-based election management and analysis system.</p>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <a href="qr.gif">
+        <img class="w-full h-56 object-cover" src="qr.png" alt="QR Code Scanner">
+      </a>
+      <div class="p-6 z-10 relative">
+        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="qr.gif">QR Code Scanner</a></h2>
+        <p class="text-gray-300 text-sm">QR code generator and scanner for quick data sharing.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <p>© 2025 Twisha Sonpal | All Rights Reserved</p>
-  <div class="mt-2 space-x-4">
-    <a href="https://github.com/twishasonpal" class="hover:text-yellow-300">GitHub</a>
-    <a href="https://linkedin.com/in/twishasonpal" class="hover:text-yellow-300">LinkedIn</a>
-  </div>
-</footer>
-
-<!-- Script -->
+<!-- Scripts -->
 <script>
+  // Scroll Reveal
+  ScrollReveal().reveal('.project-card, .section-title, .section-subtitle', {
+    delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 150
+  });
+
+  // Hamburger Menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
-
   menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show'); // slide down/up animation
-    menuBtn.classList.toggle('active');  // rotate icon
+    mobileMenu.classList.toggle('show');
+    menuBtn.classList.toggle('active');
   });
+
+  // Particles Background
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  let particlesArray = [];
+
+  class Particle {
+    constructor(x,y,dirX,dirY,size,color){
+      this.x=x; this.y=y; this.dirX=dirX; this.dirY=dirY; this.size=size; this.color=color;
+    }
+    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
+    update(){
+      if(this.x+this.size>canvas.width || this.x-this.size<0) this.dirX=-this.dirX;
+      if(this.y+this.size>canvas.height || this.y-this.size<0) this.dirY=-this.dirY;
+      this.x+=this.dirX; this.y+=this.dirY; this.draw();
+    }
+  }
+
+  function init(){
+    particlesArray=[];
+    for(let i=0;i<150;i++){
+      let size=Math.random()*2+1;
+      let x=Math.random()*(canvas.width-size*2);
+      let y=Math.random()*(canvas.height-size*2);
+      let dirX=(Math.random()-0.5)*1;
+      let dirY=(Math.random()-0.5)*1;
+      let color='rgba(255,255,255,0.5)';
+      particlesArray.push(new Particle(x,y,dirX,dirY,size,color));
+    }
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<particlesArray.length;i++) particlesArray[i].update();
+  }
+  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; init();});
+  init(); animate();
 </script>
 
 </body>
