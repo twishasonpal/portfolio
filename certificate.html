@@ -1,225 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Certificates - Sonpal Twisha</title>
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Certificates | Twisha Sonpal</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<script src="https://unpkg.com/scrollreveal"></script>
 <style>
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #1e3a8a, #6d28d9, #9333ea);
-  color: #f9fafb;
-  overflow-x: hidden;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #050a0f; --surface: #0c1520; --surface2: #111d2e;
+    --accent: #00d4ff; --accent2: #0af5b3; --accent3: #7b5ea7;
+    --text: #e8f4f8; --muted: #7a9bb5; --border: rgba(0,212,255,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Times New Roman', Times, serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-/* Header & Hamburger */
-.header {
-  background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  padding: 0.8rem 0;
-}
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
 
-nav.desktop-menu { display: flex; gap: 1.5rem; font-weight: 600; }
+  .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; animation: drift 20s ease-in-out infinite alternate; }
+  .orb-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.06); top: -100px; right: -100px; }
+  .orb-2 { width: 400px; height: 400px; background: rgba(10,245,179,0.05); bottom: 100px; left: -80px; animation-delay: -7s; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(123,94,167,0.08); top: 50%; left: 40%; animation-delay: -14s; }
+  @keyframes drift { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(30px,40px) scale(1.1)} }
 
-.hamburger { display: none; cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
-#mobileMenu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #312e81; z-index: 50; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
-#mobileMenu.show { display: flex; max-height: 500px; transition: max-height 0.3s ease-in; }
-#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
-#mobileMenu a:hover { color: #facc15; }
-.hamburger.active i { transform: rotate(90deg); transition: transform 0.3s ease; }
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 5%; }
+  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 1.3rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+  nav.desktop-menu { display: flex; align-items: center; gap: 6px; }
+  nav.desktop-menu a { font-family: 'Times New Roman', Times, serif; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  nav.desktop-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  nav.desktop-menu a.active { color: var(--accent); }
+  nav.desktop-menu a.cta { color: var(--bg); background: var(--accent); font-weight: 700; padding: 7px 18px; }
+  nav.desktop-menu a.cta:hover { background: #00bbdd; }
+  .hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+  #mobileMenu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: rgba(5,10,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 5%; gap: 4px; z-index: 99; }
+  #mobileMenu.show { display: flex; }
+  #mobileMenu a { font-family: 'Times New Roman', Times, serif; padding: 12px 16px; color: var(--muted); text-decoration: none; border-radius: 8px; transition: 0.2s; }
+  #mobileMenu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  @media(max-width:768px){ nav.desktop-menu { display: none; } .hamburger { display: block; } }
 
-@media(max-width:768px){
-  nav.desktop-menu { display: none; }
-  .hamburger { display: block; }
-}
+  /* PAGE HERO */
+  .page-hero { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 80px 5% 50px; text-align: center; }
+  .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px; }
+  .hero-label::before, .hero-label::after { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Times New Roman', Times, serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2px; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+  h1 .highlight { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.8; font-style: italic; }
 
-/* Certificate Card */
-.cert-card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 0 20px rgba(139,92,246,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.cert-card:hover { transform: translateY(-10px); box-shadow: 0 0 40px rgba(139,92,246,0.6); }
-.cert-card img { border-radius: 0.75rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.cert-card img:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(255,255,255,0.5); }
+  /* CERTS GRID */
+  .certs-wrap { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 40px 5% 80px; }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
 
-/* Section Title */
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 1rem;
-  background: linear-gradient(to right,#facc15,#f472b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.section-subtitle {
-  text-align: center;
-  color: #e0e7ff;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-}
+  /* CERT CARD */
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: 0.3s ease;
+    position: relative;
+    text-decoration: none; color: var(--text);
+  }
+  .cert-card::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(0,212,255,0.05), transparent); opacity: 0; transition: opacity 0.3s; z-index: 1; pointer-events: none; }
+  .cert-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.08); }
+  .cert-card:hover::before { opacity: 1; }
+
+  /* Image */
+  .cert-img-wrap { height: 180px; overflow: hidden; background: var(--surface2); position: relative; }
+  .cert-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; display: block; }
+  .cert-card:hover .cert-img-wrap img { transform: scale(1.05); filter: brightness(75%); }
+  .cert-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--muted); gap: 8px; }
+  .cert-img-placeholder span { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* View overlay */
+  .view-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.35); }
+  .view-overlay i { font-size: 2rem; color: var(--accent); filter: drop-shadow(0 0 10px var(--accent)); }
+  .cert-card:hover .view-overlay { opacity: 1; }
+
+  /* Year badge */
+  .year-badge { position: absolute; top: 12px; right: 12px; font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: rgba(0,0,0,0.6); border: 1px solid var(--border); color: var(--muted); z-index: 2; backdrop-filter: blur(8px); }
+
+  /* Body */
+  .cert-body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .cert-issuer { font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+  .cert-name { font-family: 'Times New Roman', Times, serif; font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.4; }
+  .cert-footer { margin-top: auto; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+  .cert-link { font-family: 'Times New Roman', Times, serif; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 4px; font-weight: 600; transition: gap 0.2s; }
+  .cert-card:hover .cert-link { gap: 7px; }
+  .cert-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+
+  /* Issuer colors */
+  .ic-ibm { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
+  .ic-isro { background: rgba(10,245,179,0.1); border: 1px solid rgba(10,245,179,0.2); color: var(--accent2); }
+  .ic-google { background: rgba(255,183,77,0.1); border: 1px solid rgba(255,183,77,0.2); color: #ffb74d; }
+  .ic-infosys { background: rgba(199,146,234,0.1); border: 1px solid rgba(199,146,234,0.2); color: #c792ea; }
+  .ic-udemy { background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.2); color: #fb7185; }
+  .ic-jhu { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
+  .ic-tcs { background: rgba(10,245,179,0.1); border: 1px solid rgba(10,245,179,0.2); color: var(--accent2); }
+  .ic-other { background: rgba(123,94,167,0.1); border: 1px solid rgba(123,94,167,0.2); color: #a78bfa; }
+
+  /* FOOTER */
+  footer { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); padding: 32px 5%; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-family: 'Times New Roman', Times, serif; font-size: 0.85rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
 </head>
-
 <body>
 
-<!-- Header -->
-<header class="header relative">
-  <div class="container mx-auto flex justify-between items-center px-6 relative">
-    <a href="index.html" class="text-white text-2xl md:text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-    <!-- Desktop Menu -->
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-dot"></div>Twisha Sonpal</a>
     <nav class="desktop-menu">
-      <a href="about.html" class="hover:text-yellow-300">About</a>
-      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
-      <a href="certificate.html" class="hover:text-yellow-300 font-bold">Certificate</a>
-      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
-      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
-      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
-      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+      <a href="about.html">About</a>
+      <a href="experience.html">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="certificate.html" class="active">Certifications</a>
+      <a href="eduaction.html">Education</a>
+      <a href="activities.html">Activities</a>
+      <a href="contact.html" class="cta">Hire Me</a>
     </nav>
-
-    <!-- Hamburger -->
-    <div class="hamburger md:hidden" id="menuBtn">
-      <i class="fas fa-bars"></i>
-    </div>
+    <button class="hamburger" id="menuBtn"><i class="fas fa-bars" id="menuIcon"></i></button>
   </div>
-
-  <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="flex-col md:hidden">
+  <nav id="mobileMenu">
     <a href="about.html">About</a>
     <a href="experience.html">Work Showcase</a>
-    <a href="certificate.html" class="font-bold text-yellow-300">Certificate</a>
-    <a href="eduaction.html">Education</a>
     <a href="projects.html">Projects</a>
+    <a href="certificate.html">Certifications</a>
+    <a href="eduaction.html">Education</a>
     <a href="activities.html">Activities</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact / Hire Me</a>
   </nav>
 </header>
 
-<!-- Certificates Section -->
-<section class="px-5 py-24">
-  <h1 class="section-title">My Certificates</h1>
-  <p class="section-subtitle">“Learning is not attained by chance; it must be sought for with ardour and diligence.” – Abigail Adams</p>
+<!-- PAGE HERO -->
+<div class="page-hero reveal">
+  <div class="hero-label">Credentials</div>
+  <h1>My <span class="highlight">Certificates</span></h1>
+  <p class="page-sub">"Learning is not attained by chance; it must be sought for with ardour and diligence." — Abigail Adams</p>
+</div>
 
-  <div class="container mx-auto flex flex-wrap -m-4">
-    
+<!-- CERTS GRID -->
+<div class="certs-wrap">
+  <div class="certs-grid">
+
     <!-- IBM -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="ibm.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="ibm.JPG" alt="IBM Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">IBM</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Building Generative AI-Powered Applications with Python</h2>
-        <p class="text-gray-300">2024</p>
+    <a href="ibm.JPG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="ibm.JPG" alt="IBM Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>IBM</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2024</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">IBM</div>
+        <div class="cert-name">Building Generative AI-Powered Applications with Python</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-ibm"><i class="fas fa-brain"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- ISRO -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="isro.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="isro.PNG" alt="ISRO Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">ISRO</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Geoprocessing using Python</h2>
-        <p class="text-gray-300">2023</p>
+    <a href="isro.PNG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="isro.PNG" alt="ISRO Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>ISRO</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2023</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">ISRO</div>
+        <div class="cert-name">Geoprocessing using Python</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-isro"><i class="fas fa-satellite"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- Google -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="google.jpg"><img class="h-40 w-full object-cover object-center mb-6" src="google.jpg" alt="Google Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">GOOGLE</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Crash Course on Python</h2>
-        <p class="text-gray-300">2021</p>
+    <a href="google.jpg" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="google.jpg" alt="Google Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>Google</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2021</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Google</div>
+        <div class="cert-name">Crash Course on Python</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-google"><i class="fab fa-google"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- Infosys -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="info.jpg"><img class="h-40 w-full object-cover object-center mb-6" src="info.jpg" alt="Infosys Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">INFOSYS</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Basics of Python</h2>
-        <p class="text-gray-300">2021</p>
+    <a href="info.jpg" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="info.jpg" alt="Infosys Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>Infosys</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2021</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Infosys</div>
+        <div class="cert-name">Basics of Python</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-infosys"><i class="fas fa-code"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- ElearnMarket -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="mx.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="mx.JPG" alt="ElearnMarket Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">ELEARNMARKET</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Mx Excel</h2>
-        <p class="text-gray-300">2021</p>
+    <a href="mx.JPG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="mx.JPG" alt="ElearnMarket Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>ElearnMarket</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2021</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">ElearnMarket</div>
+        <div class="cert-name">Microsoft Excel</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-other"><i class="fas fa-table"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- Udemy -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="UDEMY.JPG"><img class="h-40 w-full object-cover object-center mb-6" src="UDEMY.JPG" alt="Udemy Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">UDEMY</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Python Programming Comprehensive Bootcamp</h2>
-        <p class="text-gray-300">2021</p>
+    <a href="UDEMY.JPG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="UDEMY.JPG" alt="Udemy Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>Udemy</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2021</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Udemy</div>
+        <div class="cert-name">Python Programming Comprehensive Bootcamp</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-udemy"><i class="fas fa-graduation-cap"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
-    <!-- Fullstack Development -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="fsd.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="fsd.PNG" alt="Fullstack Dev Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">JOHNS Hopkins University</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Fullstack Development</h2>
-        <p class="text-gray-300">2022</p>
+    <!-- Johns Hopkins -->
+    <a href="fsd.PNG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="fsd.PNG" alt="Fullstack Dev Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>Johns Hopkins</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2022</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">Johns Hopkins University</div>
+        <div class="cert-name">Fullstack Development</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-jhu"><i class="fas fa-layer-group"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
     <!-- TCS ION -->
-    <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="cert-card p-6">
-        <a href="tcsion.PNG"><img class="h-40 w-full object-cover object-center mb-6" src="tcsion.PNG" alt="TCS ION Certificate"></a>
-        <h3 class="tracking-widest text-indigo-300 text-xs font-medium">TCS ION</h3>
-        <h2 class="text-lg font-medium text-white mb-2">Group Discussion</h2>
-        <p class="text-gray-300">2021</p>
+    <a href="tcsion.PNG" class="cert-card reveal">
+      <div class="cert-img-wrap">
+        <img src="tcsion.PNG" alt="TCS ION Certificate" onerror="this.style.display='none'">
+        <div class="cert-img-placeholder"><i class="fas fa-certificate"></i><span>TCS ION</span></div>
+        <div class="view-overlay"><i class="fas fa-expand-alt"></i></div>
+        <div class="year-badge">2021</div>
       </div>
-    </div>
+      <div class="cert-body">
+        <div class="cert-issuer">TCS ION</div>
+        <div class="cert-name">Group Discussion</div>
+        <div class="cert-footer">
+          <div class="cert-icon ic-tcs"><i class="fas fa-users"></i></div>
+          <div class="cert-link">View Certificate <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
   </div>
-</section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2025 Twisha Sonpal — Software Engineer</div>
+    <div class="footer-links">
+      <a href="https://github.com/twishasonpal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/twishasonpal" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </div>
+</footer>
 
 <script>
-  // Hamburger toggle
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('show');
-    menuBtn.classList.toggle('active');
+    menuIcon.className = mobileMenu.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
   });
 
-  // Scroll Reveal for certificates
-  ScrollReveal().reveal('.cert-card, .section-title, .section-subtitle', {
-    delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 150
-  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>

@@ -1,334 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects - Sonpal Twisha</title>
-<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects | Twisha Sonpal</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<script src="https://unpkg.com/scrollreveal"></script>
-
 <style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
-    overflow-x: hidden;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #050a0f; --surface: #0c1520; --surface2: #111d2e;
+    --accent: #00d4ff; --accent2: #0af5b3; --accent3: #7b5ea7;
+    --text: #e8f4f8; --muted: #7a9bb5; --border: rgba(0,212,255,0.12);
   }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Times New Roman', Times, serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-  /* Particle Canvas */
-  #particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
 
-  /* Header */
-  .header {
-    background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding: 1rem 0;
-  }
+  .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; animation: drift 20s ease-in-out infinite alternate; }
+  .orb-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.06); top: -100px; right: -100px; }
+  .orb-2 { width: 400px; height: 400px; background: rgba(10,245,179,0.05); bottom: 100px; left: -80px; animation-delay: -7s; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(123,94,167,0.08); top: 50%; left: 40%; animation-delay: -14s; }
+  @keyframes drift { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(30px,40px) scale(1.1)} }
 
-  /* Hamburger menu */
-  .hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: #fff;
-    z-index: 60;
-  }
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 5%; }
+  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 1.3rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+  nav.desktop-menu { display: flex; align-items: center; gap: 6px; }
+  nav.desktop-menu a { font-family: 'Times New Roman', Times, serif; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  nav.desktop-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  nav.desktop-menu a.active { color: var(--accent); }
+  nav.desktop-menu a.cta { color: var(--bg); background: var(--accent); font-weight: 700; padding: 7px 18px; }
+  nav.desktop-menu a.cta:hover { background: #00bbdd; }
+  .hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+  #mobileMenu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: rgba(5,10,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 5%; gap: 4px; z-index: 99; }
+  #mobileMenu.show { display: flex; }
+  #mobileMenu a { font-family: 'Times New Roman', Times, serif; padding: 12px 16px; color: var(--muted); text-decoration: none; border-radius: 8px; transition: 0.2s; }
+  #mobileMenu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  @media(max-width:768px){ nav.desktop-menu { display: none; } .hamburger { display: block; } }
 
-  #mobileMenu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #312e81;
-    z-index: 50;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.3s ease-out;
-  }
+  /* PAGE HERO */
+  .page-hero { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 80px 5% 50px; text-align: center; }
+  .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px; }
+  .hero-label::before, .hero-label::after { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Times New Roman', Times, serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2px; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+  h1 .highlight { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-sub { font-size: 1.05rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.75; }
+  .page-sub span { color: var(--accent); font-weight: 600; }
 
-  #mobileMenu.show {
-    display: flex;
-    max-height: 500px;
-    transition: max-height 0.3s ease-in;
-  }
+  /* PROJECTS GRID */
+  .projects-wrap { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 40px 5% 80px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
 
-  #mobileMenu a {
-    padding: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    color: #fff;
-    text-align: center;
-  }
-
-  #mobileMenu a:hover { color: #facc15; }
-
-  @media(max-width:768px){
-    nav.desktop-menu { display: none; }
-    .hamburger { display: block; }
-  }
-
-  /* Hamburger X animation */
-  .hamburger.active i {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease;
-  }
-
-  /* Section Title */
-  .section-title {
-    font-size: 3rem;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    background: linear-gradient(90deg,#facc15,#f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .section-subtitle {
-    text-align: center;
-    color: #cbd5e1;
-    margin-bottom: 4rem;
-    font-size: 1.2rem;
-  }
-
-  /* Project Cards */
+  /* PROJECT CARD */
   .project-card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 1rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 0 15px rgba(139,92,246,0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
     overflow: hidden;
-  }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #f472b6, #facc15, #3b82f6, #6366f1);
-    animation: rotate 6s linear infinite;
-    opacity: 0.2;
-    z-index: 0;
-  }
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  .project-card:hover {
-    transform: translateY(-15px) scale(1.05);
-    box-shadow: 0 0 40px rgba(139,92,246,0.7);
-  }
-  .project-card img {
-    border-radius: 1rem;
-    z-index: 1;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; flex-direction: column;
+    transition: 0.3s ease;
     position: relative;
-    transition: transform 0.4s ease, filter 0.4s ease;
   }
-  .project-card:hover img {
-    transform: scale(1.08);
-    filter: brightness(85%);
-  }
+  .project-card::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(0,212,255,0.05), transparent); opacity: 0; transition: opacity 0.3s; z-index: 1; pointer-events: none; }
+  .project-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.08); }
+  .project-card:hover::before { opacity: 1; }
 
-  /* Fade-in Animation */
-  .fade-in {
-    animation: fadeInUp 1s ease forwards;
-    opacity: 0;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  /* Image area */
+  .card-img-wrap { position: relative; overflow: hidden; height: 200px; background: var(--surface2); }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; display: block; }
+  .project-card:hover .card-img-wrap img { transform: scale(1.06); filter: brightness(80%); }
+
+  /* Placeholder when no image */
+  .card-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 3rem; color: var(--muted); gap: 8px; }
+  .card-img-placeholder span { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* Play overlay */
+  .play-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.3); }
+  .play-overlay i { font-size: 2.5rem; color: var(--accent); filter: drop-shadow(0 0 12px var(--accent)); }
+  .project-card:hover .play-overlay { opacity: 1; }
+
+  /* Tag */
+  .card-tag { position: absolute; top: 12px; right: 12px; font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; letter-spacing: 0.5px; z-index: 2; }
+  .tag-blue { background: rgba(0,212,255,0.15); border: 1px solid rgba(0,212,255,0.3); color: var(--accent); }
+  .tag-green { background: rgba(10,245,179,0.12); border: 1px solid rgba(10,245,179,0.3); color: var(--accent2); }
+  .tag-purple { background: rgba(199,146,234,0.12); border: 1px solid rgba(199,146,234,0.3); color: #c792ea; }
+  .tag-amber { background: rgba(255,183,77,0.12); border: 1px solid rgba(255,183,77,0.3); color: #ffb74d; }
+
+  /* Card body */
+  .card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .card-title { font-family: 'Times New Roman', Times, serif; font-size: 1.1rem; font-weight: 700; color: #fff; }
+  .card-desc { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); line-height: 1.65; flex: 1; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+  .card-tech { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tech-pill { font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; padding: 2px 8px; border-radius: 100px; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); }
+  .card-link { font-family: 'Times New Roman', Times, serif; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 4px; font-weight: 600; transition: gap 0.2s; white-space: nowrap; }
+  .project-card:hover .card-link { gap: 7px; }
+
+  /* FOOTER */
+  footer { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); padding: 32px 5%; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-family: 'Times New Roman', Times, serif; font-size: 0.85rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
-
 <body>
 
-<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-<!-- Header -->
-<header class="header relative">
-  <div class="container mx-auto flex justify-between items-center px-6 relative">
-    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Projects</a>
-
-    <!-- Desktop Menu -->
-    <nav class="desktop-menu flex space-x-6 font-semibold">
-      <a href="about.html" class="hover:text-yellow-300">About</a>
-      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
-      <a href="certificate.html" class="hover:text-yellow-300">Certificate</a>
-      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
-      <a href="projects.html" class="text-yellow-300 font-bold">Projects</a>
-      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
-      <a href="contact.html" class="hover:text-yellow-300">Contact</a>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-dot"></div>Twisha Sonpal</a>
+    <nav class="desktop-menu">
+      <a href="about.html">About</a>
+      <a href="experience.html">Work</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="eduaction.html">Education</a>
+      <a href="activities.html">Activities</a>
+      <a href="contact.html" class="cta">Hire Me</a>
     </nav>
-
-    <!-- Hamburger -->
-    <div class="hamburger md:hidden" id="menuBtn">
-      <i class="fas fa-bars"></i>
-    </div>
+    <button class="hamburger" id="menuBtn"><i class="fas fa-bars" id="menuIcon"></i></button>
   </div>
-
-  <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="flex-col md:hidden">
+  <nav id="mobileMenu">
     <a href="about.html">About</a>
     <a href="experience.html">Work Showcase</a>
-    <a href="certificate.html">Certificate</a>
+    <a href="projects.html">Projects</a>
+    <a href="certificate.html">Certifications</a>
     <a href="eduaction.html">Education</a>
-    <a href="projects.html" class="text-yellow-300 font-bold">Projects</a>
     <a href="activities.html">Activities</a>
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact / Hire Me</a>
   </nav>
 </header>
 
-<!-- Projects Section -->
-<section class="px-5 py-24 relative z-10">
-  <h1 class="section-title">🚀 My Projects</h1>
-  <p class="section-subtitle">A showcase of my professional projects demonstrating skills and creativity. <br><span class="font-semibold text-indigo-400">(Click any project to view)</span></p>
+<!-- PAGE HERO -->
+<div class="page-hero reveal">
+  <div class="hero-label">Portfolio</div>
+  <h1>My <span class="highlight">Projects</span></h1>
+  <p class="page-sub">A showcase of professional work demonstrating skills and creativity. <span>Click any project to view.</span></p>
+</div>
 
-  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+<!-- PROJECTS GRID -->
+<div class="projects-wrap">
+  <div class="projects-grid">
 
-    <!-- Projects -->
-    <div class="project-card fade-in">
-      <a href="fg.gif">
-        <img class="w-full h-56 object-cover" src="Fab.jpg" alt="Fab Grocery">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="fg.gif">Fab Grocery</a></h2>
-        <p class="text-gray-300 text-sm">Dynamic e-commerce platform for fast delivery services.</p>
+    <!-- Fab Grocery -->
+    <a href="fg.gif" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="Fab.jpg" alt="Fab Grocery" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-shopping-cart"></i><span>E-Commerce</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-blue">Web App</div>
       </div>
-    </div>
-
-    <div class="project-card fade-in">
-      <a href="car_tracker.webm">
-        <img class="w-full h-56 object-cover" src="pythonpp.png" alt="Car Sensing System">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="car_tracker.webm">Car Sensing System</a></h2>
-        <p class="text-gray-300 text-sm">Python app to detect speeding vehicles and monitor traffic.</p>
+      <div class="card-body">
+        <div class="card-title">Fab Grocery</div>
+        <div class="card-desc">Dynamic e-commerce platform for fast grocery delivery services with real-time inventory management.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">SQL</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card fade-in">
-      <a href="diwali.mp4">
-        <img class="w-full h-56 object-cover" src="data_analysis.jpeg" alt="Data Analysis Dashboard">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="diwali.mp4">Data Analysis Dashboard</a></h2>
-        <p class="text-gray-300 text-sm">Visualizes trends in sales and buyer demographics.</p>
+    <!-- Car Sensing System -->
+    <a href="car_tracker.webm" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="pythonpp.png" alt="Car Sensing System" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-car"></i><span>Python</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-green">Python</div>
       </div>
-    </div>
+      <div class="card-body">
+        <div class="card-title">Car Sensing System</div>
+        <div class="card-desc">Python application to detect speeding vehicles, monitor traffic flow, and generate alerts in real-time.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">OpenCV</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
-    <div class="project-card fade-in">
-      <a href="quiz.webm">
-        <img class="w-full h-56 object-cover" src="quiz.png" alt="Quiz App">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="quiz.webm">Quiz App</a></h2>
-        <p class="text-gray-300 text-sm">Interactive quiz to test knowledge and problem-solving.</p>
+    <!-- Data Analysis Dashboard -->
+    <a href="diwali.mp4" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="data_analysis.jpeg" alt="Data Analysis Dashboard" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-chart-bar"></i><span>Analytics</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-purple">Data</div>
       </div>
-    </div>
+      <div class="card-body">
+        <div class="card-title">Data Analysis Dashboard</div>
+        <div class="card-desc">Visualizes trends in sales and buyer demographics with interactive charts and insights.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Pandas</span>
+            <span class="tech-pill">Matplotlib</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
-    <div class="project-card fade-in">
-      <a href="voating _system.mp4">
-        <img class="w-full h-56 object-cover" src="voatings.png" alt="Voting System">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="voating _system.mp4">Voting System</a></h2>
-        <p class="text-gray-300 text-sm">Python-based election management and analysis system.</p>
+    <!-- Quiz App -->
+    <a href="quiz.webm" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="quiz.png" alt="Quiz App" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-question-circle"></i><span>Web App</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-amber">Interactive</div>
       </div>
-    </div>
+      <div class="card-body">
+        <div class="card-title">Quiz App</div>
+        <div class="card-desc">Interactive quiz platform to test knowledge and problem-solving with score tracking and timed questions.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">HTML/CSS</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
-    <div class="project-card fade-in">
-      <a href="qr.gif">
-        <img class="w-full h-56 object-cover" src="qr.png" alt="QR Code Scanner">
-      </a>
-      <div class="p-6 z-10 relative">
-        <h2 class="text-lg font-bold text-indigo-400 mb-2"><a href="qr.gif">QR Code Scanner</a></h2>
-        <p class="text-gray-300 text-sm">QR code generator and scanner for quick data sharing.</p>
+    <!-- Voting System -->
+    <a href="voating _system.mp4" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="voatings.png" alt="Voting System" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-vote-yea"></i><span>Python</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-blue">Python</div>
       </div>
-    </div>
+      <div class="card-body">
+        <div class="card-title">Voting System</div>
+        <div class="card-desc">Python-based election management and analysis system with secure vote tracking and result visualization.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">SQL</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
+
+    <!-- QR Code Scanner -->
+    <a href="qr.gif" class="project-card reveal">
+      <div class="card-img-wrap">
+        <img src="qr.png" alt="QR Code Scanner" onerror="this.style.display='none'">
+        <div class="card-img-placeholder"><i class="fas fa-qrcode"></i><span>Tool</span></div>
+        <div class="play-overlay"><i class="fas fa-play-circle"></i></div>
+        <div class="card-tag tag-green">Tool</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">QR Code Scanner</div>
+        <div class="card-desc">QR code generator and scanner for quick data sharing, supporting URLs, text, and contact information.</div>
+        <div class="card-footer">
+          <div class="card-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">OpenCV</span>
+          </div>
+          <div class="card-link">View <i class="fas fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </a>
 
   </div>
-</section>
+</div>
 
-<!-- Scripts -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2025 Twisha Sonpal — Software Engineer</div>
+    <div class="footer-links">
+      <a href="https://github.com/twishasonpal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/twishasonpal" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </div>
+</footer>
+
 <script>
-  // Scroll Reveal
-  ScrollReveal().reveal('.project-card, .section-title, .section-subtitle', {
-    delay: 200, distance: '50px', duration: 1000, origin: 'bottom', interval: 150
-  });
-
-  // Hamburger Menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('show');
-    menuBtn.classList.toggle('active');
+    menuIcon.className = mobileMenu.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
   });
 
-  // Particles Background
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  let particlesArray = [];
-
-  class Particle {
-    constructor(x,y,dirX,dirY,size,color){
-      this.x=x; this.y=y; this.dirX=dirX; this.dirY=dirY; this.size=size; this.color=color;
-    }
-    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
-    update(){
-      if(this.x+this.size>canvas.width || this.x-this.size<0) this.dirX=-this.dirX;
-      if(this.y+this.size>canvas.height || this.y-this.size<0) this.dirY=-this.dirY;
-      this.x+=this.dirX; this.y+=this.dirY; this.draw();
-    }
-  }
-
-  function init(){
-    particlesArray=[];
-    for(let i=0;i<150;i++){
-      let size=Math.random()*2+1;
-      let x=Math.random()*(canvas.width-size*2);
-      let y=Math.random()*(canvas.height-size*2);
-      let dirX=(Math.random()-0.5)*1;
-      let dirY=(Math.random()-0.5)*1;
-      let color='rgba(255,255,255,0.5)';
-      particlesArray.push(new Particle(x,y,dirX,dirY,size,color));
-    }
-  }
-
-  function animate(){
-    requestAnimationFrame(animate);
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for(let i=0;i<particlesArray.length;i++) particlesArray[i].update();
-  }
-  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; init();});
-  init(); animate();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
