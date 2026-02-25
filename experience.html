@@ -1,214 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Odoo Work Experience</title>
-<link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Work Showcase | Twisha Sonpal</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <style>
-body { font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; overflow-x: hidden; }
-#particles { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg,#6366f1,#a78bfa);
-  text-align: center;
-  padding: 5rem 2rem;
-}
-.hero h1 { font-size: 3rem; font-weight: 900; }
-.hero p { font-size: 1.25rem; margin-top: 1rem; }
-
-/* Cards */
-.card { 
-  background: rgba(255,255,255,0.05); 
-  backdrop-filter: blur(12px); 
-  border-radius: 1rem; 
-  border: 1px solid rgba(255,255,255,0.2); 
-  box-shadow: 0 0 15px rgba(139,92,246,0.3); 
-  transition: transform 0.4s ease, box-shadow 0.4s ease; 
-  position: relative; overflow: hidden; 
-}
-.card::before { 
-  content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; 
-  background: linear-gradient(45deg,#f472b6,#facc15,#3b82f6,#6366f1); 
-  animation: rotate 6s linear infinite; opacity: 0.15; z-index: 0; 
-}
-@keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
-.card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 40px rgba(139,92,246,0.7); }
-.card img { border-radius: 1rem; z-index:1; position: relative; transition: transform 0.4s ease, filter 0.4s ease; }
-.card:hover img { transform: scale(1.05); filter: brightness(85%); }
-
-.btn-primary { background: linear-gradient(to right,#f472b6,#6366f1); color:white; font-weight:600; transition: all 0.3s ease; }
-.btn-primary:hover { transform: translateY(-3px); background: linear-gradient(to right,#3b82f6,#facc15); }
-
-.section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 0.5rem; background: linear-gradient(90deg,#f472b6,#facc15,#3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.section-subtitle { text-align: center; color: #cbd5e1; margin-bottom: 4rem; font-size: 1rem; }
-
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* Header & Hamburger */
-  .header {
-    background: linear-gradient(to right,#6366f1,#a855f7,#4f46e5);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    padding: 1rem 0;
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #050a0f; --surface: #0c1520; --surface2: #111d2e;
+    --accent: #00d4ff; --accent2: #0af5b3; --accent3: #7b5ea7;
+    --text: #e8f4f8; --muted: #7a9bb5; --border: rgba(0,212,255,0.12);
   }
-nav.desktop-menu { display: flex; gap: 1.5rem; font-weight: 600; }
-.hamburger { display: none; cursor: pointer; font-size: 1.8rem; color: #fff; z-index: 60; }
-#mobileMenu { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: #312e81; z-index: 50; overflow: hidden; max-height: 0; transition: max-height 0.3s ease-out; }
-#mobileMenu.show { display: flex; max-height: 500px; transition: max-height 0.3s ease-in; }
-#mobileMenu a { padding: 1rem; border-top: 1px solid rgba(255,255,255,0.2); color: #fff; text-align: center; }
-#mobileMenu a:hover { color: #facc15; }
-.hamburger.active i { transform: rotate(90deg); transition: transform 0.3s ease; }
-@media(max-width:768px){
-  nav.desktop-menu { display: none; }
-  .hamburger { display: block; }
-}
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Times New Roman', Times, serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
+
+  .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; animation: drift 20s ease-in-out infinite alternate; }
+  .orb-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.06); top: -100px; right: -100px; }
+  .orb-2 { width: 400px; height: 400px; background: rgba(10,245,179,0.05); bottom: 100px; left: -80px; animation-delay: -7s; }
+  .orb-3 { width: 300px; height: 300px; background: rgba(123,94,167,0.08); top: 50%; left: 40%; animation-delay: -14s; }
+  @keyframes drift { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(30px,40px) scale(1.1)} }
+
+  /* HEADER */
+  header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 5%; }
+  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 1.3rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
+  nav.desktop-menu { display: flex; align-items: center; gap: 6px; }
+  nav.desktop-menu a { font-family: 'Times New Roman', Times, serif; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  nav.desktop-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  nav.desktop-menu a.active { color: var(--accent); }
+  nav.desktop-menu a.cta { color: var(--bg); background: var(--accent); font-weight: 700; padding: 7px 18px; }
+  nav.desktop-menu a.cta:hover { background: #00bbdd; }
+  .hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
+  #mobileMenu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: rgba(5,10,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 5%; gap: 4px; z-index: 99; }
+  #mobileMenu.show { display: flex; }
+  #mobileMenu a { font-family: 'Times New Roman', Times, serif; padding: 12px 16px; color: var(--muted); text-decoration: none; border-radius: 8px; transition: 0.2s; }
+  #mobileMenu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  @media(max-width:768px){ nav.desktop-menu { display: none; } .hamburger { display: block; } }
+
+  /* HERO */
+  .exp-hero { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 80px 5% 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media(max-width:900px){ .exp-hero { grid-template-columns: 1fr; padding: 60px 5%; } }
+  .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+  .hero-label::before { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'Times New Roman', Times, serif; font-size: clamp(2.6rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2px; color: #fff; line-height: 1.08; margin-bottom: 18px; }
+  h1 .highlight { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 28px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { font-family: 'Times New Roman', Times, serif; display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--bg); font-weight: 700; font-size: 0.95rem; padding: 13px 28px; border-radius: 8px; text-decoration: none; transition: 0.25s; }
+  .btn-primary:hover { background: #00bbdd; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.3); }
+  .btn-ghost { font-family: 'Times New Roman', Times, serif; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border); color: var(--text); font-weight: 500; font-size: 0.95rem; padding: 13px 28px; border-radius: 8px; text-decoration: none; transition: 0.25s; background: rgba(255,255,255,0.02); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.05); }
+
+  /* Company card (right of hero) */
+  .company-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; box-shadow: 0 0 60px rgba(0,212,255,0.06); animation: floatUp 6s ease-in-out infinite alternate; }
+  @keyframes floatUp { 0%{transform:translateY(0)} 100%{transform:translateY(-12px)} }
+  .co-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .co-logo { width: 52px; height: 52px; border-radius: 12px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--accent); }
+  .co-name { font-family: 'Times New Roman', Times, serif; font-size: 1.2rem; font-weight: 800; color: #fff; }
+  .co-role { font-family: 'Times New Roman', Times, serif; font-size: 0.82rem; color: var(--accent2); }
+  .co-period { font-family: 'Times New Roman', Times, serif; font-size: 0.78rem; color: var(--muted); }
+  .co-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .co-stat { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+  .co-stat-num { font-family: 'Times New Roman', Times, serif; font-size: 1.6rem; font-weight: 800; color: #fff; line-height: 1; }
+  .co-stat-num span { color: var(--accent); }
+  .co-stat-label { font-family: 'Times New Roman', Times, serif; font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
+  /* SECTION */
+  .inner { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 20px 5% 70px; }
+  .section-tag { font-family: 'Times New Roman', Times, serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  h2 { font-family: 'Times New Roman', Times, serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; letter-spacing: -1.5px; color: #fff; line-height: 1.1; margin-bottom: 36px; }
+
+  /* CONTRIBUTION CARDS */
+  .contrib-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .contrib-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; transition: 0.3s; position: relative; overflow: hidden; }
+  .contrib-card::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(0,212,255,0.05), transparent); opacity: 0; transition: opacity 0.3s; }
+  .contrib-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.3); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,212,255,0.07); }
+  .contrib-card:hover::before { opacity: 1; }
+  .contrib-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 18px; }
+  .ic-1 { background: rgba(0,212,255,0.1);  border: 1px solid rgba(0,212,255,0.2);  color: var(--accent); }
+  .ic-2 { background: rgba(10,245,179,0.1); border: 1px solid rgba(10,245,179,0.2); color: var(--accent2); }
+  .ic-3 { background: rgba(199,146,234,0.1);border: 1px solid rgba(199,146,234,0.2);color: #c792ea; }
+  .ic-4 { background: rgba(255,183,77,0.1); border: 1px solid rgba(255,183,77,0.2); color: #ffb74d; }
+  .ic-5 { background: rgba(244,63,94,0.1);  border: 1px solid rgba(244,63,94,0.2);  color: #fb7185; }
+  .ic-6 { background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.2); color: #2dd4bf; }
+  .contrib-title { font-family: 'Times New Roman', Times, serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+  .contrib-desc  { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+  /* IMPACT STRIP */
+  .impact-strip { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .impact-inner { max-width: 1400px; margin: 0 auto; padding: 40px 5%; display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+  @media(max-width:700px){ .impact-inner { grid-template-columns: repeat(2,1fr); } }
+  .impact-item { text-align: center; }
+  .impact-num { font-family: 'Times New Roman', Times, serif; font-size: 2.4rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .impact-num span { color: var(--accent); }
+  .impact-label { font-family: 'Times New Roman', Times, serif; font-size: 0.8rem; color: var(--muted); }
+
+  /* SKILLS USED */
+  .skills-strip { position: relative; z-index: 1; background: var(--surface2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 5%; }
+  .skills-inner { max-width: 1400px; margin: 0 auto; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 12px; margin-top: 36px; }
+  .skill-chip { font-family: 'Times New Roman', Times, serif; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; text-align: center; font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: 0.2s; }
+  .skill-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.05); }
+
+  /* DETAILED EXPERIENCE */
+  .exp-detail { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 60px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media(max-width:900px){ .exp-detail { grid-template-columns: 1fr; } }
+  .exp-col h3 { font-family: 'Times New Roman', Times, serif; font-size: 1rem; font-weight: 700; color: var(--accent2); margin-bottom: 18px; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.78rem; }
+  .exp-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 16px; }
+  .exp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 5px; box-shadow: 0 0 8px var(--accent); }
+  .exp-text { font-family: 'Times New Roman', Times, serif; font-size: 0.9rem; color: var(--text); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 40px 5% 80px; }
+  .cta-card { background: linear-gradient(135deg, var(--surface2), #0a1929); border: 1px solid rgba(0,212,255,0.2); border-radius: 20px; padding: 64px 60px; text-align: center; position: relative; overflow: hidden; }
+  .cta-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(0,212,255,0.1), transparent 70%); }
+  .cta-card h2 { margin-bottom: 14px; font-size: 2rem; }
+  .cta-card p { font-family: 'Times New Roman', Times, serif; color: var(--muted); max-width: 500px; margin: 0 auto 36px; font-size: 1rem; }
+
+  /* FOOTER */
+  footer { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); padding: 32px 5%; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-family: 'Times New Roman', Times, serif; font-size: 0.85rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* Badge row */
+  .badges-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+  .badge { font-family: 'Times New Roman', Times, serif; font-size: 0.78rem; font-weight: 600; padding: 5px 14px; border-radius: 100px; border: 1px solid; letter-spacing: 0.5px; }
+  .badge-blue   { color: var(--accent);  border-color: rgba(0,212,255,0.3);  background: rgba(0,212,255,0.06); }
+  .badge-green  { color: var(--accent2); border-color: rgba(10,245,179,0.3); background: rgba(10,245,179,0.06); }
+  .badge-purple { color: #c792ea;        border-color: rgba(199,146,234,0.3);background: rgba(199,146,234,0.06); }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media(max-width:600px){ .cta-card { padding: 40px 24px; } }
 </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YQ1XNGWTK8');
-</script>
 <body>
 
-<canvas id="particles"></canvas>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
-<!-- Header -->
-<!-- Header -->
-<header class="header relative">
-  <div class="container mx-auto flex justify-between items-center px-6 relative">
-    <a href="index.html" class="text-white text-3xl font-bold hover:text-yellow-300 transition">Dashboard</a>
-    
-    <!-- Desktop Menu -->
-    <nav class="desktop-menu flex space-x-6 font-semibold">
-      <a href="about.html" class="hover:text-yellow-300">About</a>
-      <a href="experience.html" class="hover:text-yellow-300">Work Showcase</a>
-      <a href="certificate.html" class="hover:text-yellow-300">Certificate</a>
-      <a href="eduaction.html" class="hover:text-yellow-300">Education</a>
-      <a href="projects.html" class="hover:text-yellow-300">Projects</a>
-      <a href="activities.html" class="hover:text-yellow-300">Activities</a>
-      <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><div class="logo-dot"></div>Twisha Sonpal</a>
+    <nav class="desktop-menu">
+      <a href="about.html">About</a>
+      <a href="experience.html" class="active">Work</a>
+      <a href="projects.html">Projects</a>
+      <a href="certificate.html">Certifications</a>
+      <a href="eduaction.html">Education</a>
+      <a href="activities.html">Activities</a>
+      <a href="contact.html" class="cta">Hire Me</a>
     </nav>
-
-    <!-- Hamburger -->
-    <div class="hamburger md:hidden" id="menuBtn">
-      <i class="fas fa-bars"></i>
-    </div>
+    <button class="hamburger" id="menuBtn"><i class="fas fa-bars" id="menuIcon"></i></button>
   </div>
-
-  <!-- Mobile Menu -->
-  <nav id="mobileMenu" class="flex-col md:hidden">
+  <nav id="mobileMenu">
     <a href="about.html">About</a>
     <a href="experience.html">Work Showcase</a>
-    <a href="certificate.html">Certificate</a>
-    <a href="eduaction.html">Education</a>
     <a href="projects.html">Projects</a>
+    <a href="certificate.html">Certifications</a>
+    <a href="eduaction.html">Education</a>
     <a href="activities.html">Activities</a>
-    <a href="contact.html" class="text-yellow-300 font-bold">Contact</a>
+    <a href="contact.html">Contact / Hire Me</a>
   </nav>
 </header>
 
-<!-- Hero Section -->
-<section class="hero fade-in">
-  <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Odoo Work Experience</h1>
-  <p class="text-md sm:text-lg md:text-xl mt-2">Professional experience, contributions, and skills showcase.</p>
-</section>
-
-<!-- Experience Cards Section -->
-<section class="container mx-auto px-5 py-16 fade-in">
-  <h2 class="section-title">🌟 Key Contributions</h2>
-  <p class="section-subtitle">Here are some impactful highlights from my Odoo work experience.</p>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Custom Module Development</h3>
-      <p>Built tailored Odoo modules for automation in sales, inventory, and accounting processes.</p>
+<!-- HERO -->
+<div style="position:relative;z-index:1;">
+<div class="exp-hero">
+  <div>
+    <div class="hero-label">Work Experience</div>
+    <h1>Odoo ERP &amp;<br><span class="highlight">Work Showcase</span></h1>
+    <p class="hero-desc">Professional contributions, technical expertise, and real-world impact delivered as a Junior Software Engineer at Aktiv Software — specializing in Python backend development and Odoo ERP customization.</p>
+    <div class="badges-row">
+      <span class="badge badge-blue">Python</span>
+      <span class="badge badge-green">Odoo ERP</span>
+      <span class="badge badge-purple">REST APIs</span>
+      <span class="badge badge-blue">Django</span>
+      <span class="badge badge-green">PostgreSQL</span>
+      <span class="badge badge-purple">QWeb Reports</span>
     </div>
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Workflow Automation</h3>
-      <p>Implemented automated processes to reduce manual effort and enhance operational efficiency.</p>
-    </div>
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Dashboards & Reports</h3>
-      <p>Created interactive dashboards and reports to provide actionable business insights.</p>
-    </div>
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Integration Solutions</h3>
-      <p>Integrated third-party applications to extend Odoo functionality while maintaining security.</p>
-    </div>
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Database Optimization</h3>
-      <p>Enhanced Odoo database performance for faster processing and reliability.</p>
-    </div>
-    <div class="card p-6 fade-in">
-      <h3 class="text-lg font-bold text-indigo-400 mb-2">Team Collaboration</h3>
-      <p>Worked closely with cross-functional teams to gather requirements and implement solutions.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary"><i class="fas fa-rocket"></i> Hire Me</a>
+      <a href="projects.html" class="btn-ghost"><i class="fas fa-code"></i> View Projects</a>
     </div>
   </div>
-</section>
 
-<!-- CTA Section -->
-<section class="text-center py-16 fade-in">
-  <h2 class="text-3xl font-bold mb-4 text-indigo-400">Let's Connect</h2>
-  <p class="text-gray-300 mb-6">Interested in collaborating or hiring me? Reach out for professional opportunities.</p>
-  <a href="contact.html" class="btn-primary px-8 py-3 rounded-lg text-lg">Contact Me</a>
-</section>
+  <!-- Company Card -->
+  <div class="company-card reveal">
+    <div class="co-header">
+      <div class="co-logo"><i class="fas fa-building"></i></div>
+      <div>
+        <div class="co-name">Aktiv Software</div>
+        <div class="co-role">Junior Software Engineer</div>
+        <div class="co-period"><i class="fas fa-calendar-alt" style="color:var(--accent);margin-right:4px"></i> Jan 2024 – Present · Ahmedabad</div>
+      </div>
+    </div>
+    <div class="co-stats">
+      <div class="co-stat">
+        <div class="co-stat-num">25<span>%</span></div>
+        <div class="co-stat-label">Performance Boost</div>
+      </div>
+      <div class="co-stat">
+        <div class="co-stat-num">20<span>+</span></div>
+        <div class="co-stat-label">Modules Migrated</div>
+      </div>
+      <div class="co-stat">
+        <div class="co-stat-num">50<span>+</span></div>
+        <div class="co-stat-label">Bugs Resolved</div>
+      </div>
+      <div class="co-stat">
+        <div class="co-stat-num">0</div>
+        <div class="co-stat-label">Compatibility Issues</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-<!-- Footer -->
-<footer class="text-center py-6 text-gray-400 bg-gray-900">
-  &copy; 2025 Odoo Work Experience — All Rights Reserved
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="impact-item reveal"><div class="impact-num">25<span>%</span></div><div class="impact-label">Backend Performance Improved</div></div>
+    <div class="impact-item reveal"><div class="impact-num">20<span>+</span></div><div class="impact-label">Odoo Modules Migrated</div></div>
+    <div class="impact-item reveal"><div class="impact-num">50<span>+</span></div><div class="impact-label">High-Impact Bugs Fixed</div></div>
+    <div class="impact-item reveal"><div class="impact-num">1<span>yr+</span></div><div class="impact-label">Professional Experience</div></div>
+  </div>
+</div>
+
+<!-- KEY CONTRIBUTIONS -->
+<div class="inner">
+  <div class="section-tag reveal">What I Do</div>
+  <h2 class="reveal">Key Contributions</h2>
+  <div class="contrib-grid">
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-1"><i class="fas fa-cubes"></i></div>
+      <div class="contrib-title">Custom Module Development</div>
+      <div class="contrib-desc">Built tailored Odoo modules for automation in sales, inventory, and accounting processes — delivering precise solutions aligned to each client's unique business workflow.</div>
+    </div>
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-2"><i class="fas fa-robot"></i></div>
+      <div class="contrib-title">Workflow Automation</div>
+      <div class="contrib-desc">Implemented automated processes using custom Python scripts to reduce manual effort, eliminate repetitive tasks, and significantly enhance operational efficiency.</div>
+    </div>
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-3"><i class="fas fa-chart-line"></i></div>
+      <div class="contrib-title">Dashboards &amp; QWeb Reports</div>
+      <div class="contrib-desc">Created interactive dashboards and dynamic QWeb reports that surface actionable business insights, helping stakeholders make informed decisions faster.</div>
+    </div>
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-4"><i class="fas fa-plug"></i></div>
+      <div class="contrib-title">REST API Integrations</div>
+      <div class="contrib-desc">Integrated multiple third-party REST APIs for seamless system data flow, extending Odoo's functionality while maintaining security and data integrity.</div>
+    </div>
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-5"><i class="fas fa-layer-group"></i></div>
+      <div class="contrib-title">Version Migration</div>
+      <div class="contrib-desc">Successfully migrated 20+ Odoo modules across versions with zero compatibility issues — ensuring business continuity and a smooth upgrade path for clients.</div>
+    </div>
+    <div class="contrib-card reveal">
+      <div class="contrib-icon ic-6"><i class="fas fa-users"></i></div>
+      <div class="contrib-title">Team Collaboration</div>
+      <div class="contrib-desc">Worked directly with consultants and clients to gather requirements, supported cross-functional teams, and provided training and documentation when needed.</div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAILED EXPERIENCE -->
+<div class="exp-detail">
+  <div class="exp-col reveal">
+    <h3><i class="fas fa-code" style="color:var(--accent);margin-right:8px"></i>Python / Backend</h3>
+    <div class="exp-item"><div class="exp-dot"></div><div class="exp-text">Developed and optimized backend modules using Python, improving overall system performance by 25%.</div></div>
+    <div class="exp-item"><div class="exp-dot"></div><div class="exp-text">Integrated multiple REST APIs for seamless cross-system data flow.</div></div>
+    <div class="exp-item"><div class="exp-dot"></div><div class="exp-text">Automated workflows and repetitive tasks using custom Python scripts and schedulers.</div></div>
+    <div class="exp-item"><div class="exp-dot"></div><div class="exp-text">Built OOP-based modules with clean architecture and reusable components.</div></div>
+    <div class="exp-item"><div class="exp-dot"></div><div class="exp-text">Developed secure authentication flows and access control mechanisms.</div></div>
+  </div>
+  <div class="exp-col reveal">
+    <h3><i class="fas fa-cogs" style="color:var(--accent2);margin-right:8px"></i>Odoo ERP</h3>
+    <div class="exp-item"><div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div><div class="exp-text">Migrated 20+ Odoo modules across versions with zero compatibility issues.</div></div>
+    <div class="exp-item"><div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div><div class="exp-text">Resolved 50+ high-impact bugs, improving system efficiency and stability.</div></div>
+    <div class="exp-item"><div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div><div class="exp-text">Customized features according to client workflows, improving adoption speed.</div></div>
+    <div class="exp-item"><div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div><div class="exp-text">Built dynamic QWeb reports for actionable business insights.</div></div>
+    <div class="exp-item"><div class="exp-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2)"></div><div class="exp-text">Debugged and optimized complex Odoo configurations for production environments.</div></div>
+  </div>
+</div>
+
+<!-- SKILLS USED -->
+<div class="skills-strip">
+  <div class="skills-inner">
+    <div class="reveal">
+      <div class="section-tag">Technical Stack</div>
+      <h2>Skills Used at Work</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-chip reveal">Python</div>
+      <div class="skill-chip reveal">Django</div>
+      <div class="skill-chip reveal">Odoo / ERPNext</div>
+      <div class="skill-chip reveal">REST APIs</div>
+      <div class="skill-chip reveal">QWeb Reports</div>
+      <div class="skill-chip reveal">PostgreSQL</div>
+      <div class="skill-chip reveal">JavaScript</div>
+      <div class="skill-chip reveal">HTML / CSS</div>
+      <div class="skill-chip reveal">Git / GitHub</div>
+      <div class="skill-chip reveal">Postman</div>
+      <div class="skill-chip reveal">VS Code</div>
+      <div class="skill-chip reveal">Jinja2</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-card reveal">
+    <div class="section-tag" style="margin-bottom:14px;">Let's Connect</div>
+    <h2>Interested in Working Together?</h2>
+    <p>Open to Python developer roles, backend positions, Odoo consulting, and remote opportunities. Let's build something impactful!</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+      <a href="contact.html" class="btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+      <a href="projects.html" class="btn-ghost"><i class="fas fa-code"></i> View Projects</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2025 Twisha Sonpal — Software Engineer</div>
+    <div class="footer-links">
+      <a href="https://github.com/twishasonpal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://linkedin.com/in/twishasonpal" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </div>
 </footer>
 
-<!-- Scripts -->
 <script>
-  // Hamburger toggle
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('show');
-    menuBtn.classList.toggle('active');
+    menuIcon.className = mobileMenu.classList.contains('show') ? 'fas fa-times' : 'fas fa-bars';
   });
 
-  // Fade-in on scroll
-  const faders = document.querySelectorAll('.fade-in');
-  const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
     });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
-
-  // Particles background
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-  let particlesArray = [];
-  class Particle {
-    constructor(x,y,dirX,dirY,size,color){ this.x=x; this.y=y; this.dirX=dirX; this.dirY=dirY; this.size=size; this.color=color; }
-    draw(){ ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color; ctx.fill(); }
-    update(){
-      if(this.x+this.size>canvas.width||this.x-this.size<0) this.dirX=-this.dirX;
-      if(this.y+this.size>canvas.height||this.y-this.size<0) this.dirY=-this.dirY;
-      this.x+=this.dirX; this.y+=this.dirY; this.draw();
-    }
-  }
-  function init(){ particlesArray=[]; for(let i=0;i<100;i++){ let size=Math.random()*2+1; let x=Math.random()*(canvas.width-2); let y=Math.random()*(canvas.height-2); let dirX=(Math.random()-0.5)*1; let dirY=(Math.random()-0.5)*1; let color='rgba(255,255,255,0.5)'; particlesArray.push(new Particle(x,y,dirX,dirY,size,color)); } }
-  function animate(){ requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>p.update()); }
-  window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight; init();});
-  init(); animate();
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
