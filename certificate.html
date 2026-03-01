@@ -5,115 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Certificates | Twisha Sonpal</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #050a0f; --surface: #0c1520; --surface2: #111d2e;
-    --accent: #00d4ff; --accent2: #0af5b3; --accent3: #7b5ea7;
-    --text: #e8f4f8; --muted: #7a9bb5; --border: rgba(0,212,255,0.12);
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Times New Roman', Times, serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+<link href="certificate.css" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQ1XNGWTK8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.5; }
+  gtag('config', 'G-YQ1XNGWTK8');
+</script>
 
-  .orb { position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none; z-index: 0; animation: drift 20s ease-in-out infinite alternate; }
-  .orb-1 { width: 600px; height: 600px; background: rgba(0,212,255,0.06); top: -100px; right: -100px; }
-  .orb-2 { width: 400px; height: 400px; background: rgba(10,245,179,0.05); bottom: 100px; left: -80px; animation-delay: -7s; }
-  .orb-3 { width: 300px; height: 300px; background: rgba(123,94,167,0.08); top: 50%; left: 40%; animation-delay: -14s; }
-  @keyframes drift { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(30px,40px) scale(1.1)} }
-
-  /* HEADER */
-  header { position: sticky; top: 0; z-index: 100; background: rgba(5,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 5%; }
-  .header-inner { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-  .logo { font-family: 'Times New Roman', Times, serif; font-weight: 800; font-size: 1.3rem; text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }
-  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: pulse 2s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(0.8)} }
-  nav.desktop-menu { display: flex; align-items: center; gap: 6px; }
-  nav.desktop-menu a { font-family: 'Times New Roman', Times, serif; font-size: 0.9rem; font-weight: 500; color: var(--muted); text-decoration: none; padding: 6px 14px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
-  nav.desktop-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-  nav.desktop-menu a.active { color: var(--accent); }
-  nav.desktop-menu a.cta { color: var(--bg); background: var(--accent); font-weight: 700; padding: 7px 18px; }
-  nav.desktop-menu a.cta:hover { background: #00bbdd; }
-  .hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; }
-  #mobileMenu { display: none; position: absolute; top: 68px; left: 0; right: 0; background: rgba(5,10,15,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); flex-direction: column; padding: 1rem 5%; gap: 4px; z-index: 99; }
-  #mobileMenu.show { display: flex; }
-  #mobileMenu a { font-family: 'Times New Roman', Times, serif; padding: 12px 16px; color: var(--muted); text-decoration: none; border-radius: 8px; transition: 0.2s; }
-  #mobileMenu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-  @media(max-width:768px){ nav.desktop-menu { display: none; } .hamburger { display: block; } }
-
-  /* PAGE HERO */
-  .page-hero { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 80px 5% 50px; text-align: center; }
-  .hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: inline-flex; align-items: center; gap: 10px; }
-  .hero-label::before, .hero-label::after { content: ''; display: inline-block; width: 32px; height: 1px; background: var(--accent); }
-  h1 { font-family: 'Times New Roman', Times, serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; letter-spacing: -2px; color: #fff; line-height: 1.1; margin-bottom: 16px; }
-  h1 .highlight { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .page-sub { font-size: 1rem; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.8; font-style: italic; }
-
-  /* CERTS GRID */
-  .certs-wrap { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; padding: 40px 5% 80px; }
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-
-  /* CERT CARD */
-  .cert-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex; flex-direction: column;
-    transition: 0.3s ease;
-    position: relative;
-    text-decoration: none; color: var(--text);
-  }
-  .cert-card::before { content: ''; position: absolute; inset: 0; border-radius: 16px; background: linear-gradient(135deg, rgba(0,212,255,0.05), transparent); opacity: 0; transition: opacity 0.3s; z-index: 1; pointer-events: none; }
-  .cert-card:hover { transform: translateY(-6px); border-color: rgba(0,212,255,0.35); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(0,212,255,0.08); }
-  .cert-card:hover::before { opacity: 1; }
-
-  /* Image */
-  .cert-img-wrap { height: 180px; overflow: hidden; background: var(--surface2); position: relative; }
-  .cert-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; display: block; }
-  .cert-card:hover .cert-img-wrap img { transform: scale(1.05); filter: brightness(75%); }
-  .cert-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--muted); gap: 8px; }
-  .cert-img-placeholder span { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-
-  /* View overlay */
-  .view-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s; background: rgba(0,0,0,0.35); }
-  .view-overlay i { font-size: 2rem; color: var(--accent); filter: drop-shadow(0 0 10px var(--accent)); }
-  .cert-card:hover .view-overlay { opacity: 1; }
-
-  /* Year badge */
-  .year-badge { position: absolute; top: 12px; right: 12px; font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: rgba(0,0,0,0.6); border: 1px solid var(--border); color: var(--muted); z-index: 2; backdrop-filter: blur(8px); }
-
-  /* Body */
-  .cert-body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .cert-issuer { font-family: 'Times New Roman', Times, serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
-  .cert-name { font-family: 'Times New Roman', Times, serif; font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.4; }
-  .cert-footer { margin-top: auto; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
-  .cert-link { font-family: 'Times New Roman', Times, serif; font-size: 0.8rem; color: var(--accent); display: flex; align-items: center; gap: 4px; font-weight: 600; transition: gap 0.2s; }
-  .cert-card:hover .cert-link { gap: 7px; }
-  .cert-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
-
-  /* Issuer colors */
-  .ic-ibm { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
-  .ic-isro { background: rgba(10,245,179,0.1); border: 1px solid rgba(10,245,179,0.2); color: var(--accent2); }
-  .ic-google { background: rgba(255,183,77,0.1); border: 1px solid rgba(255,183,77,0.2); color: #ffb74d; }
-  .ic-infosys { background: rgba(199,146,234,0.1); border: 1px solid rgba(199,146,234,0.2); color: #c792ea; }
-  .ic-udemy { background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.2); color: #fb7185; }
-  .ic-jhu { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
-  .ic-tcs { background: rgba(10,245,179,0.1); border: 1px solid rgba(10,245,179,0.2); color: var(--accent2); }
-  .ic-other { background: rgba(123,94,167,0.1); border: 1px solid rgba(123,94,167,0.2); color: #a78bfa; }
-
-  /* FOOTER */
-  footer { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); padding: 32px 5%; }
-  .footer-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-  .footer-copy { font-family: 'Times New Roman', Times, serif; font-size: 0.85rem; color: var(--muted); }
-  .footer-links { display: flex; gap: 20px; }
-  .footer-links a { font-family: 'Times New Roman', Times, serif; font-size: 0.88rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--accent); }
-
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-</style>
 </head>
 <body>
 
