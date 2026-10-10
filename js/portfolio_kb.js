@@ -238,8 +238,35 @@ window.PortfolioKB = (function() {
       return `Twisha has hands-on Odoo ERP experience:\n\n• Custom module development (Sales, Inventory, Accounting)\n• Migrated 200+ modules across Odoo versions — zero compatibility issues\n• Resolved 1,500+ production bugs in live ERP environments\n• Built dynamic QWeb reports & KPI dashboards\n• Integrated third-party systems with Odoo via REST APIs`;
     }
 
-    // ─── 13. UNKNOWN — Safe Fallback ───────────────────────────
+    // ─── 13. SALARY / CTC / COMPENSATION ──────────────────────
+    if (
+      has('salary', 'ctc', 'pay', 'compensation', 'package',
+          'lpa', 'lakh', 'per annum', 'wage', 'stipend', 'hike',
+          'expected', 'current ctc', 'your ctc')
+    ) {
+      return `Twisha hasn't shared her current CTC publicly. Feel free to discuss compensation directly with her:\n\n📧 **Email:** twishasonpal123@gmail.com\n💼 **LinkedIn:** linkedin.com/in/sonpal-twisha-96855a239/`;
+    }
+
+    // ─── 14. PERSONAL / OUT-OF-SCOPE ──────────────────────────
+    if (
+      has('health', 'married', 'single', 'relationship', 'boyfriend',
+          'girlfriend', 'family', 'age', 'dob', 'date of birth',
+          'height', 'weight', 'hobby', 'hobbies', 'religion', 'caste')
+    ) {
+      return `That's outside my scope! 😊 I'm here to help with Twisha's **professional background** — skills, experience, projects, and availability. Try asking me one of those!`;
+    }
+
+    // ─── 15. LOCATION / REMOTE / RELOCATION ───────────────────
+    if (
+      has('locat', 'city', 'where she', 'remote', 'work from home',
+          'relocat', 'shift', 'move', 'onsite', 'hybrid')
+    ) {
+      return `Twisha is based in **Ahmedabad, Gujarat, India**.\n\n• ✅ Open to **Remote** roles\n• ✅ Open to **Ahmedabad** based roles\n• 🤔 Open to discussing relocation for the right opportunity\n\n📧 twishasonpal123@gmail.com for further discussion.`;
+    }
+
+    // ─── 16. UNKNOWN — return null (triggers clean fallback) ───
     return null;
+
   }
 
   return {

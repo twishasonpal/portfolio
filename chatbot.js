@@ -198,51 +198,48 @@
     await initEngines();
     const query = userQuery.trim();
 
-    // 1. Check Verified Portfolio Knowledge Base First (100% Fact Accuracy)
+    // 1. Check Verified Portfolio Knowledge Base (always accurate, deterministic)
     if (window.PortfolioKB) {
       const verifiedFact = window.PortfolioKB.queryFacts(query);
       if (verifiedFact) {
-        return {
-          text: verifiedFact,
-          source: 'kb',
-          confidence: 1.0
-        };
+        return { text: verifiedFact, source: 'kb', confidence: 1.0 };
       }
     }
 
-    // 2. Query Browser Neural Transformer Model
+    // 2. Neural model output is DISABLED for display.
+    //    The 105k-param char-level model cannot reliably generate coherent sentences.
+    //    It is kept loaded for future use but its output is never shown to users.
+    //    Attempting to run it silently in background (for future training signals).
     if (window.BrowserTransformerLM && window.BrowserTransformerLM.isLoaded()) {
       try {
-        const prompt = `Question: ${query} Answer:`;
-        const result = await window.BrowserTransformerLM.generate(prompt, 40, 0.3);
-        if (result && result.text) {
-          const cleanedText = result.text.trim();
-          // Require at least 5 meaningful words forming a coherent sentence
-          const words = cleanedText.split(/\s+/).filter(w => w.length > 2);
-          const hasSufficientLength = words.length >= 6;
-          const hasKeywordMatch = /Twisha|Python|backend|developer|software|engineer|database|PostgreSQL/i.test(cleanedText);
-          const hasNoGarbage = !/[0-9]{4}-[0-9]{3}|Intod|ploy|perors|SSQL/i.test(cleanedText);
-
-          if (hasSufficientLength && hasKeywordMatch && hasNoGarbage) {
-            return {
-              text: `${cleanedText}\n\n*(For exact verified facts, please refer to the relevant portfolio sections.)*`,
-              source: 'neural',
-              confidence: 0.8
-            };
-          }
-        }
-      } catch (e) {
-        console.warn('Neural inference exception:', e);
-      }
+        window.BrowserTransformerLM.generate(`Question: ${query} Answer:`, 30, 0.3)
+          .catch(() => {}); // fire-and-forget, ignore result
+      } catch (e) { /* silent */ }
     }
 
-    // 3. Safe Out-of-Knowledge-Base Fallback (Never Hallucinate or Show Garbled Text)
+    // 3. Friendly fallback — concise, human-sounding, never shows garbage
+    const q = query.toLowerCase();
+    // Personalise fallback slightly based on topic
+    if (/salary|ctc|pay|compensation|package|lpa|lakh/i.test(q)) {
+      return {
+        text: "Twisha hasn't shared her current CTC publicly. You're welcome to discuss compensation directly with her — reach out at **twishasonpal123@gmail.com** or via LinkedIn.",
+        source: 'fallback', confidence: 0.0
+      };
+    }
+    if (/health|married|personal|age|family|hobby|hobbies/i.test(q)) {
+      return {
+        text: "That's a bit outside my scope! I'm here to help with Twisha's professional background — skills, experience, projects, and availability. Feel free to ask me anything on those topics! 😊",
+        source: 'fallback', confidence: 0.0
+      };
+    }
+
     return {
-      text: "I don't have verified information on that in Twisha's portfolio. Please feel free to contact her directly at **twishasonpal123@gmail.com** or explore her portfolio sections!",
+      text: "I don't have details on that yet. Try asking about her **skills**, **experience**, **projects**, **certifications**, or **availability** — or contact her at **twishasonpal123@gmail.com**!",
       source: 'fallback',
       confidence: 0.0
     };
   }
+
 
   /* ── UI HELPERS ─────────────────────────────────────────── */
   function updateStatus(type, msg) {
