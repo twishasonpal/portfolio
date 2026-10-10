@@ -124,13 +124,17 @@ window.PortfolioKB = (function() {
     const has = (...words) => words.some(w => q.includes(w));
 
     // ─── 0. IDENTITY / BIO / GREETINGS ────────────────────────
-    if (
-      has('twisha', 'who is she', 'who are you', 'about her',
-          'introduce', 'overview', 'summary', 'profile', 'bio',
-          'tell me about', 'say about', 'describe her') ||
+    // ONLY fires when no specific professional topic is present.
+    // e.g. "Tell me about her certifications" → certifications rule, not bio.
+    const specificTopics = /certif|course|experience|skill|project|work|job|company|api|database|backend|python|ai|contact|email|education|degree|available|salary|ctc|locat|remote/i;
+    const isGenericBio =
+      has('who is she', 'who are you', 'introduce', 'overview', 'bio', 'profile') ||
       q === 'hi' || q === 'hello' || q === 'hey' ||
-      q.startsWith('hi ') || q.startsWith('hello ') || q.startsWith('hey ')
-    ) {
+      q.startsWith('hi ') || q.startsWith('hello ') || q.startsWith('hey ') ||
+      // "about her" / "tell me about" / "say about" only if no specific topic follows
+      ((has('about her', 'tell me about', 'say about', 'describe her', 'twisha', 'summary')) && !specificTopics.test(q));
+
+    if (isGenericBio) {
       return `**${kbData.profile.name}** — **${kbData.profile.title}**\n📍 ${kbData.profile.location}\n\n${kbData.profile.summary}\n\n💬 Ask me about her skills, experience, projects, certifications, or availability!`;
     }
 
