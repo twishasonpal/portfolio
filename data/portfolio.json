@@ -1,0 +1,211 @@
+{
+  "profile": {
+    "name": "Twisha Sonpal",
+    "title": "Python Developer & AI Engineer",
+    "location": "Ahmedabad, Gujarat, India",
+    "summary": "Python Developer & AI Engineer with 2+ years of professional experience building backend systems, REST API integrations, automation solutions, and AI-powered applications. Skilled in Python, Flask, PostgreSQL, AI automation (n8n, LLM agents, GenAI apps), AWS deployment, and Odoo ERP. Actively building intelligent automation workflows and AI agent solutions.",
+    "avatar": "twisha_AI.png"
+  },
+  "contact": {
+    "email": "twishasonpal123@gmail.com",
+    "phone": "+91-9428970313",
+    "linkedin": "https://www.linkedin.com/in/sonpal-twisha-96855a239/",
+    "github": "https://github.com/twishasonpal",
+    "portfolio_url": "https://twishasonpal.github.io/portfolio"
+  },
+  "availability": {
+    "is_open_to_work": true,
+    "status": "Open to Python Developer, AI Engineer, Backend Engineer, and AI Automation roles (Remote or Ahmedabad)",
+    "notice_period": "Negotiable",
+    "last_updated": "2026-10-09"
+  },
+  "work_experience": [
+    {
+      "company": "Aktiv Software",
+      "location": "Ahmedabad, India",
+      "role": "Junior Software Engineer",
+      "type": "Full-time",
+      "start_date": "2024-07-01",
+      "end_date": null,
+      "is_current": true,
+      "summary": "Python backend developer focused on REST API integrations, database design, and automation, collaborating directly with clients to deliver scalable business solutions.",
+      "highlights": [
+        "Rebuilt and optimized a backend module in Python — improved performance by 80% through code refactoring and query optimization.",
+        "Integrated multiple third-party REST APIs enabling real-time data exchange between external client systems and backend services.",
+        "Wrote Python automation scripts that eliminated repetitive manual tasks, saving developer hours weekly.",
+        "Designed schedulers and background jobs in Python for periodic data processing without manual intervention.",
+        "Wrote complex PostgreSQL queries with joins, triggers, and indexing to improve data retrieval performance.",
+        "Built Python data pipelines (Pandas) for processing and visualising business KPIs and revenue dashboards.",
+        "Migrated 200+ Odoo ERP modules across versions with zero compatibility issues and resolved 1500+ production bugs."
+      ]
+    },
+    {
+      "company": "Aktiv Software",
+      "location": "Ahmedabad, India",
+      "role": "Trainee",
+      "type": "Internship / Training",
+      "start_date": "2024-01-01",
+      "end_date": "2024-07-01",
+      "is_current": false,
+      "summary": "Completed a 6-month training program covering Python fundamentals, backend development practices, and internal tools before converting to a full-time role.",
+      "highlights": [
+        "Mastered Python OOP, backend development standards, and database fundamentals.",
+        "Participated in internal project development and bug fixing under senior mentorship."
+      ]
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "JavaScript", "SQL", "Java", "PHP", "HTML5", "CSS3"],
+    "backend": ["Python", "Flask", "REST APIs", "OOP", "Automation", "Task Schedulers"],
+    "databases": ["PostgreSQL", "SQL", "Pandas", "Matplotlib", "PGAdmin", "Jupyter Notebook"],
+    "cloud_and_devops": ["AWS", "Application Hosting", "Domain & DNS Configuration", "Server Management", "Git", "GitHub"],
+    "erp": ["Odoo ERP", "QWeb Reports", "Business Process Consulting"],
+    "tools": ["Git", "GitHub", "Postman", "VS Code", "PyCharm", "n8n"],
+    "emerging_and_learning": ["AI Agents", "n8n Workflows", "LLM Applications", "GenAI", "MCP Server Integration"]
+  },
+  "projects": [
+    {
+      "name": "AI Automation & Intelligent Agent Solutions",
+      "category": "AI & GenAI",
+      "type": "Personal / Learning Project",
+      "tech_stack": ["Python", "AI Agents", "MCP Server Integration", "n8n"],
+      "description": "Developed automation workflows using AI agents and MCP server integrations to connect tools and data sources and improve business productivity."
+    },
+    {
+      "name": "API Integration & Data Synchronization Platform",
+      "category": "Backend Engineering",
+      "type": "Professional Work",
+      "tech_stack": ["Python", "REST APIs", "PostgreSQL"],
+      "description": "Built and integrated third-party APIs to enable real-time data exchange, automate workflows, and connect multiple business systems."
+    },
+    {
+      "name": "Cloud Deployment & Application Management",
+      "category": "Cloud & DevOps",
+      "type": "Professional / Infrastructure",
+      "tech_stack": ["AWS", "Server Management", "Deployment"],
+      "description": "Deployed and managed applications on AWS infrastructure; handled configuration, monitoring, troubleshooting, and production support."
+    },
+    {
+      "name": "Web Development & AWS Deployment",
+      "category": "Fullstack Web",
+      "type": "Professional / Project Work",
+      "tech_stack": ["HTML", "CSS", "JavaScript", "Python", "AWS"],
+      "description": "Developed and deployed web applications on AWS infrastructure, including domain registration, server configuration, monitoring, and production support."
+    },
+    {
+      "name": "End-to-End Odoo ERP Implementation",
+      "category": "ERP Systems",
+      "type": "Professional Client Work",
+      "tech_stack": ["Odoo", "Python", "Business Consulting"],
+      "description": "Set up complete Odoo ERP environments from the ground up — configuring Sales, Purchase, Inventory, and Accounting modules to match client workflows."
+    },
+    {
+      "name": "Fab Grocery",
+      "category": "Web Application",
+      "type": "Project Work",
+      "tech_stack": ["Python", "JavaScript", "SQL"],
+      "description": "Dynamic e-commerce platform for fast grocery delivery services with real-time inventory management."
+    },
+    {
+      "name": "Car Sensing System",
+      "category": "Python Application",
+      "type": "Project Work",
+      "tech_stack": ["Python", "OpenCV"],
+      "description": "Python application to detect speeding vehicles, monitor traffic flow, and generate alerts in real-time."
+    },
+    {
+      "name": "Data Analysis Dashboard",
+      "category": "Data Analytics",
+      "type": "Project Work",
+      "tech_stack": ["Python", "Pandas", "Matplotlib"],
+      "description": "Visualizes trends in sales and buyer demographics with interactive charts and insights."
+    },
+    {
+      "name": "Voting System",
+      "category": "Python Application",
+      "type": "Project Work",
+      "tech_stack": ["Python", "SQL"],
+      "description": "Python-based election management and analysis system with secure vote tracking and result visualization."
+    },
+    {
+      "name": "QR Code Scanner",
+      "category": "Tool",
+      "type": "Project Work",
+      "tech_stack": ["Python", "OpenCV"],
+      "description": "QR code generator and scanner for quick data sharing, supporting URLs, text, and contact information."
+    },
+    {
+      "name": "Quiz App",
+      "category": "Web Application",
+      "type": "Project Work",
+      "tech_stack": ["JavaScript", "HTML", "CSS"],
+      "description": "Interactive quiz platform to test knowledge and problem-solving with score tracking and timed questions."
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.E. Computer Science & Engineering",
+      "institution": "L.J. Institute of Engineering & Technology",
+      "period": "2022 – 2025",
+      "start_year": 2022,
+      "end_year": 2025
+    },
+    {
+      "degree": "Diploma in Computer Engineering",
+      "institution": "Gujarat Technological University",
+      "period": "2019 – 2022",
+      "start_year": 2019,
+      "end_year": 2022
+    },
+    {
+      "degree": "SSC (Secondary School Certificate)",
+      "institution": "Shree Swaminarayan Gurukul",
+      "period": "Up to 2019",
+      "start_year": 2018,
+      "end_year": 2019
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Cloud Practitioner Essentials",
+      "issuer": "AWS Training & Certification",
+      "year": 2026,
+      "date": "July 29, 2026"
+    },
+    {
+      "name": "AI Automation: Build LLM Apps & AI Agents with n8n & APIs",
+      "issuer": "Udemy / Certification",
+      "year": 2024
+    },
+    {
+      "name": "Building Generative AI-Powered Applications with Python",
+      "issuer": "IBM",
+      "year": 2024
+    },
+    {
+      "name": "Geoprocessing using Python",
+      "issuer": "ISRO",
+      "year": 2023
+    },
+    {
+      "name": "Fullstack Development",
+      "issuer": "Johns Hopkins University",
+      "year": 2022
+    },
+    {
+      "name": "Python Programming Comprehensive Bootcamp",
+      "issuer": "Udemy",
+      "year": 2021
+    },
+    {
+      "name": "Crash Course on Python",
+      "issuer": "Google",
+      "year": 2021
+    },
+    {
+      "name": "Basics of Python",
+      "issuer": "Infosys",
+      "year": 2021
+    }
+  ]
+}
