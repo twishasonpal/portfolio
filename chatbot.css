@@ -14,11 +14,6 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  animation: bot-float 3.5s ease-in-out infinite;
-}
-@keyframes bot-float {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
 }
 
 #chatbot-trigger .trigger-avatar {
@@ -72,11 +67,6 @@
   background: #10b981;
   border-radius: 50%;
   border: 2px solid #09090b;
-  animation: pulse-green 2s infinite;
-}
-@keyframes pulse-green {
-  0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
-  50%      { box-shadow: 0 0 0 5px rgba(16,185,129,0); }
 }
 
 /* ---------- CHAT PANEL ---------- */
@@ -172,31 +162,13 @@
 
 
 
-/* Avatar speaking animation — gets LARGER, emits speech waves and nods like a human */
+/* Avatar speaking state — simple static glow, no beating */
 .cb-avatar-speaking {
-  width: 76px !important;
-  height: 76px !important;
   border-color: #c084fc !important;
   border-width: 3px !important;
-  box-shadow: 0 0 0 4px rgba(168,85,247,0.5), 0 0 0 10px rgba(59,130,246,0.3), 0 0 32px rgba(168,85,247,0.6);
-  animation: human-talking 0.45s ease-in-out infinite alternate !important;
-  z-index: 10;
+  box-shadow: 0 0 0 4px rgba(168,85,247,0.4), 0 0 18px rgba(168,85,247,0.4);
 }
 
-@keyframes human-talking {
-  0% {
-    transform: scale(1) translateY(0);
-    box-shadow: 0 0 0 3px rgba(168,85,247,0.5), 0 0 0 8px rgba(59,130,246,0.2), 0 0 18px rgba(168,85,247,0.4);
-  }
-  50% {
-    transform: scale(1.05) translateY(-3px) rotate(1deg);
-    box-shadow: 0 0 0 5px rgba(168,85,247,0.8), 0 0 0 12px rgba(59,130,246,0.3), 0 0 30px rgba(168,85,247,0.6);
-  }
-  100% {
-    transform: scale(1.02) translateY(-1px) rotate(-1deg);
-    box-shadow: 0 0 0 4px rgba(168,85,247,0.6), 0 0 0 9px rgba(59,130,246,0.25), 0 0 22px rgba(168,85,247,0.5);
-  }
-}
 
 /* Voice equalizer wave indicator */
 .cb-voice-waves {
@@ -234,7 +206,6 @@
   background: #10b981;
   border-radius: 50%;
   border: 2px solid #111827;
-  animation: pulse-green 2s infinite;
 }
 .cb-header-info { flex: 1; min-width: 0; }
 .cb-header-info h3 {

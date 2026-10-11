@@ -21,6 +21,7 @@
   let conversationHistory = [];
   let isModelInitializing = false;
   let modelInitialized = false;
+  let isIntroPlaying = false; // prevents outside-click closing panel during intro
 
   /* ── DYNAMIC MODULE LOADER ──────────────────────────────── */
   async function ensureModulesLoaded() {
@@ -430,12 +431,16 @@
 
   /* ── INTRODUCTION SCRIPT ─────────────────────────────────── */
   function playIntro() {
+    // Lock: prevent outside-click from closing panel while intro starts
+    isIntroPlaying = true;
+    setTimeout(() => { isIntroPlaying = false; }, 1000);
+
     const welcome = document.getElementById('cb-welcome');
     const suggestions = document.getElementById('cb-suggestions');
     if (welcome) welcome.style.display = 'none';
     if (suggestions) suggestions.style.display = 'none';
 
-    const introText = "Hello, and welcome to Twisha Sonpal's portfolio! 👋 I'm Twisha's virtual AI assistant. Twisha is a Python Developer and AI Engineer with over 2 years of professional experience. Her core strengths are Python backend development, REST API integrations, PostgreSQL database engineering, and business automation. She also builds AI agents, GenAI-powered applications, and intelligent workflow automation using n8n and MCP integrations. She currently works at Aktiv Software as a Junior Software Engineer. You can ask me about her technical skills, projects, AI work, certifications, or how to contact her. Let's explore her portfolio!";
+    const introText = "Hello, and welcome to Twisha Sonpal's portfolio! 👋 I'm Twisha's virtual AI assistant. Twisha is a Python Developer and AI Engineer with over 2 years of professional experience. Her core strengths are Python backend development, REST API integrations, PostgreSQL database engineering, and business automation , Odoo ERP. She also builds AI agents, GenAI-powered applications, and intelligent workflow automation using n8n and MCP integrations. She is immediate joiner. You can ask me about her technical skills, projects, AI work, certifications, or how to contact her. Let's explore her portfolio!";
     appendMessage('bot', introText);
 
     setTimeout(() => {
@@ -623,8 +628,8 @@
     document.addEventListener('click', (e) => {
       if (!panel.classList.contains('open')) return;
 
-      // When the assistant is actively speaking, NEVER close the panel on accidental clicks
-      if (isSpeaking) return;
+      // Never close while intro is starting or assistant is speaking
+      if (isIntroPlaying || isSpeaking) return;
 
       const path = (e.composedPath && e.composedPath()) || [];
       if (path.some(el => el === panel || el === trigger)) return;
