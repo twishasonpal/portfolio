@@ -126,13 +126,13 @@ window.PortfolioKB = (function() {
     // ─── 0. IDENTITY / BIO / GREETINGS ────────────────────────
     // ONLY fires when no specific professional topic is present.
     // e.g. "Tell me about her certifications" → certifications rule, not bio.
-    const specificTopics = /certif|course|experience|skill|project|work|job|company|api|database|backend|python|ai|contact|email|education|degree|available|salary|ctc|locat|remote/i;
+    const specificTopics = /certif|course|experience|skill|project|work|job|company|api|database|backend|python|ai|contact|email|education|degree|available|salary|ctc|locat|remote|linkedin|linkding|linkdin/i;
     const isGenericBio =
-      has('who is she', 'who are you', 'introduce', 'overview', 'bio', 'profile') ||
+      has('who is she', 'who are you', 'introduce', 'overview', 'bio') ||
       q === 'hi' || q === 'hello' || q === 'hey' ||
       q.startsWith('hi ') || q.startsWith('hello ') || q.startsWith('hey ') ||
-      // "about her" / "tell me about" / "say about" only if no specific topic follows
-      ((has('about her', 'tell me about', 'say about', 'describe her', 'twisha', 'summary')) && !specificTopics.test(q));
+      // "about her" / "tell me about" / "profile" only if no specific topic follows
+      ((has('about her', 'tell me about', 'say about', 'describe her', 'twisha', 'summary', 'profile')) && !specificTopics.test(q));
 
     if (isGenericBio) {
       return `**${kbData.profile.name}** — **${kbData.profile.title}**\n📍 ${kbData.profile.location}\n\n${kbData.profile.summary}\n\n💬 Ask me about her skills, experience, projects, certifications, or availability!`;
@@ -210,13 +210,18 @@ window.PortfolioKB = (function() {
       return `**Availability Status:** ${avail.status}\n\n• ⏳ **Notice Period:** ${avail.notice_period}\n• 📍 **Preferred Locations:** Remote or Ahmedabad, Gujarat, India\n• 📧 **Contact:** twishasonpal123@gmail.com\n• 💼 **LinkedIn:** linkedin.com/in/sonpal-twisha-96855a239/`;
     }
 
-    // ─── 9. CONTACT / RESUME ───────────────────────────────────
+    // ─── 9. CONTACT / RESUME / LINKEDIN ────────────────────────
     if (
       has('contact', 'email', 'phone', 'mobile', 'number',
-          'linkedin', 'github', 'resume', 'cv', 'reach',
-          'get in touch', 'message her', 'connect with')
+          'linkedin', 'linkding', 'linkdin', 'linked in',
+          'github', 'resume', 'cv', 'reach', 'profile id', 'social',
+          'get in touch', 'message her', 'connect with', 'how to reach')
     ) {
       const c = kbData.contact;
+      // If asking specifically for LinkedIn / Linkding
+      if (has('linkedin', 'linkding', 'linkdin', 'linked in')) {
+        return `Here is Twisha's **LinkedIn profile**:\n\n💼 **LinkedIn:** [linkedin.com/in/sonpal-twisha](https://www.linkedin.com/in/sonpal-twisha-96855a239/)\n📧 **Email:** [${c.email}](mailto:${c.email})\n🐙 **GitHub:** [github.com/twishasonpal](https://github.com/twishasonpal)\n\nYou can click the LinkedIn link above to view her full professional profile!`;
+      }
       return `How to reach Twisha Sonpal:\n\n📧 **Email:** [${c.email}](mailto:${c.email})\n📱 **Phone:** ${c.phone}\n💼 **LinkedIn:** [linkedin.com/in/sonpal-twisha](https://www.linkedin.com/in/sonpal-twisha-96855a239/)\n🐙 **GitHub:** [github.com/twishasonpal](https://github.com/twishasonpal)\n📄 **Resume:** Available for download on her portfolio website.`;
     }
 

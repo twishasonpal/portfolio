@@ -115,11 +115,22 @@
   align-items: center;
   gap: 14px;
   flex-shrink: 0;
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Header when AI is speaking: expands slightly and glows */
+.cb-header.cb-header-speaking {
+  padding: 20px 18px 18px;
+  background: linear-gradient(135deg, #0f172a 0%, #2e1065 100%);
+  border-bottom: 1px solid rgba(139,92,246,0.3);
+  box-shadow: 0 4px 20px rgba(139,92,246,0.25);
+}
+
 .cb-avatar-wrap {
   position: relative;
   flex-shrink: 0;
 }
+
 .cb-avatar {
   width: 48px;
   height: 48px;
@@ -132,18 +143,86 @@
   border: 2px solid rgba(255,255,255,0.15);
   font-size: 1.4rem;
   color: #fff;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
 }
+
 .cb-avatar img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
 
-/* Avatar speaking animation — pulsing blue ring */
-.cb-avatar-speaking {
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.8), 0 0 0 6px rgba(59,130,246,0.4), 0 0 0 10px rgba(59,130,246,0.15);
-  animation: avatar-speak-ring 0.8s ease-in-out infinite alternate !important;
-  border-color: rgba(59,130,246,0.9) !important;
+/* Live Speaking Avatar Container */
+.cb-live-avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-@keyframes avatar-speak-ring {
-  0%   { box-shadow: 0 0 0 2px rgba(59,130,246,0.9), 0 0 0 5px rgba(59,130,246,0.4), 0 0 16px rgba(59,130,246,0.3); }
-  100% { box-shadow: 0 0 0 5px rgba(59,130,246,0.7), 0 0 0 10px rgba(59,130,246,0.2), 0 0 28px rgba(59,130,246,0.5); }
+
+.cb-avatar-base-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+
+
+/* Avatar speaking animation — gets LARGER, emits speech waves and nods like a human */
+.cb-avatar-speaking {
+  width: 76px !important;
+  height: 76px !important;
+  border-color: #c084fc !important;
+  border-width: 3px !important;
+  box-shadow: 0 0 0 4px rgba(168,85,247,0.5), 0 0 0 10px rgba(59,130,246,0.3), 0 0 32px rgba(168,85,247,0.6);
+  animation: human-talking 0.45s ease-in-out infinite alternate !important;
+  z-index: 10;
+}
+
+@keyframes human-talking {
+  0% {
+    transform: scale(1) translateY(0);
+    box-shadow: 0 0 0 3px rgba(168,85,247,0.5), 0 0 0 8px rgba(59,130,246,0.2), 0 0 18px rgba(168,85,247,0.4);
+  }
+  50% {
+    transform: scale(1.05) translateY(-3px) rotate(1deg);
+    box-shadow: 0 0 0 5px rgba(168,85,247,0.8), 0 0 0 12px rgba(59,130,246,0.3), 0 0 30px rgba(168,85,247,0.6);
+  }
+  100% {
+    transform: scale(1.02) translateY(-1px) rotate(-1deg);
+    box-shadow: 0 0 0 4px rgba(168,85,247,0.6), 0 0 0 9px rgba(59,130,246,0.25), 0 0 22px rgba(168,85,247,0.5);
+  }
+}
+
+/* Voice equalizer wave indicator */
+.cb-voice-waves {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.cb-voice-waves span {
+  display: inline-block;
+  width: 3px;
+  height: 100%;
+  background: #38bdf8;
+  border-radius: 2px;
+  animation: wave-bar 0.6s ease-in-out infinite alternate;
+}
+.cb-voice-waves span:nth-child(1) { animation-delay: 0.1s; height: 40%; }
+.cb-voice-waves span:nth-child(2) { animation-delay: 0.3s; height: 100%; background: #a855f7; }
+.cb-voice-waves span:nth-child(3) { animation-delay: 0.2s; height: 75%; background: #60a5fa; }
+.cb-voice-waves span:nth-child(4) { animation-delay: 0.4s; height: 50%; }
+
+@keyframes wave-bar {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1.2); }
 }
 
 .cb-online-dot {

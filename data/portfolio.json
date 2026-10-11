@@ -27,7 +27,7 @@
       "type": "Full-time",
       "start_date": "2024-07-01",
       "end_date": "2026-30-10",
-      "is_current": true,
+      "is_current": false,
       "summary": "Python backend developer focused on REST API integrations, database design, and automation, collaborating directly with clients to deliver scalable business solutions.",
       "highlights": [
         "Rebuilt and optimized a backend module in Python — improved performance by 80% through code refactoring and query optimization.",

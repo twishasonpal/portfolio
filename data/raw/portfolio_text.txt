@@ -1,0 +1,97 @@
+=== TWISHA SONPAL - PORTFOLIO FACTS ===
+
+NAME: Twisha Sonpal
+TITLE: Python Developer & AI Engineer
+LOCATION: Ahmedabad, Gujarat, India
+SUMMARY: Python Developer & AI Engineer with 2+ years of professional experience building backend systems, REST API integrations, automation solutions, and AI-powered applications. Skilled in Python, Flask, PostgreSQL, AI automation (n8n, LLM agents, GenAI apps), AWS deployment, and Odoo ERP. Actively building intelligent automation workflows and AI agent solutions.
+
+CONTACT INFORMATION:
+- Email: twishasonpal123@gmail.com
+- Phone: +91-9428970313
+- LinkedIn: https://www.linkedin.com/in/sonpal-twisha-96855a239/
+- GitHub: https://github.com/twishasonpal
+- Portfolio URL: https://twishasonpal.github.io/portfolio
+
+JOB AVAILABILITY:
+- Open to work: True
+- Status: Open to Python Developer, AI Engineer, Backend Engineer, and AI Automation roles (Remote or Ahmedabad)
+- Notice Period: Negotiable
+- Last Updated: 2026-10-09
+
+WORK EXPERIENCE:
+- Role: Junior Software Engineer at Aktiv Software (Ahmedabad, India)
+  Type: Full-time | Period: 2024-07-01 to 2026-30-10
+  Summary: Python backend developer focused on REST API integrations, database design, and automation, collaborating directly with clients to deliver scalable business solutions.
+  Key Highlights:
+    * Rebuilt and optimized a backend module in Python — improved performance by 80% through code refactoring and query optimization.
+    * Integrated multiple third-party REST APIs enabling real-time data exchange between external client systems and backend services.
+    * Wrote Python automation scripts that eliminated repetitive manual tasks, saving developer hours weekly.
+    * Designed schedulers and background jobs in Python for periodic data processing without manual intervention.
+    * Wrote complex PostgreSQL queries with joins, triggers, and indexing to improve data retrieval performance.
+    * Built Python data pipelines (Pandas) for processing and visualising business KPIs and revenue dashboards.
+    * Migrated 200+ Odoo ERP modules across versions with zero compatibility issues and resolved 1500+ production bugs.
+- Role: Trainee at Aktiv Software (Ahmedabad, India)
+  Type: Internship / Training | Period: 2024-01-01 to 2024-07-01
+  Summary: Completed a 6-month training program covering Python fundamentals, backend development practices, and internal tools before converting to a full-time role.
+  Key Highlights:
+    * Mastered Python OOP, backend development standards, and database fundamentals.
+    * Participated in internal project development and bug fixing under senior mentorship.
+
+TECHNICAL SKILLS:
+- Languages: Python, JavaScript, SQL, Java, PHP, HTML5, CSS3
+- Backend: Python, Flask, REST APIs, OOP, Automation, Task Schedulers
+- Databases: PostgreSQL, SQL, Pandas, Matplotlib, PGAdmin, Jupyter Notebook
+- Cloud And Devops: AWS, Application Hosting, Domain & DNS Configuration, Server Management, Git, GitHub
+- Erp: Odoo ERP, QWeb Reports, Business Process Consulting
+- Tools: Git, GitHub, Postman, VS Code, PyCharm, n8n
+- Emerging And Learning: AI Agents, n8n Workflows, LLM Applications, GenAI, MCP Server Integration
+
+KEY PROJECTS:
+- Project: AI Automation & Intelligent Agent Solutions
+  Category: AI & GenAI | Tech Stack: Python, AI Agents, MCP Server Integration, n8n
+  Description: Developed automation workflows using AI agents and MCP server integrations to connect tools and data sources and improve business productivity.
+- Project: API Integration & Data Synchronization Platform
+  Category: Backend Engineering | Tech Stack: Python, REST APIs, PostgreSQL
+  Description: Built and integrated third-party APIs to enable real-time data exchange, automate workflows, and connect multiple business systems.
+- Project: Cloud Deployment & Application Management
+  Category: Cloud & DevOps | Tech Stack: AWS, Server Management, Deployment
+  Description: Deployed and managed applications on AWS infrastructure; handled configuration, monitoring, troubleshooting, and production support.
+- Project: Web Development & AWS Deployment
+  Category: Fullstack Web | Tech Stack: HTML, CSS, JavaScript, Python, AWS
+  Description: Developed and deployed web applications on AWS infrastructure, including domain registration, server configuration, monitoring, and production support.
+- Project: End-to-End Odoo ERP Implementation
+  Category: ERP Systems | Tech Stack: Odoo, Python, Business Consulting
+  Description: Set up complete Odoo ERP environments from the ground up — configuring Sales, Purchase, Inventory, and Accounting modules to match client workflows.
+- Project: Fab Grocery
+  Category: Web Application | Tech Stack: Python, JavaScript, SQL
+  Description: Dynamic e-commerce platform for fast grocery delivery services with real-time inventory management.
+- Project: Car Sensing System
+  Category: Python Application | Tech Stack: Python, OpenCV
+  Description: Python application to detect speeding vehicles, monitor traffic flow, and generate alerts in real-time.
+- Project: Data Analysis Dashboard
+  Category: Data Analytics | Tech Stack: Python, Pandas, Matplotlib
+  Description: Visualizes trends in sales and buyer demographics with interactive charts and insights.
+- Project: Voting System
+  Category: Python Application | Tech Stack: Python, SQL
+  Description: Python-based election management and analysis system with secure vote tracking and result visualization.
+- Project: QR Code Scanner
+  Category: Tool | Tech Stack: Python, OpenCV
+  Description: QR code generator and scanner for quick data sharing, supporting URLs, text, and contact information.
+- Project: Quiz App
+  Category: Web Application | Tech Stack: JavaScript, HTML, CSS
+  Description: Interactive quiz platform to test knowledge and problem-solving with score tracking and timed questions.
+
+EDUCATION:
+- B.E. Computer Science & Engineering from L.J. Institute of Engineering & Technology (2022 – 2025)
+- Diploma in Computer Engineering from Gujarat Technological University (2019 – 2022)
+- SSC (Secondary School Certificate) from Shree Swaminarayan Gurukul (Up to 2019)
+
+VERIFIED CERTIFICATIONS:
+- AWS Cloud Practitioner Essentials (Issuer: AWS Training & Certification, Year/Date: July 29, 2026)
+- AI Automation: Build LLM Apps & AI Agents with n8n & APIs (Issuer: Udemy / Certification, Year/Date: 2024)
+- Building Generative AI-Powered Applications with Python (Issuer: IBM, Year/Date: 2024)
+- Geoprocessing using Python (Issuer: ISRO, Year/Date: 2023)
+- Fullstack Development (Issuer: Johns Hopkins University, Year/Date: 2022)
+- Python Programming Comprehensive Bootcamp (Issuer: Udemy, Year/Date: 2021)
+- Crash Course on Python (Issuer: Google, Year/Date: 2021)
+- Basics of Python (Issuer: Infosys, Year/Date: 2021)

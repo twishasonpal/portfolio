@@ -87,9 +87,30 @@
   let recognition = null;
   let isListening = false;
 
+  function setSpeakingUI(active) {
+    isSpeaking = active;
+    const panel = document.getElementById('chatbot-panel');
+    const header = document.querySelector('.cb-header');
+    const avatar = document.querySelector('.cb-avatar');
+    if (active) {
+      if (panel) panel.classList.add('open');
+      if (header) header.classList.add('cb-header-speaking');
+      if (avatar) avatar.classList.add('cb-avatar-speaking');
+      updateStatus('speaking', '<span class="cb-voice-waves"><span></span><span></span><span></span><span></span></span> Twisha AI is speaking...');
+    } else {
+      if (header) header.classList.remove('cb-header-speaking');
+      if (avatar) avatar.classList.remove('cb-avatar-speaking');
+      clearStatus();
+    }
+  }
+
   function speak(text, onEnd) {
     if (!window.speechSynthesis) return;
     stopSpeaking();
+
+    // Ensure the panel is open so user sees the avatar
+    const panel = document.getElementById('chatbot-panel');
+    if (panel) panel.classList.add('open');
 
     // Strip markdown formatting and emojis for smooth TTS
     let plain = text
@@ -119,17 +140,14 @@
     if (femaleVoice) currentUtterance.voice = femaleVoice;
 
     currentUtterance.onstart = () => {
-      isSpeaking = true;
-      updateStatus('speaking', 'Speaking response...');
+      setSpeakingUI(true);
     };
     currentUtterance.onend = () => {
-      isSpeaking = false;
-      clearStatus();
+      setSpeakingUI(false);
       if (onEnd) onEnd();
     };
     currentUtterance.onerror = () => {
-      isSpeaking = false;
-      clearStatus();
+      setSpeakingUI(false);
     };
 
     window.speechSynthesis.speak(currentUtterance);
@@ -137,8 +155,7 @@
 
   function stopSpeaking() {
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    isSpeaking = false;
-    clearStatus();
+    setSpeakingUI(false);
   }
 
   function startListening() {
@@ -274,9 +291,13 @@
 
   function avatarHTML(size = 30) {
     if (CONFIG.avatarImg) {
-      return `<img src="${CONFIG.avatarImg}" alt="Twisha AI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;font-size:${Math.round(size * 0.45)}px">🤖</span>`;
+      return `
+        <div class="cb-live-avatar" style="width:100%;height:100%;">
+          <img src="${CONFIG.avatarImg}" alt="Twisha AI" class="cb-avatar-base-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span style="display:none;align-items:center;justify-content:center;width:100%;height:100%;font-size:${Math.round(size * 0.45)}px">👩‍💻</span>
+        </div>`;
     }
-    return '🤖';
+    return '👩‍💻';
   }
 
   function markdownToHTML(text) {
@@ -409,12 +430,17 @@
 
   /* ── INTRODUCTION SCRIPT ─────────────────────────────────── */
   function playIntro() {
-    document.getElementById('cb-welcome')?.remove();
-    document.getElementById('cb-suggestions')?.remove();
+    const welcome = document.getElementById('cb-welcome');
+    const suggestions = document.getElementById('cb-suggestions');
+    if (welcome) welcome.style.display = 'none';
+    if (suggestions) suggestions.style.display = 'none';
+
     const introText = "Hello, and welcome to Twisha Sonpal's portfolio! 👋 I'm Twisha's virtual AI assistant. Twisha is a Python Developer and AI Engineer with over 2 years of professional experience. Her core strengths are Python backend development, REST API integrations, PostgreSQL database engineering, and business automation. She also builds AI agents, GenAI-powered applications, and intelligent workflow automation using n8n and MCP integrations. She currently works at Aktiv Software as a Junior Software Engineer. You can ask me about her technical skills, projects, AI work, certifications, or how to contact her. Let's explore her portfolio!";
     appendMessage('bot', introText);
 
     setTimeout(() => {
+      welcome?.remove();
+      suggestions?.remove();
       const btns = document.querySelectorAll('#cb-messages .cb-speak-btn');
       const last = btns[btns.length - 1];
       if (last) {
@@ -526,18 +552,26 @@
       }
     });
 
-    document.getElementById('cb-close-btn')?.addEventListener('click', () => {
+    // Prevent any click inside the panel from bubbling to document and closing the panel
+    panel.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.getElementById('cb-close-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
       panel.classList.remove('open');
       stopSpeaking();
       stopListening();
     });
 
-    document.getElementById('cb-stop-btn')?.addEventListener('click', () => {
+    document.getElementById('cb-stop-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
       stopSpeaking();
       stopListening();
     });
 
-    document.getElementById('cb-clear-btn')?.addEventListener('click', () => {
+    document.getElementById('cb-clear-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
       const area = document.getElementById('cb-messages');
       if (area) {
         area.innerHTML = `
@@ -547,19 +581,31 @@
             <p>Ask any question about Twisha's skills, projects, or background!</p>
             <button class="cb-intro-btn" id="cb-intro-btn"><i class="fas fa-play"></i> Introduce Twisha</button>
           </div>`;
-        document.getElementById('cb-intro-btn')?.addEventListener('click', playIntro);
+        document.getElementById('cb-intro-btn')?.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          playIntro();
+        });
       }
       conversationHistory = [];
       stopSpeaking();
     });
 
-    document.getElementById('cb-intro-btn')?.addEventListener('click', playIntro);
-
-    document.querySelectorAll('.cb-suggestion-btn').forEach((btn) => {
-      btn.addEventListener('click', () => sendMessage(btn.textContent.trim()));
+    document.getElementById('cb-intro-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playIntro();
     });
 
-    document.getElementById('cb-send-btn')?.addEventListener('click', () => sendMessage());
+    document.querySelectorAll('.cb-suggestion-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sendMessage(btn.textContent.trim());
+      });
+    });
+
+    document.getElementById('cb-send-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sendMessage();
+    });
 
     document.getElementById('cb-input')?.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -568,15 +614,26 @@
       }
     });
 
-    document.getElementById('cb-mic-btn')?.addEventListener('click', () => startListening());
+    document.getElementById('cb-mic-btn')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      startListening();
+    });
 
     // Close on outside click
     document.addEventListener('click', (e) => {
-      if (panel.classList.contains('open') && !panel.contains(e.target) && !trigger.contains(e.target)) {
-        panel.classList.remove('open');
-        stopSpeaking();
-        stopListening();
-      }
+      if (!panel.classList.contains('open')) return;
+
+      // When the assistant is actively speaking, NEVER close the panel on accidental clicks
+      if (isSpeaking) return;
+
+      const path = (e.composedPath && e.composedPath()) || [];
+      if (path.some(el => el === panel || el === trigger)) return;
+      if (panel.contains(e.target) || trigger.contains(e.target)) return;
+      if (e.target && e.target.closest && (e.target.closest('#chatbot-panel') || e.target.closest('#chatbot-trigger'))) return;
+
+      panel.classList.remove('open');
+      stopSpeaking();
+      stopListening();
     });
 
     // Escape key closes panel

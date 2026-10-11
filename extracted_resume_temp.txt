@@ -1,0 +1,81 @@
+=== PAGE 1 ===
+TWISHA SONPAL 
+Python Developer · Backend Engineer 
+Ahmedabad, India  |  +91-9428970313  |  twishasonpal123@gmail.com 
+linkedin.com/in/sonpal-twisha-96855a239  |  twishasonpal.github.io/portfolio 
+PROFILE 
+Python Developer with 2+ years of professional experience building backend systems, REST API integrations, automation 
+solutions, and data-driven applications. Skilled in Python, Flask, PostgreSQL, web development, and AWS deployment. Hands-
+on experience developing and hosting websites, configuring domains, managing AWS infrastructure, integrating third-party 
+APIs, and building scalable backend solutions. Experienced in database optimization, automation, and working directly with 
+clients to deliver business-focused solutions. Also skilled in AI automation, including building LLM-powered apps and AI 
+agents with n8n, APIs, and RAG workflows. 
+WORK EXPERIENCE 
+Trainee  ·  (Aktiv Software, Ahmedabad) Jan 2024 – Jul 2024 
+Completed a 6-month training program covering Python fundamentals, backend development practices, and internal tools before 
+converting to a full-time role. 
+Junior Software Engineer  · ( Aktiv Software, Ahmedabad) Jul 2024 – Present 
+Python backend developer focused on REST API integrations, database desig n, and automation, collaborating directly with clients to 
+deliver scalable business solutions. 
+Python & Backend Development 
+• Rebuilt and optimized a backend module in Python — improved performance by 80% through code refactoring and query 
+optimization. 
+• Integrated multiple third-party REST APIs enabling real-time data exchange between external client systems and backend 
+services. 
+• Wrote Python automation scripts that eliminated repetitive manual tasks, saving developer hours weekly. 
+• Designed schedulers and background jobs in Python for periodic data processing without manual intervention. 
+Data & Database 
+• Wrote complex PostgreSQL queries with joins, triggers, and indexing to improve data retrieval performance. 
+• Built Python data pipelines (Pandas) for processing and visualising business KPIs and revenue dashboards. 
+Client Collaboration 
+• Worked directly with business consultants and clients to gather requirements, demo features, and iterate on feedback. 
+• Provided technical training to client teams on newly deployed features for smooth adoption. 
+PROJECT EXPERIENCE 
+AI Automation & Intelligent Agent Solutions  ·  Python · AI Agents · MCP Server Integration  
+Developed automation workflows using AI agents and MCP server integrations to connect tools and data sources and improve 
+business productivity. 
+API Integration & Data Synchronization Platform  ·  Python · REST APIs · PostgreSQL  
+Built and integrated third-party APIs to enable real-time data exchange, automate workflows, and connect multiple business 
+systems. 
+Cloud Deployment & Application Management  ·  AWS · Server Management · Deployment  
+Deployed and managed applications on AWS infrastructure; handled configuration, monitoring, troubleshooting, and 
+production support. 
+Web Development & AWS Deployment  ·  HTML · CSS · JavaScript · Python · AWS  
+Developed and deployed websites and web applications, including domain registration and configuration. Hosted applications 
+on AWS infrastructure and handled deployment, server configuration, monitoring, troubleshooting, and basic production 
+management. 
+ 
+
+=== PAGE 2 ===
+End-to-End Odoo ERP Implementation  ·  Odoo · Python · Business Process Consulting  
+Set up complete Odoo ERP environments for client businesses from the ground up — configuring Sales, Purchase, Inventory, 
+and Accounting modules to match each company's existing workflows. Customised modules, views, and automations based on 
+client-specific business rules, then trained internal teams to operate the system independently. 
+Client-Specific Module Customisation  ·  Odoo · QWeb · Python  
+Gathered requirements directly from business stakeholders and translated them into tailored Odoo customisations — adjusting 
+workflows, permissions, and reporting to fit each client's operational structure rather than forcing a one-size-fits-all setup. 
+TECHNICAL SKILLS 
+Languages: Python · JavaScript · SQL · Java · PHP 
+Backend: Flask · REST APIs · OOP · Automation · Task Schedulers 
+Web Development: HTML5 · CSS3 · Bootstrap · jQuery · Responsive Web Development 
+Cloud & Deployment: AWS · Application Hosting · Domain & DNS Configuration · Server Management · Deployment · 
+Cloud Fundamentals 
+Data & Databases: PostgreSQL · Pandas · Matplotlib · PGAdmin · Jupyter Notebook 
+Tools: Git · GitHub · Postman · VS Code · PyCharm 
+EDUCATION 
+B.E. Computer Science & Engineering  ·  L.J. Institute of Engineering & Technology 2022 – 2025 
+Diploma in Computer Engineering  ·  Gujarat Technological University 2019 – 2022 
+CERTIFICATIONS & LANGUAGES 
+Certifications 
+•  AI Automation: Build LLM Apps & AI Agents with n8n & APIs. 
+• AWS Training and Certification (AWS) 
+• Geoprocessing with Python (ISRO) 
+• Full Stack Web Development (Coursera) 
+Languages 
+English (Proficient) · Gujarati (Native) · Hindi (Proficient) 
+WHAT I BRING 
+• Strong debugging instinct — I find root causes, not just symptoms. 
+• Backend-first mindset — clean, maintainable Python server-side logic. 
+• Client-facing experience — I translate technical work into plain language. 
+• Data-aware developer — comfortable writing pipelines, queries, and dashboards. 
+• Remote-ready — self-directed, async-comfortable, and deadline-driven. 

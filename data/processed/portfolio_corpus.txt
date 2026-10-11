@@ -1,0 +1,63 @@
+### PROFESSIONAL SUMMARY
+Twisha Sonpal is a Python Developer & AI Engineer based in Ahmedabad, Gujarat, India.
+Python Developer & AI Engineer with 2+ years of professional experience building backend systems, REST API integrations, automation solutions, and AI-powered applications. Skilled in Python, Flask, PostgreSQL, AI automation (n8n, LLM agents, GenAI apps), AWS deployment, and Odoo ERP. Actively building intelligent automation workflows and AI agent solutions.
+
+### CONTACT & LINKS
+Email: twishasonpal123@gmail.com
+Phone: +91-9428970313
+LinkedIn: https://www.linkedin.com/in/sonpal-twisha-96855a239/
+GitHub: https://github.com/twishasonpal
+Portfolio Website: https://twishasonpal.github.io/portfolio
+
+### CURRENT AVAILABILITY
+Status: Open to Python Developer, AI Engineer, Backend Engineer, and AI Automation roles (Remote or Ahmedabad)
+Notice Period: Negotiable
+Open to Work: Yes
+Information verified as of: 2026-10-09
+
+### PROFESSIONAL EXPERIENCE
+Twisha Sonpal has over 2 years of professional software engineering and backend development experience at Aktiv Software in Ahmedabad, India.
+Role 1: Junior Software Engineer (July 2024 to Present)
+Key accomplishments:
+- Rebuilt and optimized a backend module in Python, achieving an 80% performance improvement through code refactoring and query optimization.
+- Integrated third-party REST APIs for real-time bidirectional data synchronization between external client systems and backend services.
+- Created Python automation scripts and scheduled background task jobs that automated repetitive data workflows.
+- Designed complex PostgreSQL database queries, joins, triggers, and indexing for optimal retrieval speeds.
+- Built data analytics pipelines using Python Pandas and Matplotlib to monitor KPIs and revenue metrics.
+- Successfully migrated 200+ Odoo ERP modules across versions and resolved 1500+ production bugs.
+Role 2: Trainee / Intern (January 2024 to July 2024)
+- Completed a rigorous 6-month intensive backend engineering program covering Python OOP, database design, and internal tool maintenance.
+
+### TECHNICAL SKILLS
+Programming Languages: Python, JavaScript, SQL, Java, PHP, HTML5, CSS3.
+Backend & Architecture: Python, Flask, REST APIs, OOP, Automation, Task Schedulers.
+Databases & Data: PostgreSQL, SQL, Pandas, Matplotlib, PGAdmin, Jupyter Notebook.
+Cloud & DevOps: AWS, Application Hosting, Domain & DNS Configuration, Server Management, Git, GitHub.
+ERP Systems: Odoo ERP, QWeb Reports, Business Process Consulting.
+AI & Automation: AI Agents, n8n Workflows, LLM Applications, GenAI, MCP Server Integration.
+
+### NOTABLE PROJECTS
+1. AI Automation & Intelligent Agent Solutions: Built autonomous workflows using AI agents and MCP server integrations connecting tools and data sources.
+2. API Integration & Data Synchronization Platform: Integrated third-party REST APIs with PostgreSQL for real-time cross-system data sync.
+3. Cloud Deployment & Application Management: Hosted and maintained applications on AWS infrastructure with DNS configuration and server monitoring.
+4. Web Development & AWS Deployment: Developed fullstack web applications and deployed them to AWS.
+5. End-to-End Odoo ERP Implementation: Deployed complete Odoo ERP setups configuring Sales, Purchase, Inventory, and Accounting modules.
+6. Car Sensing System: Python and OpenCV computer vision application detecting vehicle overspeeding and monitoring traffic flow.
+7. Fab Grocery: E-commerce grocery web platform with Python, JavaScript, and SQL.
+8. Data Analysis Dashboard: Sales demographics and revenue trend visualization using Python, Pandas, and Matplotlib.
+9. Voting System: Python and SQL based election management system.
+
+### EDUCATION
+1. Bachelor of Engineering (B.E.) in Computer Science & Engineering: L.J. Institute of Engineering & Technology (2022 - 2025).
+2. Diploma in Computer Engineering: Gujarat Technological University (2019 - 2022).
+3. Secondary School Certificate (SSC): Shree Swaminarayan Gurukul (Up to 2019).
+
+### CERTIFICATIONS
+- AWS Cloud Practitioner Essentials (AWS, July 2026)
+- AI Automation: Build LLM Apps & AI Agents with n8n & APIs (Udemy, 2024)
+- Building Generative AI-Powered Applications with Python (IBM, 2024)
+- Geoprocessing using Python (ISRO, 2023)
+- Fullstack Development (Johns Hopkins University, 2022)
+- Python Programming Comprehensive Bootcamp (Udemy, 2021)
+- Crash Course on Python (Google, 2021)
+- Basics of Python (Infosys, 2021)
