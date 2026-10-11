@@ -1,3 +1,8 @@
+> ⚠️ **Copyright © 2024 Twisha Sonpal. All Rights Reserved.**
+> This repository is **not open source**. Viewing is permitted for reference only. Copying, modifying, distributing, or reusing any part of this code or assets is strictly prohibited without explicit written permission. See [LICENSE](LICENSE) for details.
+
+---
+
 # Twisha Sonpal - Personal AI Portfolio & Neural Language Model
 
 An interactive portfolio featuring an **in-browser neural language model assistant** and **verified portfolio knowledge base**. Built to run 100% client-side on **GitHub Pages** with zero external API dependencies, zero server hosting costs, and complete privacy.
